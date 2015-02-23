@@ -1,0 +1,29 @@
+{
+  "name": "larz-client",
+  "version": "0.0.0",
+  "description": "Goofy frontend for larz-server",
+  "scripts": {
+    "test": "npm test",
+    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --content-base public/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cskeppstedt/larz-client.git"
+  },
+  "author": "Christoffer Skeppstedt <chris.skeppstedt@klarna.com> (https://github.com/cskeppstedt/)",
+  "license": "-",
+  "bugs": {
+    "url": "https://github.com/cskeppstedt/larz-client/issues"
+  },
+  "homepage": "https://github.com/cskeppstedt/larz-client",
+  "devDependencies": {
+    "webpack": "^1.5.3",
+    "jsx-loader": "^0.12.2",
+    "webpack-dev-server": "^1.7.0",
+    "purs-loader": "0.0.3"
+  },
+  "dependencies": {
+    "react": "^0.12.2"
+  }
+}
