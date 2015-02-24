@@ -3,6 +3,7 @@ module Store
   , Team()
   , Player()
   , tmp
+  , player
   ) where
 
 type Match = { match_id :: String
