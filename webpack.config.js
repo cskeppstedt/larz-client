@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+var path = require('path'),
+    webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -6,18 +7,23 @@ module.exports = {
     'vendor': ['react']
   },
   output: {
-    path: './public',
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
   ],
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx', '.purs'] 
+    extensions: ['', '.js', '.jsx', '.purs'],
+    modulesDirectories: [
+      'node_modules',
+      'web_modules',
+      '.modules'
+    ]
   },
   module: {
     loaders: [
-      { test: /\.purs$/, loader: "purs" }
+      { test: /\.purs$/, loader: "purs?output=.modules" }
     ]
   }
 };
