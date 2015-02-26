@@ -3,18 +3,22 @@ var path = require('path'),
 
 module.exports = {
   entry: {
-    'app': ['./app/scripts/main.js'],
-    'vendor': ['react']
+    'app': ['./app/scripts/main.jsx'],
+    'vendor': ['react', 'firebase']
   },
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.ResolverPlugin(
+      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
+    )
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    root: [path.join(__dirname, "bower_components")]
   },
   module: {
     loaders: [
