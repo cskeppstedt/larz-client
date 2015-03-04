@@ -1,5 +1,6 @@
 var path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack'),
+    ReloadPlugin = require('webpack-reload-plugin');
 
 module.exports = {
   entry: {
@@ -14,7 +15,8 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
+    ),
+    new ReloadPlugin('localhost')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
