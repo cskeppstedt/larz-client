@@ -1,6 +1,7 @@
 var Reflux = require('reflux'),
-    React  = require('react'),
+    React  = require('react/addons'),
     matchesStore = require('../store/matches'),
+    Logo = require('./logo/logo'),
     MatchList  = require('./matchlist/matchlist');
 
 
@@ -14,6 +15,11 @@ module.exports = React.createClass({
     },
 
     render: function() {
-        return <MatchList matches={this.state.matches} />
+        return (
+            <div>
+                <Logo />
+                <MatchList matches={this.state.matches} />
+            </div>
+        );
     }
 });

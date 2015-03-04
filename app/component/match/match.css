@@ -1,5 +1,13 @@
 .match {
-    display: block;
-    margin: 5px 0;
+    display: block;   
+    margin: 40px auto;
     padding: 10px;
+    max-width: 300px;
+}
+
+.match__title {
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    display: block;
 }

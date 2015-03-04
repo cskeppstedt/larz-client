@@ -1,0 +1,17 @@
+.logo {
+    background-image: url(logo.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 320px;
+    height: 317px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 700px) {
+    .logo {
+        width: 700px;
+        height: 694px;
+        margin: 0 auto;
+    }
+}

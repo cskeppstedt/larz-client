@@ -1,0 +1,51 @@
+.team {
+}
+
+.team--winning .team__name {
+    color: #27ae60;
+}
+
+.team__name {
+    font-weight: 300;
+    font-size: 18px;
+    display: block;
+}
+
+.team__name__winning {
+    padding-left: 10px;
+}
+
+.team__players {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    line-height: 1.4em;
+}
+
+.player {
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: #aaa;
+}
+
+.player__name {
+    font-weight: 400;
+    color: #000;
+}
+
+.player__kills {
+    color: #27ae60;
+    padding-left: 5px;
+}
+
+.player__deaths {
+    color: #c0392b;
+    padding-left: 5px;
+}
+
+.player__assists {
+    color: #7f8c8d;
+    padding-left: 5px;
+}

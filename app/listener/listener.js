@@ -12,6 +12,11 @@ var Firebase = require('firebase'),
               matches.push(val[key]);
           }
       }
+      
+      // matches will be sorted ascending on key
+      // - we want descending order.
+      matches.reverse();
+
       console.log(matches);
       matchesUpdate(matches);
     },
