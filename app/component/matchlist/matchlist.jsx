@@ -1,5 +1,5 @@
 var React = require('react'),
-    Match = require('./match');
+    Match = require('../match/match');
 
 
 module.exports = React.createClass({

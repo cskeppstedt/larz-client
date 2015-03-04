@@ -4,7 +4,7 @@ var path = require('path'),
 
 module.exports = {
   entry: {
-    'app': ['./app/scripts/main.jsx'],
+    'app': ['./app/main.jsx'],
     'vendor': ['react', 'firebase']
   },
   output: {

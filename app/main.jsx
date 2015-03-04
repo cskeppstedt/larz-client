@@ -5,6 +5,8 @@ var React = require('react'),
     listener = require('./listener/listener'),
     node = document.body;
 
+require('./main.css');
+
 React.render(<ViewController />, node);
 
 listener.start();

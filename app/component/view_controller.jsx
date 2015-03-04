@@ -1,7 +1,7 @@
 var Reflux = require('reflux'),
     React  = require('react'),
     matchesStore = require('../store/matches'),
-    MatchesList  = require('./matches_list');
+    MatchList  = require('./matchlist/matchlist');
 
 
 module.exports = React.createClass({
@@ -14,6 +14,6 @@ module.exports = React.createClass({
     },
 
     render: function() {
-        return <MatchesList matches={this.state.matches} />
+        return <MatchList matches={this.state.matches} />
     }
 });
