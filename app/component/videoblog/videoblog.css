@@ -1,0 +1,17 @@
+.videoblog__title {
+    text-align: center;
+}
+
+.videoblog__post {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media screen and (min-width: 560px) {
+    .videoblog__post {
+        width: 560px;
+        height: 315px;
+        margin: 0 auto;
+    }
+}
