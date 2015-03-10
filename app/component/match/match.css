@@ -11,3 +11,9 @@
     margin: 0;
     display: block;
 }
+
+.match__title__id {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #888;
+}
