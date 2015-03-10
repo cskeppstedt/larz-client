@@ -32,3 +32,6 @@ node_modules
 
 # compiled Purescript modules
 .modules
+
+# divshot
+.divshot-cache
