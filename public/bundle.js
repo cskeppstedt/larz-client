@@ -14,16 +14,18 @@ webpackJsonp([1],[
 	'use strict';
 
 	var React = __webpack_require__(5),
-	    ViewController = __webpack_require__(6),
-	    listener = __webpack_require__(7),
+	    ViewController   = __webpack_require__(6),
+	    posts_listener   = __webpack_require__(7),
+	    matches_listener = __webpack_require__(8),
 	    node = document.body;
 
-	__webpack_require__(10);
-	__webpack_require__(12);
+	__webpack_require__(11);
+	__webpack_require__(13);
 
 	React.render(React.createElement(ViewController, null), node);
 
-	listener.start();
+	matches_listener.start();
+	posts_listener.start();
 
 
 /***/ },
@@ -32,26 +34,32 @@ webpackJsonp([1],[
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14);
+	module.exports = __webpack_require__(15);
 
 
 /***/ },
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(45),
+	var Reflux = __webpack_require__(49),
 	    React  = __webpack_require__(5),
-	    matchesStore = __webpack_require__(15),
-	    Logo = __webpack_require__(16),
-	    MatchList  = __webpack_require__(17);
+	    matchesStore = __webpack_require__(16),
+	    postsStore = __webpack_require__(17),
+	    Logo = __webpack_require__(18),
+	    MatchList = __webpack_require__(19),
+	    VideoBlog  = __webpack_require__(20);
 
 
 	module.exports = React.createClass({displayName: "exports",
-	    mixins: [Reflux.connect(matchesStore, 'matches')],
+	    mixins: [
+	        Reflux.connect(matchesStore, 'matches'),
+	        Reflux.connect(postsStore, 'posts')
+	    ],
 
 	    getInitialState: function() {
 	        return {
-	            matches: []
+	            matches: [],
+	            posts: []
 	        };
 	    },
 
@@ -59,6 +67,7 @@ webpackJsonp([1],[
 	        return (
 	            React.createElement("div", null, 
 	                React.createElement(Logo, null), 
+	                React.createElement(VideoBlog, {posts: this.state.posts}), 
 	                React.createElement(MatchList, {matches: this.state.matches})
 	            )
 	        );
@@ -71,7 +80,55 @@ webpackJsonp([1],[
 /***/ function(module, exports, __webpack_require__) {
 
 	var Firebase = __webpack_require__(4),
-	    matchesUpdate = __webpack_require__(18),
+	    postsUpdate = __webpack_require__(21),
+	    firebaseRef = undefined,
+
+	    callback = function(snapshot)  {
+	      var val = snapshot.val(),
+	          posts = [],
+	          key;
+
+	      for (key in val) {
+	          if (Object.hasOwnProperty.call(val, key)) {
+	              posts.push(val[key]);
+	          }
+	      }
+	      
+	      // posts will be sorted ascending on key
+	      // - we want descending order.
+	      posts.reverse();
+
+	      console.log('[posts]', posts);
+	      postsUpdate(posts);
+	    },
+
+	    start = function()  {
+	      if (firebaseRef !== undefined) {
+	        return;
+	      }
+
+	      firebaseRef = new Firebase('https://larz-statsen.firebaseio.com/');
+	      firebaseRef.child('/posts/').on('value', callback);
+	    },
+
+	    stop = function()  {
+	      firebaseRef.child('/posts/').off('value', callback);
+	      firebaseRef = undefined;
+	    };
+
+
+	module.exports = {
+	  start: start,
+	  stop: stop
+	};
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Firebase = __webpack_require__(4),
+	    matchesUpdate = __webpack_require__(22),
 	    firebaseRef = undefined,
 
 	    callback = function(snapshot)  {
@@ -115,18 +172,18 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(11);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -140,23 +197,23 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(13);
+	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -170,15 +227,15 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, "@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);", ""]);
 	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -201,17 +258,17 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var LinkedStateMixin = __webpack_require__(48);
-	var React = __webpack_require__(8);
+	var LinkedStateMixin = __webpack_require__(52);
+	var React = __webpack_require__(9);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(49);
-	var ReactCSSTransitionGroup = __webpack_require__(50);
-	var ReactTransitionGroup = __webpack_require__(51);
-	var ReactUpdates = __webpack_require__(52);
+	  __webpack_require__(53);
+	var ReactCSSTransitionGroup = __webpack_require__(54);
+	var ReactTransitionGroup = __webpack_require__(55);
+	var ReactUpdates = __webpack_require__(56);
 
-	var cx = __webpack_require__(53);
-	var cloneWithProps = __webpack_require__(54);
-	var update = __webpack_require__(55);
+	var cx = __webpack_require__(57);
+	var cloneWithProps = __webpack_require__(58);
+	var update = __webpack_require__(59);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -226,20 +283,20 @@ webpackJsonp([1],[
 	};
 
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(56);
-	  React.addons.TestUtils = __webpack_require__(57);
+	  React.addons.Perf = __webpack_require__(60);
+	  React.addons.TestUtils = __webpack_require__(61);
 	}
 
 	module.exports = React;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(45),
-	    matchesUpdate = __webpack_require__(18),
+	var Reflux = __webpack_require__(49),
+	    matchesUpdate = __webpack_require__(22),
 	    matchesStore = Reflux.createStore({
 	      init: function() {
 	        this.listenTo(matchesUpdate, this.output);
@@ -255,12 +312,32 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 16 */
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(49),
+	    postsUpdate = __webpack_require__(21),
+	    postsStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(postsUpdate, this.output);
+	      },
+
+	      output: function(posts) {
+	          this.trigger(posts);
+	      }
+	  });
+
+
+	module.exports = postsStore;
+
+
+/***/ },
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React  = __webpack_require__(5);
 
-	__webpack_require__(58);
+	__webpack_require__(62);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -273,13 +350,13 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(5),
-	    Match = __webpack_require__(60);
+	    Match = __webpack_require__(64);
 
-	__webpack_require__(61);
+	__webpack_require__(65);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -297,17 +374,51 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(45);
+	var React = __webpack_require__(5);
+
+	__webpack_require__(67);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "videoblog"}, 
+	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
+	                this.props.posts.map(function(post) {
+	                    // <iframe width="560" height="315" src="https://www.youtube.com/embed/koTjAM1TD4k" frameborder="0" allowfullscreen></iframe>
+	                    return React.createElement("iframe", {className: "videoblog__post", src: post.embed_url});
+	                })
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(49);
 
 	// This action represents that the matches have been updated
 	module.exports = Reflux.createAction();
 
 
 /***/ },
-/* 19 */
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(49);
+
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
+
+
+/***/ },
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -503,10 +614,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
@@ -528,14 +635,18 @@ webpackJsonp([1],[
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(135);
+	module.exports = __webpack_require__(141);
 
 
 /***/ },
-/* 46 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function() {
@@ -556,8 +667,8 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 47 */,
-/* 48 */
+/* 51 */,
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -574,8 +685,8 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactLink = __webpack_require__(119);
-	var ReactStateSetters = __webpack_require__(120);
+	var ReactLink = __webpack_require__(125);
+	var ReactStateSetters = __webpack_require__(126);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -602,7 +713,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 49 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -618,7 +729,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var shallowEqual = __webpack_require__(121);
+	var shallowEqual = __webpack_require__(127);
 
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -655,7 +766,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 50 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -672,15 +783,15 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(8);
+	var React = __webpack_require__(9);
 
-	var assign = __webpack_require__(40);
+	var assign = __webpack_require__(44);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(51)
+	  __webpack_require__(55)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(122)
+	  __webpack_require__(128)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -726,7 +837,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 51 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -742,12 +853,12 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(8);
-	var ReactTransitionChildMapping = __webpack_require__(123);
+	var React = __webpack_require__(9);
+	var ReactTransitionChildMapping = __webpack_require__(129);
 
-	var assign = __webpack_require__(40);
-	var cloneWithProps = __webpack_require__(54);
-	var emptyFunction = __webpack_require__(116);
+	var assign = __webpack_require__(44);
+	var cloneWithProps = __webpack_require__(58);
+	var emptyFunction = __webpack_require__(122);
 
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -919,8 +1030,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 52 */,
-/* 53 */
+/* 56 */,
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -963,7 +1074,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 54 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -980,11 +1091,11 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactElement = __webpack_require__(27);
-	var ReactPropTransferer = __webpack_require__(75);
+	var ReactElement = __webpack_require__(31);
+	var ReactPropTransferer = __webpack_require__(81);
 
-	var keyOf = __webpack_require__(79);
-	var warning = __webpack_require__(66);
+	var keyOf = __webpack_require__(85);
+	var warning = __webpack_require__(72);
 
 	var CHILDREN_PROP = keyOf({children: null});
 
@@ -1022,10 +1133,10 @@ webpackJsonp([1],[
 
 	module.exports = cloneWithProps;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 55 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1041,9 +1152,9 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var assign = __webpack_require__(40);
-	var keyOf = __webpack_require__(79);
-	var invariant = __webpack_require__(68);
+	var assign = __webpack_require__(44);
+	var keyOf = __webpack_require__(85);
+	var invariant = __webpack_require__(74);
 
 	function shallowCopy(x) {
 	  if (Array.isArray(x)) {
@@ -1193,11 +1304,11 @@ webpackJsonp([1],[
 
 	module.exports = update;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 56 */,
-/* 57 */
+/* 60 */,
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1213,18 +1324,18 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(67);
-	var EventPluginHub = __webpack_require__(128);
-	var EventPropagators = __webpack_require__(129);
-	var React = __webpack_require__(8);
-	var ReactElement = __webpack_require__(27);
-	var ReactBrowserEventEmitter = __webpack_require__(85);
-	var ReactMount = __webpack_require__(34);
-	var ReactTextComponent = __webpack_require__(39);
-	var ReactUpdates = __webpack_require__(52);
-	var SyntheticEvent = __webpack_require__(130);
+	var EventConstants = __webpack_require__(73);
+	var EventPluginHub = __webpack_require__(134);
+	var EventPropagators = __webpack_require__(135);
+	var React = __webpack_require__(9);
+	var ReactElement = __webpack_require__(31);
+	var ReactBrowserEventEmitter = __webpack_require__(91);
+	var ReactMount = __webpack_require__(38);
+	var ReactTextComponent = __webpack_require__(43);
+	var ReactUpdates = __webpack_require__(56);
+	var SyntheticEvent = __webpack_require__(136);
 
-	var assign = __webpack_require__(40);
+	var assign = __webpack_require__(44);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -1613,16 +1724,16 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 58 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(59);
+	var content = __webpack_require__(63);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -1636,27 +1747,32 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 59 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
-	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(173)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(179)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
 
 /***/ },
-/* 60 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(5),
-	    Team  = __webpack_require__(131);
+	    Team  = __webpack_require__(137);
 
-	__webpack_require__(132);
+	__webpack_require__(138);
 
 
 	module.exports = React.createClass({displayName: "exports",
 	    render: function() {
+	        var titlePrefix = this.props.match.date || 'Unknown date';
+
 	        return (
 	            React.createElement("li", {className: "match"}, 
-	                React.createElement("h2", {className: "match__title"}, "Match ", this.props.match.match_id), 
+	                React.createElement("h2", {className: "match__title"}, 
+	                    titlePrefix, 
+	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
+	                ), 
 	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
 	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
 	            )
@@ -1666,16 +1782,16 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 61 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(62);
+	var content = __webpack_require__(66);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -1689,19 +1805,43 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 62 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, ".matchlist {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
 
 /***/ },
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(68);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(23)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/videoblog/videoblog.css", function() {
+			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/videoblog/videoblog.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".videoblog__title {\n    text-align: center;\n}\n\n.videoblog__post {\n    width: 100%;\n    height: auto;\n    display: block;\n}\n\n@media screen and (min-width: 560px) {\n    .videoblog__post {\n        width: 560px;\n        height: 315px;\n        margin: 0 auto;\n    }\n}\n", ""]);
+
+/***/ },
 /* 69 */,
 /* 70 */,
 /* 71 */,
@@ -1752,7 +1892,13 @@ webpackJsonp([1],[
 /* 116 */,
 /* 117 */,
 /* 118 */,
-/* 119 */
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1792,7 +1938,7 @@ webpackJsonp([1],[
 	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
 
-	var React = __webpack_require__(8);
+	var React = __webpack_require__(9);
 
 	/**
 	 * @param {*} value current value of the link
@@ -1829,7 +1975,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 120 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1939,8 +2085,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 121 */,
-/* 122 */
+/* 127 */,
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1957,12 +2103,12 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(8);
+	var React = __webpack_require__(9);
 
-	var CSSCore = __webpack_require__(174);
-	var ReactTransitionEvents = __webpack_require__(175);
+	var CSSCore = __webpack_require__(180);
+	var ReactTransitionEvents = __webpack_require__(181);
 
-	var onlyChild = __webpack_require__(42);
+	var onlyChild = __webpack_require__(46);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2075,10 +2221,10 @@ webpackJsonp([1],[
 
 	module.exports = ReactCSSTransitionGroupChild;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 123 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2095,7 +2241,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactChildren = __webpack_require__(22);
+	var ReactChildren = __webpack_require__(26);
 
 	var ReactTransitionChildMapping = {
 	  /**
@@ -2183,19 +2329,19 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
 /* 130 */,
-/* 131 */
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(5);
 
-	__webpack_require__(179);
+	__webpack_require__(185);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -2233,16 +2379,16 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 132 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(133);
+	var content = __webpack_require__(139);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -2256,41 +2402,41 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 133 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
-	exports.push([module.id, ".match {\n    display: block;   \n    margin: 40px auto;\n    padding: 10px;\n    max-width: 300px;\n}\n\n.match__title {\n    font-weight: 400;\n    padding: 0;\n    margin: 0;\n    display: block;\n}\n", ""]);
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".match {\n    display: block;   \n    margin: 40px auto;\n    padding: 10px;\n    max-width: 300px;\n}\n\n.match__title {\n    font-weight: 400;\n    padding: 0;\n    margin: 0;\n    display: block;\n}\n\n.match__title__id {\n    font-size: 14px;\n    padding-left: 10px;\n    color: #888;\n}\n", ""]);
 
 /***/ },
-/* 134 */,
-/* 135 */
+/* 140 */,
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports.ActionMethods = __webpack_require__(181);
+	exports.ActionMethods = __webpack_require__(187);
 
-	exports.ListenerMethods = __webpack_require__(182);
+	exports.ListenerMethods = __webpack_require__(188);
 
-	exports.PublisherMethods = __webpack_require__(183);
+	exports.PublisherMethods = __webpack_require__(189);
 
-	exports.StoreMethods = __webpack_require__(184);
+	exports.StoreMethods = __webpack_require__(190);
 
-	exports.createAction = __webpack_require__(185);
+	exports.createAction = __webpack_require__(191);
 
-	exports.createStore = __webpack_require__(186);
+	exports.createStore = __webpack_require__(192);
 
-	exports.connect = __webpack_require__(187);
+	exports.connect = __webpack_require__(193);
 
-	exports.connectFilter = __webpack_require__(188);
+	exports.connectFilter = __webpack_require__(194);
 
-	exports.ListenerMixin = __webpack_require__(189);
+	exports.ListenerMixin = __webpack_require__(195);
 
-	exports.listenTo = __webpack_require__(190);
+	exports.listenTo = __webpack_require__(196);
 
-	exports.listenToMany = __webpack_require__(191);
+	exports.listenToMany = __webpack_require__(197);
 
 
-	var maker = __webpack_require__(192).staticJoinCreator;
+	var maker = __webpack_require__(198).staticJoinCreator;
 
 	exports.joinTrailing = exports.all = maker("last"); // Reflux.all alias for backward compatibility
 
@@ -2300,7 +2446,7 @@ webpackJsonp([1],[
 
 	exports.joinConcat = maker("all");
 
-	var _ = __webpack_require__(193);
+	var _ = __webpack_require__(199);
 
 	/**
 	 * Convenience function for creating a set of actions
@@ -2323,7 +2469,7 @@ webpackJsonp([1],[
 	 * Sets the eventmitter that Reflux uses
 	 */
 	exports.setEventEmitter = function(ctx) {
-	    var _ = __webpack_require__(193);
+	    var _ = __webpack_require__(199);
 	    _.EventEmitter = ctx;
 	};
 
@@ -2332,7 +2478,7 @@ webpackJsonp([1],[
 	 * Sets the Promise library that Reflux uses
 	 */
 	exports.setPromise = function(ctx) {
-	    var _ = __webpack_require__(193);
+	    var _ = __webpack_require__(199);
 	    _.Promise = ctx;
 	};
 
@@ -2341,7 +2487,7 @@ webpackJsonp([1],[
 	 * @param {Function} factory has the signature `function(resolver) { return [new Promise]; }`
 	 */
 	exports.setPromiseFactory = function(factory) {
-	    var _ = __webpack_require__(193);
+	    var _ = __webpack_require__(199);
 	    _.createPromise = factory;
 	};
 
@@ -2350,14 +2496,14 @@ webpackJsonp([1],[
 	 * Sets the method used for deferring actions and stores
 	 */
 	exports.nextTick = function(nextTick) {
-	    var _ = __webpack_require__(193);
+	    var _ = __webpack_require__(199);
 	    _.nextTick = nextTick;
 	};
 
 	/**
 	 * Provides the set of created actions and stores for introspection
 	 */
-	exports.__keep = __webpack_require__(194);
+	exports.__keep = __webpack_require__(200);
 
 	/**
 	 * Warn if Function.prototype.bind not available
@@ -2372,12 +2518,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
 /* 142 */,
 /* 143 */,
 /* 144 */,
@@ -2409,13 +2549,19 @@ webpackJsonp([1],[
 /* 170 */,
 /* 171 */,
 /* 172 */,
-/* 173 */
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
 
 /***/ },
-/* 174 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2430,7 +2576,7 @@ webpackJsonp([1],[
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(68);
+	var invariant = __webpack_require__(74);
 
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -2527,10 +2673,10 @@ webpackJsonp([1],[
 
 	module.exports = CSSCore;
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(47)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 175 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2546,7 +2692,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(43);
+	var ExecutionEnvironment = __webpack_require__(47);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -2645,19 +2791,19 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(180);
+	var content = __webpack_require__(186);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(19)(content, {});
+	var update = __webpack_require__(23)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -2671,14 +2817,14 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 180 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(46)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, ".team {\n}\n\n.team--winning .team__name {\n    color: #27ae60;\n}\n\n.team__name {\n    font-weight: 300;\n    font-size: 18px;\n    display: block;\n}\n\n.team__name__winning {\n    padding-left: 10px;\n}\n\n.team__players {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n    display: block;\n    line-height: 1.4em;\n}\n\n.player {\n    margin: 0;\n    padding: 0;\n    display: block;\n    color: #aaa;\n}\n\n.player__name {\n    font-weight: 400;\n    color: #000;\n}\n\n.player__kills {\n    color: #27ae60;\n    padding-left: 5px;\n}\n\n.player__deaths {\n    color: #c0392b;\n    padding-left: 5px;\n}\n\n.player__assists {\n    color: #7f8c8d;\n    padding-left: 5px;\n}\n", ""]);
 
 /***/ },
-/* 181 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2690,11 +2836,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 182 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193),
-	    maker = __webpack_require__(192).instanceJoinCreator;
+	var _ = __webpack_require__(199),
+	    maker = __webpack_require__(198).instanceJoinCreator;
 
 	/**
 	 * Extract child listenables from a parent from their
@@ -2916,10 +3062,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 183 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193);
+	var _ = __webpack_require__(199);
 
 	/**
 	 * A module of methods for object that you want to be able to listen to.
@@ -3070,7 +3216,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 184 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3082,12 +3228,12 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 185 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193),
-	    Reflux = __webpack_require__(135),
-	    Keep = __webpack_require__(194),
+	var _ = __webpack_require__(199),
+	    Reflux = __webpack_require__(141),
+	    Keep = __webpack_require__(200),
 	    allowed = {preEmit:1,shouldEmit:1};
 
 	/**
@@ -3153,15 +3299,15 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 186 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193),
-	    Reflux = __webpack_require__(135),
-	    Keep = __webpack_require__(194),
-	    mixer = __webpack_require__(203),
+	var _ = __webpack_require__(199),
+	    Reflux = __webpack_require__(141),
+	    Keep = __webpack_require__(200),
+	    mixer = __webpack_require__(209),
 	    allowed = {preEmit:1,shouldEmit:1},
-	    bindMethods = __webpack_require__(204);
+	    bindMethods = __webpack_require__(210);
 
 	/**
 	 * Creates an event emitting Data Store. It is mixed in with functions
@@ -3220,11 +3366,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 187 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(135),
-	    _ = __webpack_require__(193);
+	var Reflux = __webpack_require__(141),
+	    _ = __webpack_require__(199);
 
 	module.exports = function(listenable,key){
 	    return {
@@ -3248,11 +3394,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 188 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(135),
-	  _ = __webpack_require__(193);
+	var Reflux = __webpack_require__(141),
+	  _ = __webpack_require__(199);
 
 	module.exports = function(listenable, key, filterFunc) {
 	    filterFunc = _.isFunction(key) ? key : filterFunc;
@@ -3293,11 +3439,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 189 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193),
-	    ListenerMethods = __webpack_require__(182);
+	var _ = __webpack_require__(199),
+	    ListenerMethods = __webpack_require__(188);
 
 	/**
 	 * A module meant to be consumed as a mixin by a React component. Supplies the methods from
@@ -3316,10 +3462,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 190 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(135);
+	var Reflux = __webpack_require__(141);
 
 
 	/**
@@ -3358,10 +3504,10 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 191 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(135);
+	var Reflux = __webpack_require__(141);
 
 	/**
 	 * A mixin factory for a React component. Meant as a more convenient way of using the `listenerMixin`,
@@ -3397,7 +3543,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 192 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3405,8 +3551,8 @@ webpackJsonp([1],[
 	 */
 
 	var slice = Array.prototype.slice,
-	    _ = __webpack_require__(193),
-	    createStore = __webpack_require__(186),
+	    _ = __webpack_require__(199),
+	    createStore = __webpack_require__(192),
 	    strategyMethodNames = {
 	        strict: "joinStrict",
 	        first: "joinLeading",
@@ -3509,7 +3655,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 193 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -3539,7 +3685,7 @@ webpackJsonp([1],[
 	    return typeof value === 'function';
 	};
 
-	exports.EventEmitter = __webpack_require__(207);
+	exports.EventEmitter = __webpack_require__(213);
 
 	exports.nextTick = function(callback) {
 	    setTimeout(callback, 0);
@@ -3561,7 +3707,7 @@ webpackJsonp([1],[
 	    return o;
 	};
 
-	exports.Promise = __webpack_require__(208);
+	exports.Promise = __webpack_require__(214);
 
 	exports.createPromise = function(resolver) {
 	    return new exports.Promise(resolver);
@@ -3579,7 +3725,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 194 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.createdStores = [];
@@ -3597,18 +3743,18 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */,
-/* 200 */,
 /* 201 */,
 /* 202 */,
-/* 203 */
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(193);
+	var _ = __webpack_require__(199);
 
 	module.exports = function mix(def) {
 	    var composed = {
@@ -3668,7 +3814,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 204 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(store, definition) {
@@ -3687,9 +3833,9 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 205 */,
-/* 206 */,
-/* 207 */
+/* 211 */,
+/* 212 */,
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3924,21 +4070,21 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 208 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*! Native Promise Only
 	    v0.7.6-a (c) Kyle Simpson
 	    MIT License: http://getify.mit-license.org
 	*/
-	!function(t,n,e){n[t]=n[t]||e(),"undefined"!=typeof module&&module.exports?module.exports=n[t]:"function"=="function"&&__webpack_require__(211)&&!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return n[t]}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))}("Promise","undefined"!=typeof global?global:this,function(){"use strict";function t(t,n){l.add(t,n),h||(h=y(l.drain))}function n(t){var n,e=typeof t;return null==t||"object"!=e&&"function"!=e||(n=t.then),"function"==typeof n?n:!1}function e(){for(var t=0;t<this.chain.length;t++)o(this,1===this.state?this.chain[t].success:this.chain[t].failure,this.chain[t]);this.chain.length=0}function o(t,e,o){var r,i;try{e===!1?o.reject(t.msg):(r=e===!0?t.msg:e.call(void 0,t.msg),r===o.promise?o.reject(TypeError("Promise-chain cycle")):(i=n(r))?i.call(r,o.resolve,o.reject):o.resolve(r))}catch(c){o.reject(c)}}function r(o){var c,u,a=this;if(!a.triggered){a.triggered=!0,a.def&&(a=a.def);try{(c=n(o))?(u=new f(a),c.call(o,function(){r.apply(u,arguments)},function(){i.apply(u,arguments)})):(a.msg=o,a.state=1,a.chain.length>0&&t(e,a))}catch(s){i.call(u||new f(a),s)}}}function i(n){var o=this;o.triggered||(o.triggered=!0,o.def&&(o=o.def),o.msg=n,o.state=2,o.chain.length>0&&t(e,o))}function c(t,n,e,o){for(var r=0;r<n.length;r++)!function(r){t.resolve(n[r]).then(function(t){e(r,t)},o)}(r)}function f(t){this.def=t,this.triggered=!1}function u(t){this.promise=t,this.state=0,this.triggered=!1,this.chain=[],this.msg=void 0}function a(n){if("function"!=typeof n)throw TypeError("Not a function");if(0!==this.__NPO__)throw TypeError("Not a promise");this.__NPO__=1;var o=new u(this);this.then=function(n,r){var i={success:"function"==typeof n?n:!0,failure:"function"==typeof r?r:!1};return i.promise=new this.constructor(function(t,n){if("function"!=typeof t||"function"!=typeof n)throw TypeError("Not a function");i.resolve=t,i.reject=n}),o.chain.push(i),0!==o.state&&t(e,o),i.promise},this["catch"]=function(t){return this.then(void 0,t)};try{n.call(void 0,function(t){r.call(o,t)},function(t){i.call(o,t)})}catch(c){i.call(o,c)}}var s,h,l,p=Object.prototype.toString,y="undefined"!=typeof setImmediate?function(t){return setImmediate(t)}:setTimeout;try{Object.defineProperty({},"x",{}),s=function(t,n,e,o){return Object.defineProperty(t,n,{value:e,writable:!0,configurable:o!==!1})}}catch(d){s=function(t,n,e){return t[n]=e,t}}l=function(){function t(t,n){this.fn=t,this.self=n,this.next=void 0}var n,e,o;return{add:function(r,i){o=new t(r,i),e?e.next=o:n=o,e=o,o=void 0},drain:function(){var t=n;for(n=e=h=void 0;t;)t.fn.call(t.self),t=t.next}}}();var g=s({},"constructor",a,!1);return s(a,"prototype",g,!1),s(g,"__NPO__",0,!1),s(a,"resolve",function(t){var n=this;return t&&"object"==typeof t&&1===t.__NPO__?t:new n(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");n(t)})}),s(a,"reject",function(t){return new this(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");e(t)})}),s(a,"all",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):0===t.length?n.resolve([]):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");var r=t.length,i=Array(r),f=0;c(n,t,function(t,n){i[t]=n,++f===r&&e(i)},o)})}),s(a,"race",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");c(n,t,function(t,n){e(n)},o)})}),a});
+	!function(t,n,e){n[t]=n[t]||e(),"undefined"!=typeof module&&module.exports?module.exports=n[t]:"function"=="function"&&__webpack_require__(217)&&!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return n[t]}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))}("Promise","undefined"!=typeof global?global:this,function(){"use strict";function t(t,n){l.add(t,n),h||(h=y(l.drain))}function n(t){var n,e=typeof t;return null==t||"object"!=e&&"function"!=e||(n=t.then),"function"==typeof n?n:!1}function e(){for(var t=0;t<this.chain.length;t++)o(this,1===this.state?this.chain[t].success:this.chain[t].failure,this.chain[t]);this.chain.length=0}function o(t,e,o){var r,i;try{e===!1?o.reject(t.msg):(r=e===!0?t.msg:e.call(void 0,t.msg),r===o.promise?o.reject(TypeError("Promise-chain cycle")):(i=n(r))?i.call(r,o.resolve,o.reject):o.resolve(r))}catch(c){o.reject(c)}}function r(o){var c,u,a=this;if(!a.triggered){a.triggered=!0,a.def&&(a=a.def);try{(c=n(o))?(u=new f(a),c.call(o,function(){r.apply(u,arguments)},function(){i.apply(u,arguments)})):(a.msg=o,a.state=1,a.chain.length>0&&t(e,a))}catch(s){i.call(u||new f(a),s)}}}function i(n){var o=this;o.triggered||(o.triggered=!0,o.def&&(o=o.def),o.msg=n,o.state=2,o.chain.length>0&&t(e,o))}function c(t,n,e,o){for(var r=0;r<n.length;r++)!function(r){t.resolve(n[r]).then(function(t){e(r,t)},o)}(r)}function f(t){this.def=t,this.triggered=!1}function u(t){this.promise=t,this.state=0,this.triggered=!1,this.chain=[],this.msg=void 0}function a(n){if("function"!=typeof n)throw TypeError("Not a function");if(0!==this.__NPO__)throw TypeError("Not a promise");this.__NPO__=1;var o=new u(this);this.then=function(n,r){var i={success:"function"==typeof n?n:!0,failure:"function"==typeof r?r:!1};return i.promise=new this.constructor(function(t,n){if("function"!=typeof t||"function"!=typeof n)throw TypeError("Not a function");i.resolve=t,i.reject=n}),o.chain.push(i),0!==o.state&&t(e,o),i.promise},this["catch"]=function(t){return this.then(void 0,t)};try{n.call(void 0,function(t){r.call(o,t)},function(t){i.call(o,t)})}catch(c){i.call(o,c)}}var s,h,l,p=Object.prototype.toString,y="undefined"!=typeof setImmediate?function(t){return setImmediate(t)}:setTimeout;try{Object.defineProperty({},"x",{}),s=function(t,n,e,o){return Object.defineProperty(t,n,{value:e,writable:!0,configurable:o!==!1})}}catch(d){s=function(t,n,e){return t[n]=e,t}}l=function(){function t(t,n){this.fn=t,this.self=n,this.next=void 0}var n,e,o;return{add:function(r,i){o=new t(r,i),e?e.next=o:n=o,e=o,o=void 0},drain:function(){var t=n;for(n=e=h=void 0;t;)t.fn.call(t.self),t=t.next}}}();var g=s({},"constructor",a,!1);return s(a,"prototype",g,!1),s(g,"__NPO__",0,!1),s(a,"resolve",function(t){var n=this;return t&&"object"==typeof t&&1===t.__NPO__?t:new n(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");n(t)})}),s(a,"reject",function(t){return new this(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");e(t)})}),s(a,"all",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):0===t.length?n.resolve([]):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");var r=t.length,i=Array(r),f=0;c(n,t,function(t,n){i[t]=n,++f===r&&e(i)},o)})}),s(a,"race",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");c(n,t,function(t,n){e(n)},o)})}),a});
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(213).setImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(219).setImmediate))
 
 /***/ },
-/* 209 */,
-/* 210 */,
-/* 211 */
+/* 215 */,
+/* 216 */,
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -3946,11 +4092,11 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 212 */,
-/* 213 */
+/* 218 */,
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(215).nextTick;
+	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(221).nextTick;
 	var apply = Function.prototype.apply;
 	var slice = Array.prototype.slice;
 	var immediateIds = {};
@@ -4026,11 +4172,11 @@ webpackJsonp([1],[
 	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
 	  delete immediateIds[id];
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(213).setImmediate, __webpack_require__(213).clearImmediate))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(219).setImmediate, __webpack_require__(219).clearImmediate))
 
 /***/ },
-/* 214 */,
-/* 215 */
+/* 220 */,
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
