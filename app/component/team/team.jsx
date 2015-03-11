@@ -1,6 +1,6 @@
 var React = require('react/addons');
 
-require('./team.css');
+require('./team.styl');
 
 
 module.exports = React.createClass({
@@ -23,7 +23,10 @@ module.exports = React.createClass({
                 </h2>
                 <ul className='team__players'>
                     {this.props.players.map(function(player) {
+                        var heroClassName = 'player__hero-icon--' + player.hero_id;
+
                         return (<li className='player' key={player.nickname}>
+                            <span className={heroClassName}></span>
                             <span className='player__name'>{player.nickname}</span>
                             <span className='player__kills'>{player.herokills}</span> |
                             <span className='player__deaths'>{player.deaths}</span> | 
