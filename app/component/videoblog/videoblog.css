@@ -8,9 +8,9 @@
     display: block;
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 700px) {
     .videoblog__post {
-        width: 560px;
+        width: 700px;
         height: 315px;
         margin: 0 auto;
     }

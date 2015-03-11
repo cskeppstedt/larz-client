@@ -1,7 +1,7 @@
 var React = require('react/addons'),
     Team  = require('../team/team');
 
-require('./match.css');
+require('./match.styl');
 
 
 module.exports = React.createClass({
