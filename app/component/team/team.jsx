@@ -28,8 +28,8 @@ module.exports = React.createClass({
                         return (<li className='player' key={player.nickname}>
                             <span className={heroClassName}></span>
                             <span className='player__name'>{player.nickname}</span>
-                            <span className='player__kills'>{player.herokills}</span> |
-                            <span className='player__deaths'>{player.deaths}</span> | 
+                            <span className='player__kills'>{player.herokills}</span>
+                            <span className='player__deaths'>{player.deaths}</span>
                             <span className='player__assists'>{player.heroassists}</span>
                         </li>);
                     })}

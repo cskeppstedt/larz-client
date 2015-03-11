@@ -1,6 +1,10 @@
 $row-height = 24px
 
 
+.digit-border
+    border-left: 1px solid #aaa
+
+
 .team--winning .team__name
     color: #27ae60
     font-weight: 400
@@ -20,7 +24,10 @@ $row-height = 24px
     list-style: none
     margin: 0
     padding: 0
-    display: block
+    display: table
+    border-collapse: separate
+    border-spacing: 5px
+    width: 90%
     line-height: 1.4em
 
 
@@ -38,29 +45,29 @@ $row-height = 24px
     vertical-align: middle
     font-weight: 400
     color: #000
-    padding-left: 5px
-    padding-right: 15px
 
 
 .player__kills 
     display: table-cell
+    text-align: center
     vertical-align: middle
     color: #27ae60
-    padding-left: 5px
 
 
 .player__deaths
     display: table-cell
+    text-align: center
     vertical-align: middle
     color: #c0392b
-    padding-left: 5px
+    @extend .digit-border
 
 
 .player__assists
     display: table-cell
+    text-align: center
     vertical-align: middle
     color: #7f8c8d
-    padding-left: 5px
+    @extend .digit-border
 
 
 
@@ -68,7 +75,7 @@ $row-height = 24px
 //  HERO ICONS
 // ========================================================
 .player__hero-icon
-    display: inline-block
+    display: table-cell
     width: 24px
     height: 24px
     background-position: center center
