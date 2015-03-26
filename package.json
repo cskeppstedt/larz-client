@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "react": "^0.12.2",
-    "reflux": "^0.2.5"
+    "reflux": "^0.2.5",
+    "firebase": "^2.2.3"
   }
 }

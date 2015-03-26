@@ -5,12 +5,14 @@ var path = require('path'),
 module.exports = {
   entry: {
     'app': ['./app/main.jsx'],
-    'vendor': ['react', 'firebase']
+    'vendor': ['react', 'firebase', 'reflux']
   },
+
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.ResolverPlugin(
@@ -18,16 +20,19 @@ module.exports = {
     ),
     new ReloadPlugin('localhost')
   ],
+
   resolve: {
     extensions: ['', '.js', '.jsx'],
     root: [path.join(__dirname, "bower_components")]
   },
+
   module: {
     loaders: [
-      { test: /\.jsx?$/, loader: 'jsx-loader?harmony' },
+      { test: /\.js$/,   loader: 'jsx-loader?harmony' },
+      { test: /\.jsx$/,  loader: 'jsx-loader?harmony' },
+      { test: /\.jpg$/,  loader: 'file-loader' },
       { test: /\.css$/,  loader: 'style-loader!css-loader' },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' },
-      { test: /\.jpg$/,  loader: 'file-loader' }
+      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
     ]
   }
 };

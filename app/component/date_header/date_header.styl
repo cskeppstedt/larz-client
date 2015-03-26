@@ -1,0 +1,20 @@
+wide = "screen and (min-width: 700px)"
+
+.date-header
+    border-bottom: 1px solid rgba(219, 142, 56, 0.5)
+    color: #db8e37
+    display: block
+    font-size: 24px
+    font-weight: 300
+    margin: 40px auto 20px auto
+    padding: 30px
+
+    @media wide
+        width: 700px
+        &:after
+            visibility: hidden
+            display: block
+            font-size: 0
+            content: " "
+            clear: both
+            height: 0
