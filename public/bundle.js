@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([0],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13,14 +13,14 @@ webpackJsonp([1],[
 
 	'use strict';
 
-	var React = __webpack_require__(5),
-	    ViewController   = __webpack_require__(6),
-	    posts_listener   = __webpack_require__(7),
-	    matches_listener = __webpack_require__(8),
+	var React = __webpack_require__(6),
+	    ViewController   = __webpack_require__(7),
+	    posts_listener   = __webpack_require__(8),
+	    matches_listener = __webpack_require__(9),
 	    node = document.body;
 
-	__webpack_require__(11);
-	__webpack_require__(13);
+	__webpack_require__(12);
+	__webpack_require__(14);
 
 	React.render(React.createElement(ViewController, null), node);
 
@@ -31,23 +31,24 @@ webpackJsonp([1],[
 /***/ },
 /* 3 */,
 /* 4 */,
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(15);
-
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(49),
-	    React  = __webpack_require__(5),
-	    matchesStore = __webpack_require__(16),
-	    postsStore = __webpack_require__(17),
-	    Logo = __webpack_require__(18),
-	    MatchList = __webpack_require__(19),
-	    VideoBlog  = __webpack_require__(20);
+	module.exports = __webpack_require__(24);
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    React  = __webpack_require__(6),
+	    matchesStore = __webpack_require__(17),
+	    postsStore = __webpack_require__(18),
+	    Logo = __webpack_require__(19),
+	    MatchList = __webpack_require__(20),
+	    VideoBlog  = __webpack_require__(21);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -76,11 +77,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Firebase = __webpack_require__(4),
-	    postsUpdate = __webpack_require__(21),
+	    postsUpdate = __webpack_require__(22),
 	    firebaseRef = undefined,
 
 	    callback = function(snapshot)  {
@@ -124,11 +125,11 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Firebase = __webpack_require__(4),
-	    matchesUpdate = __webpack_require__(22),
+	    matchesUpdate = __webpack_require__(23),
 	    firebaseRef = undefined,
 
 	    callback = function(snapshot)  {
@@ -172,53 +173,53 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 9 */,
 /* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(12);
+	var content = __webpack_require__(13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(25)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/reset.css", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/reset.css");
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
 		// When the module is disposed, remove the <style> tags
 		module.hot.dispose(function() { update(); });
 	}
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
 
 /***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(14);
+	var content = __webpack_require__(15);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(25)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/main.css", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/main.css");
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -227,15 +228,155 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(50)();
+	exports = module.exports = __webpack_require__(52)();
 	exports.push([module.id, "@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);", ""]);
-	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n\nh1,h2,h3,h4 {\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}", ""]);
 
 /***/ },
-/* 15 */
+/* 16 */,
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    matchesUpdate = __webpack_require__(23),
+	    matchesStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(matchesUpdate, this.output);
+	      },
+
+	      output: function(matches) {
+	          this.trigger(matches);
+	      }
+	  });
+
+
+	module.exports = matchesStore;
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    postsUpdate = __webpack_require__(22),
+	    postsStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(postsUpdate, this.output);
+	      },
+
+	      output: function(posts) {
+	          this.trigger(posts);
+	      }
+	  });
+
+
+	module.exports = postsStore;
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(6);
+
+	__webpack_require__(55);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "logo"})
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    Match = __webpack_require__(57),
+	    DateHeader = __webpack_require__(58);
+
+	__webpack_require__(59);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        var subviews = [],
+	            lastDate;
+
+	        this.props.matches.forEach(function(match)  {
+	            if (match.date !== lastDate) {
+	                lastDate = match.date;
+	                subviews.push(React.createElement(DateHeader, {date: match.date}));
+	            }
+
+	            subviews.push(React.createElement(Match, {key: match.match_id, match: match}));
+	        });
+
+	        return (
+	            React.createElement("ul", {className: "matchlist"}, 
+	                subviews
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6);
+
+	__webpack_require__(53);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "videoblog"}, 
+	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
+	                this.props.posts.map(function(post) {
+	                    return React.createElement("iframe", {
+	                        className: "videoblog__post", 
+	                        src: post.embed_url, 
+	                        frameBorder: "0", 
+	                        allowFullScreen: true});
+	                })
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5);
+
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
+
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5);
+
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
+
+
+/***/ },
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -258,17 +399,17 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var LinkedStateMixin = __webpack_require__(52);
-	var React = __webpack_require__(9);
+	var LinkedStateMixin = __webpack_require__(61);
+	var React = __webpack_require__(10);
 	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(53);
-	var ReactCSSTransitionGroup = __webpack_require__(54);
-	var ReactTransitionGroup = __webpack_require__(55);
-	var ReactUpdates = __webpack_require__(56);
+	  __webpack_require__(62);
+	var ReactCSSTransitionGroup = __webpack_require__(63);
+	var ReactTransitionGroup = __webpack_require__(64);
+	var ReactUpdates = __webpack_require__(65);
 
-	var cx = __webpack_require__(57);
-	var cloneWithProps = __webpack_require__(58);
-	var update = __webpack_require__(59);
+	var cx = __webpack_require__(66);
+	var cloneWithProps = __webpack_require__(67);
+	var update = __webpack_require__(68);
 
 	React.addons = {
 	  CSSTransitionGroup: ReactCSSTransitionGroup,
@@ -283,8 +424,8 @@ webpackJsonp([1],[
 	};
 
 	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(60);
-	  React.addons.TestUtils = __webpack_require__(61);
+	  React.addons.Perf = __webpack_require__(69);
+	  React.addons.TestUtils = __webpack_require__(70);
 	}
 
 	module.exports = React;
@@ -292,133 +433,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(49),
-	    matchesUpdate = __webpack_require__(22),
-	    matchesStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(matchesUpdate, this.output);
-	      },
-
-	      output: function(matches) {
-	          this.trigger(matches);
-	      }
-	  });
-
-
-	module.exports = matchesStore;
-
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(49),
-	    postsUpdate = __webpack_require__(21),
-	    postsStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(postsUpdate, this.output);
-	      },
-
-	      output: function(posts) {
-	          this.trigger(posts);
-	      }
-	  });
-
-
-	module.exports = postsStore;
-
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React  = __webpack_require__(5);
-
-	__webpack_require__(62);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("div", {className: "logo"})
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(5),
-	    Match = __webpack_require__(64);
-
-	__webpack_require__(65);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        console.log('rendering', this.props.matches);
-	        return (
-	            React.createElement("ul", {className: "matchlist"}, 
-	                this.props.matches.map(function(match) {
-	                    return React.createElement(Match, {key: match.match_id, match: match});
-	                })
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(5);
-
-	__webpack_require__(67);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("div", {className: "videoblog"}, 
-	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
-	                this.props.posts.map(function(post) {
-	                    // <iframe width="560" height="315" src="https://www.youtube.com/embed/koTjAM1TD4k" frameborder="0" allowfullscreen></iframe>
-	                    return React.createElement("iframe", {className: "videoblog__post", src: post.embed_url});
-	                })
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(49);
-
-	// This action represents that the matches have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(49);
-
-	// This action represents that the matches have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -614,8 +629,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 24 */,
-/* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
@@ -639,14 +652,10 @@ webpackJsonp([1],[
 /* 46 */,
 /* 47 */,
 /* 48 */,
-/* 49 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(139);
-
-
-/***/ },
-/* 50 */
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function() {
@@ -667,8 +676,143 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 51 */,
-/* 52 */
+/* 53 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(54);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(25)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 54 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".videoblog__title {\n    padding: 40px 0 20px 0;\n    text-align: center;\n}\n\n.videoblog__post {\n    display: block;\n    height: 155px;\n    margin: 20px 0;\n    width: 100%;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        height: 315px;\n        margin: 20px auto;\n        width: 700px;\n    }\n}\n", ""]);
+
+/***/ },
+/* 55 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(56);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(25)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/logo/logo.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/logo/logo.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 56 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(180)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
+
+/***/ },
+/* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    Team  = __webpack_require__(129);
+
+	__webpack_require__(183);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("li", {className: "match"}, 
+	                React.createElement("h2", {className: "match__title"}, 
+	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
+	                ), 
+	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
+	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 58 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    dateUtil = __webpack_require__(128);
+
+	__webpack_require__(181);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("li", {className: "date-header"}, 
+	                dateUtil.toFriendlyDate(this.props.date)
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(60);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(25)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".matchlist {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
+
+/***/ },
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -685,8 +829,8 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactLink = __webpack_require__(125);
-	var ReactStateSetters = __webpack_require__(126);
+	var ReactLink = __webpack_require__(133);
+	var ReactStateSetters = __webpack_require__(134);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -713,7 +857,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 53 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -729,7 +873,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var shallowEqual = __webpack_require__(127);
+	var shallowEqual = __webpack_require__(130);
 
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -766,7 +910,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 54 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -783,15 +927,15 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(9);
+	var React = __webpack_require__(10);
 
-	var assign = __webpack_require__(44);
+	var assign = __webpack_require__(46);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(55)
+	  __webpack_require__(64)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(128)
+	  __webpack_require__(131)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -837,7 +981,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 55 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -853,11 +997,11 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(9);
-	var ReactTransitionChildMapping = __webpack_require__(129);
+	var React = __webpack_require__(10);
+	var ReactTransitionChildMapping = __webpack_require__(132);
 
-	var assign = __webpack_require__(44);
-	var cloneWithProps = __webpack_require__(58);
+	var assign = __webpack_require__(46);
+	var cloneWithProps = __webpack_require__(67);
 	var emptyFunction = __webpack_require__(122);
 
 	var ReactTransitionGroup = React.createClass({
@@ -1030,8 +1174,8 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 56 */,
-/* 57 */
+/* 65 */,
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1074,7 +1218,7 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 58 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1091,11 +1235,11 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactElement = __webpack_require__(31);
-	var ReactPropTransferer = __webpack_require__(81);
+	var ReactElement = __webpack_require__(33);
+	var ReactPropTransferer = __webpack_require__(83);
 
-	var keyOf = __webpack_require__(85);
-	var warning = __webpack_require__(72);
+	var keyOf = __webpack_require__(87);
+	var warning = __webpack_require__(73);
 
 	var CHILDREN_PROP = keyOf({children: null});
 
@@ -1136,7 +1280,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 59 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1152,9 +1296,9 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var assign = __webpack_require__(44);
-	var keyOf = __webpack_require__(85);
-	var invariant = __webpack_require__(74);
+	var assign = __webpack_require__(46);
+	var keyOf = __webpack_require__(87);
+	var invariant = __webpack_require__(75);
 
 	function shallowCopy(x) {
 	  if (Array.isArray(x)) {
@@ -1307,8 +1451,8 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 60 */,
-/* 61 */
+/* 69 */,
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1324,18 +1468,18 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(73);
-	var EventPluginHub = __webpack_require__(134);
-	var EventPropagators = __webpack_require__(135);
-	var React = __webpack_require__(9);
-	var ReactElement = __webpack_require__(31);
-	var ReactBrowserEventEmitter = __webpack_require__(91);
-	var ReactMount = __webpack_require__(38);
-	var ReactTextComponent = __webpack_require__(43);
-	var ReactUpdates = __webpack_require__(56);
-	var SyntheticEvent = __webpack_require__(136);
+	var EventConstants = __webpack_require__(77);
+	var EventPluginHub = __webpack_require__(137);
+	var EventPropagators = __webpack_require__(138);
+	var React = __webpack_require__(10);
+	var ReactElement = __webpack_require__(33);
+	var ReactBrowserEventEmitter = __webpack_require__(93);
+	var ReactMount = __webpack_require__(40);
+	var ReactTextComponent = __webpack_require__(45);
+	var ReactUpdates = __webpack_require__(65);
+	var SyntheticEvent = __webpack_require__(139);
 
-	var assign = __webpack_require__(44);
+	var assign = __webpack_require__(46);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -1724,126 +1868,6 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(63);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/logo/logo.css", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/logo/logo.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 63 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(177)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
-
-/***/ },
-/* 64 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(5),
-	    Team  = __webpack_require__(137);
-
-	__webpack_require__(178);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        var titlePrefix = this.props.match.date || 'Unknown date';
-
-	        return (
-	            React.createElement("li", {className: "match"}, 
-	                React.createElement("h2", {className: "match__title"}, 
-	                    titlePrefix, 
-	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
-	                ), 
-	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
-	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 65 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(66);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/matchlist/matchlist.css", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/matchlist/matchlist.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, ".matchlist {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(68);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/videoblog/videoblog.css", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/app/component/videoblog/videoblog.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, ".videoblog__title {\n    text-align: center;\n}\n\n.videoblog__post {\n    width: 100%;\n    height: auto;\n    display: block;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        width: 700px;\n        height: 315px;\n        margin: 0 auto;\n    }\n}\n", ""]);
-
-/***/ },
-/* 69 */,
-/* 70 */,
 /* 71 */,
 /* 72 */,
 /* 73 */,
@@ -1898,195 +1922,99 @@ webpackJsonp([1],[
 /* 122 */,
 /* 123 */,
 /* 124 */,
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactLink
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * ReactLink encapsulates a common pattern in which a component wants to modify
-	 * a prop received from its parent. ReactLink allows the parent to pass down a
-	 * value coupled with a callback that, when invoked, expresses an intent to
-	 * modify that value. For example:
-	 *
-	 * React.createClass({
-	 *   getInitialState: function() {
-	 *     return {value: ''};
-	 *   },
-	 *   render: function() {
-	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
-	 *     return <input valueLink={valueLink} />;
-	 *   },
-	 *   this._handleValueChange: function(newValue) {
-	 *     this.setState({value: newValue});
-	 *   }
-	 * });
-	 *
-	 * We have provided some sugary mixins to make the creation and
-	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
-	 */
-
-	var React = __webpack_require__(9);
-
-	/**
-	 * @param {*} value current value of the link
-	 * @param {function} requestChange callback to request a change
-	 */
-	function ReactLink(value, requestChange) {
-	  this.value = value;
-	  this.requestChange = requestChange;
-	}
-
-	/**
-	 * Creates a PropType that enforces the ReactLink API and optionally checks the
-	 * type of the value being passed inside the link. Example:
-	 *
-	 * MyComponent.propTypes = {
-	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
-	 * }
-	 */
-	function createLinkTypeChecker(linkType) {
-	  var shapes = {
-	    value: typeof linkType === 'undefined' ?
-	      React.PropTypes.any.isRequired :
-	      linkType.isRequired,
-	    requestChange: React.PropTypes.func.isRequired
-	  };
-	  return React.PropTypes.shape(shapes);
-	}
-
-	ReactLink.PropTypes = {
-	  link: createLinkTypeChecker
-	};
-
-	module.exports = ReactLink;
-
-
-/***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactStateSetters
-	 */
-
-	"use strict";
-
-	var ReactStateSetters = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(component, funcReturningState) {
-	    return function(a, b, c, d, e, f) {
-	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
-	      if (partialState) {
-	        component.setState(partialState);
-	      }
-	    };
-	  },
-
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(component, key) {
-	    // Memoize the setters.
-	    var cache = component.__keySetters || (component.__keySetters = {});
-	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
-	  }
-	};
-
-	function createStateKeySetter(component, key) {
-	  // Partial state is allocated outside of the function closure so it can be
-	  // reused with every call, avoiding memory allocation when this function
-	  // is called.
-	  var partialState = {};
-	  return function stateKeySetter(value) {
-	    partialState[key] = value;
-	    component.setState(partialState);
-	  };
-	}
-
-	ReactStateSetters.Mixin = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateSetter(function(xValue) {
-	   *     return {x: xValue};
-	   *   })(1);
-	   *
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(funcReturningState) {
-	    return ReactStateSetters.createStateSetter(this, funcReturningState);
-	  },
-
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateKeySetter('x')(1);
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(key) {
-	    return ReactStateSetters.createStateKeySetter(this, key);
-	  }
-	};
-
-	module.exports = ReactStateSetters;
-
-
-/***/ },
+/* 125 */,
+/* 126 */,
 /* 127 */,
 /* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var DATE_EXPRESSION = /([0-9]{4})-([0-9]{2})-([0-9]{2})/,
+
+	    MONTHS = [
+	        "January",
+	        "February",
+	        "March",
+	        "April",
+	        "May",
+	        "June",
+	        "July",
+	        "August",
+	        "September",
+	        "October",
+	        "November",
+	        "December"
+	    ]
+
+	    toFriendlyDate = function(yyyy_mm_dd)  {
+	        var yyyy, mm, dd;
+
+	        var $__0=     yyyy_mm_dd.match(DATE_EXPRESSION);_=$__0[0],yyyy=$__0[1],mm=$__0[2],dd=$__0[3];
+	        mm = parseInt(mm, 10);
+	        dd = parseInt(dd, 10);
+
+	        return (MONTHS[mm-1] + " " + dd + ", " + yyyy);
+	    };
+
+
+	module.exports = {
+	    toFriendlyDate:toFriendlyDate
+	};
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    $__0=    __webpack_require__(185),team=$__0.team;
+
+	__webpack_require__(186);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        var winningElem;
+	        if (this.props.winning === true) {
+	            winningElem = React.createElement("span", {className: "team__name__winning"}, "(winners)");
+	        }
+
+	        var teamClasses = React.addons.classSet({
+	            'team': true,
+	            'team--winning': this.props.winning
+	        });
+
+	        return (
+	            React.createElement("div", {className: teamClasses}, 
+	                React.createElement("h2", {className: "team__name"}, 
+	                    this.props.name, 
+	                    winningElem
+	                ), 
+	                React.createElement("ul", {className: "team__players"}, 
+	                    this.props.players.map(function(player) {
+	                        var heroClassName = 'player__hero-icon--' + player.hero_id,
+	                            isInTeam = team.indexOf(player.nickname) >= 0,
+	                            playerNameClasses = React.addons.classSet({
+	                                'player__name': !isInTeam,
+	                                'player__name--in-team': isInTeam
+	                            });
+
+	                        return (React.createElement("li", {className: "player", key: player.nickname}, 
+	                            React.createElement("span", {className: heroClassName}), 
+	                            React.createElement("span", {className: playerNameClasses}, player.nickname), 
+	                            React.createElement("span", {className: "player__kills"}, player.herokills), 
+	                            React.createElement("span", {className: "player__deaths"}, player.deaths), 
+	                            React.createElement("span", {className: "player__assists"}, player.heroassists)
+	                        ));
+	                    })
+	                )
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 130 */,
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2103,12 +2031,12 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var React = __webpack_require__(9);
+	var React = __webpack_require__(10);
 
-	var CSSCore = __webpack_require__(180);
-	var ReactTransitionEvents = __webpack_require__(181);
+	var CSSCore = __webpack_require__(188);
+	var ReactTransitionEvents = __webpack_require__(189);
 
-	var onlyChild = __webpack_require__(46);
+	var onlyChild = __webpack_require__(48);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2224,7 +2152,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 129 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2241,7 +2169,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ReactChildren = __webpack_require__(26);
+	var ReactChildren = __webpack_require__(28);
 
 	var ReactTransitionChildMapping = {
 	  /**
@@ -2329,168 +2257,198 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(5);
-
-	__webpack_require__(185);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        var winningElem;
-	        if (this.props.winning === true) {
-	            winningElem = React.createElement("span", {className: "team__name__winning"}, "(winners)");
-	        }
-
-	        var classes = React.addons.classSet({
-	            'team': true,
-	            'team--winning': this.props.winning
-	        });
-
-	        return (
-	            React.createElement("div", {className: classes}, 
-	                React.createElement("h2", {className: "team__name"}, 
-	                    this.props.name, 
-	                    winningElem
-	                ), 
-	                React.createElement("ul", {className: "team__players"}, 
-	                    this.props.players.map(function(player) {
-	                        var heroClassName = 'player__hero-icon--' + player.hero_id;
-
-	                        return (React.createElement("li", {className: "player", key: player.nickname}, 
-	                            React.createElement("span", {className: heroClassName}), 
-	                            React.createElement("span", {className: "player__name"}, player.nickname), 
-	                            React.createElement("span", {className: "player__kills"}, player.herokills), 
-	                            React.createElement("span", {className: "player__deaths"}, player.deaths), 
-	                            React.createElement("span", {className: "player__assists"}, player.heroassists)
-	                        ));
-	                    })
-	                )
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 138 */,
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports.ActionMethods = __webpack_require__(187);
-
-	exports.ListenerMethods = __webpack_require__(188);
-
-	exports.PublisherMethods = __webpack_require__(189);
-
-	exports.StoreMethods = __webpack_require__(190);
-
-	exports.createAction = __webpack_require__(191);
-
-	exports.createStore = __webpack_require__(192);
-
-	exports.connect = __webpack_require__(193);
-
-	exports.connectFilter = __webpack_require__(194);
-
-	exports.ListenerMixin = __webpack_require__(195);
-
-	exports.listenTo = __webpack_require__(196);
-
-	exports.listenToMany = __webpack_require__(197);
-
-
-	var maker = __webpack_require__(198).staticJoinCreator;
-
-	exports.joinTrailing = exports.all = maker("last"); // Reflux.all alias for backward compatibility
-
-	exports.joinLeading = maker("first");
-
-	exports.joinStrict = maker("strict");
-
-	exports.joinConcat = maker("all");
-
-	var _ = __webpack_require__(199);
 
 	/**
-	 * Convenience function for creating a set of actions
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
 	 *
-	 * @param definitions the definitions for the actions to be created
-	 * @returns an object with actions of corresponding action names
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactLink
+	 * @typechecks static-only
 	 */
-	exports.createActions = function(definitions) {
-	    var actions = {};
-	    for (var k in definitions){
-	        var val = definitions[k],
-	            actionName = _.isObject(val) ? k : val;
 
-	        actions[actionName] = exports.createAction(val);
-	    }
-	    return actions;
-	};
+	"use strict";
 
 	/**
-	 * Sets the eventmitter that Reflux uses
+	 * ReactLink encapsulates a common pattern in which a component wants to modify
+	 * a prop received from its parent. ReactLink allows the parent to pass down a
+	 * value coupled with a callback that, when invoked, expresses an intent to
+	 * modify that value. For example:
+	 *
+	 * React.createClass({
+	 *   getInitialState: function() {
+	 *     return {value: ''};
+	 *   },
+	 *   render: function() {
+	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
+	 *     return <input valueLink={valueLink} />;
+	 *   },
+	 *   this._handleValueChange: function(newValue) {
+	 *     this.setState({value: newValue});
+	 *   }
+	 * });
+	 *
+	 * We have provided some sugary mixins to make the creation and
+	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
 	 */
-	exports.setEventEmitter = function(ctx) {
-	    var _ = __webpack_require__(199);
-	    _.EventEmitter = ctx;
-	};
 
+	var React = __webpack_require__(10);
 
 	/**
-	 * Sets the Promise library that Reflux uses
+	 * @param {*} value current value of the link
+	 * @param {function} requestChange callback to request a change
 	 */
-	exports.setPromise = function(ctx) {
-	    var _ = __webpack_require__(199);
-	    _.Promise = ctx;
-	};
-
-	/**
-	 * Sets the Promise factory that creates new promises
-	 * @param {Function} factory has the signature `function(resolver) { return [new Promise]; }`
-	 */
-	exports.setPromiseFactory = function(factory) {
-	    var _ = __webpack_require__(199);
-	    _.createPromise = factory;
-	};
-
-
-	/**
-	 * Sets the method used for deferring actions and stores
-	 */
-	exports.nextTick = function(nextTick) {
-	    var _ = __webpack_require__(199);
-	    _.nextTick = nextTick;
-	};
-
-	/**
-	 * Provides the set of created actions and stores for introspection
-	 */
-	exports.__keep = __webpack_require__(200);
-
-	/**
-	 * Warn if Function.prototype.bind not available
-	 */
-	if (!Function.prototype.bind) {
-	  console.error(
-	    'Function.prototype.bind not available. ' +
-	    'ES5 shim required. ' +
-	    'https://github.com/spoike/refluxjs#es5'
-	  );
+	function ReactLink(value, requestChange) {
+	  this.value = value;
+	  this.requestChange = requestChange;
 	}
 
+	/**
+	 * Creates a PropType that enforces the ReactLink API and optionally checks the
+	 * type of the value being passed inside the link. Example:
+	 *
+	 * MyComponent.propTypes = {
+	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
+	 * }
+	 */
+	function createLinkTypeChecker(linkType) {
+	  var shapes = {
+	    value: typeof linkType === 'undefined' ?
+	      React.PropTypes.any.isRequired :
+	      linkType.isRequired,
+	    requestChange: React.PropTypes.func.isRequired
+	  };
+	  return React.PropTypes.shape(shapes);
+	}
+
+	ReactLink.PropTypes = {
+	  link: createLinkTypeChecker
+	};
+
+	module.exports = ReactLink;
+
 
 /***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactStateSetters
+	 */
+
+	"use strict";
+
+	var ReactStateSetters = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(component, funcReturningState) {
+	    return function(a, b, c, d, e, f) {
+	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
+	      if (partialState) {
+	        component.setState(partialState);
+	      }
+	    };
+	  },
+
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(component, key) {
+	    // Memoize the setters.
+	    var cache = component.__keySetters || (component.__keySetters = {});
+	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
+	  }
+	};
+
+	function createStateKeySetter(component, key) {
+	  // Partial state is allocated outside of the function closure so it can be
+	  // reused with every call, avoiding memory allocation when this function
+	  // is called.
+	  var partialState = {};
+	  return function stateKeySetter(value) {
+	    partialState[key] = value;
+	    component.setState(partialState);
+	  };
+	}
+
+	ReactStateSetters.Mixin = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateSetter(function(xValue) {
+	   *     return {x: xValue};
+	   *   })(1);
+	   *
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(funcReturningState) {
+	    return ReactStateSetters.createStateSetter(this, funcReturningState);
+	  },
+
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateKeySetter('x')(1);
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(key) {
+	    return ReactStateSetters.createStateKeySetter(this, key);
+	  }
+	};
+
+	module.exports = ReactStateSetters;
+
+
+/***/ },
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
 /* 140 */,
 /* 141 */,
 /* 142 */,
@@ -2528,27 +2486,30 @@ webpackJsonp([1],[
 /* 174 */,
 /* 175 */,
 /* 176 */,
-/* 177 */
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
 
 /***/ },
-/* 178 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(179);
+	var content = __webpack_require__(182);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(25)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/node_modules/stylus-loader/index.js!/home/vagrant/larz-client/app/component/match/match.styl", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/node_modules/stylus-loader/index.js!/home/vagrant/larz-client/app/component/match/match.styl");
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/date_header/date_header.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/date_header/date_header.styl");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -2557,14 +2518,88 @@ webpackJsonp([1],[
 	}
 
 /***/ },
-/* 179 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, ".match {\n  display: block;\n  margin: 40px auto;\n  padding: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    visibility: hidden;\n    display: block;\n    font-size: 0;\n    content: \" \";\n    clear: both;\n    height: 0;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  font-weight: 400;\n  padding: 0;\n  margin: 0;\n  display: block;\n}\n.match__title__id {\n  font-size: 14px;\n  padding-left: 10px;\n  color: #888;\n}\n", ""]);
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".date-header {\n  border-bottom: 1px solid rgba(219,142,56,0.5);\n  color: #db8e37;\n  display: block;\n  font-size: 24px;\n  font-weight: 300;\n  margin: 40px auto 20px auto;\n  padding: 30px 10px;\n}\n@media screen and (min-width: 700px) {\n  .date-header {\n    width: 700px;\n    padding: 30px 0;\n  }\n  .date-header:after {\n    visibility: hidden;\n    display: block;\n    font-size: 0;\n    content: \" \";\n    clear: both;\n    height: 0;\n  }\n}\n", ""]);
 
 /***/ },
-/* 180 */
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(184);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(25)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".match {\n  display: block;\n  margin: 10px auto;\n  padding: 20px 10px 10px 10px;\n  border-top: 1px solid #ccc;\n}\n.date-header + .match {\n  border-top: none;\n  padding-top: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    clear: both;\n    content: \" \";\n    display: block;\n    font-size: 0;\n    height: 0;\n    visibility: hidden;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  display: block;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n}\n.match__title__id {\n  color: #888;\n  display: none;\n  font-size: 14px;\n}\n", ""]);
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	    team: [
+	        'Adelsmansman',
+	        'Pacoloco',
+	        'schln',
+	        'skepparn_',
+	        'zwex'
+	    ]
+	};
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(187);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(25)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(52)();
+	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.team:nth-of-type(2) {\n  margin-top: 20px;\n}\n@media screen and (min-width: 700px) {\n  .team:nth-of-type(2) {\n    margin-top: 0;\n  }\n}\n.team--winning .team__name {\n  color: #27ae60;\n}\n.team__name {\n  font-weight: 300;\n  font-size: 18px;\n  display: block;\n  margin-bottom: 10px;\n}\n.team__name__winning {\n  padding-left: 10px;\n}\n.team__players {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table;\n  border-collapse: separate;\n  border-spacing: 5px;\n  width: 90%;\n  line-height: 1.4em;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: table-row;\n  color: #aaa;\n  line-height: 24px;\n  height: 24px;\n}\n.player__name,\n.player__name--in-team {\n  display: table-cell;\n  vertical-align: middle;\n  color: #aaa;\n  font-weight: 200;\n}\n.player__name--in-team {\n  color: #000;\n}\n.player__kills {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #27ae60;\n}\n.player__deaths {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #c0392b;\n}\n.player__assists {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #7f8c8d;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96 {\n  display: table-cell;\n  width: 24px;\n  height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(203)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(204)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(205)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(206)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(207)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(208)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(209)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(210)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(211)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(212)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(213)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(214)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(215)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(216)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(217)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(218)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(219)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(220)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(221)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(222)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(223)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(224)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(225)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(226)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(227)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(228)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(229)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(230)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(231)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(232)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(233)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(234)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(235)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(236)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(237)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(238)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(239)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(240)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(241)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(328)+");\n}\n", ""]);
+
+/***/ },
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2579,7 +2614,7 @@ webpackJsonp([1],[
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(74);
+	var invariant = __webpack_require__(75);
 
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -2679,7 +2714,7 @@ webpackJsonp([1],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 181 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2695,7 +2730,7 @@ webpackJsonp([1],[
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(47);
+	var ExecutionEnvironment = __webpack_require__(49);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -2794,2208 +2829,773 @@ webpackJsonp([1],[
 
 
 /***/ },
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(186);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/node_modules/stylus-loader/index.js!/home/vagrant/larz-client/app/component/team/team.styl", function() {
-			var newContent = require("!!/home/vagrant/larz-client/node_modules/css-loader/index.js!/home/vagrant/larz-client/node_modules/stylus-loader/index.js!/home/vagrant/larz-client/app/component/team/team.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(50)();
-	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.team--winning .team__name {\n  color: #27ae60;\n  font-weight: 400;\n}\n.team__name {\n  font-weight: 300;\n  font-size: 18px;\n  display: block;\n}\n.team__name__winning {\n  padding-left: 10px;\n}\n.team__players {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table;\n  border-collapse: separate;\n  border-spacing: 5px;\n  width: 90%;\n  line-height: 1.4em;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: table-row;\n  color: #aaa;\n  line-height: 24px;\n  height: 24px;\n}\n.player__name {\n  display: table-cell;\n  vertical-align: middle;\n  font-weight: 400;\n  color: #000;\n}\n.player__kills {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #27ae60;\n}\n.player__deaths {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #c0392b;\n}\n.player__assists {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #7f8c8d;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96 {\n  display: table-cell;\n  width: 24px;\n  height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(214)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(215)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(216)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(217)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(218)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(219)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(220)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(221)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(222)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(223)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(224)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(225)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(226)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(227)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(228)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(229)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(230)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(231)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(232)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(233)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(234)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(235)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(236)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(237)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(238)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(239)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(240)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(241)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(328)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(329)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(330)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(331)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(332)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(333)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(334)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(335)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(336)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(337)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(338)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(339)+");\n}\n", ""]);
-
-/***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * A module of methods that you want to include in all actions.
-	 * This module is consumed by `createAction`.
-	 */
-	module.exports = {
-	};
-
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199),
-	    maker = __webpack_require__(198).instanceJoinCreator;
-
-	/**
-	 * Extract child listenables from a parent from their
-	 * children property and return them in a keyed Object
-	 *
-	 * @param {Object} listenable The parent listenable
-	 */
-	var mapChildListenables = function(listenable) {
-	    var i = 0, children = {}, childName;
-	    for (;i < (listenable.children||[]).length; ++i) {
-	        childName = listenable.children[i];
-	        if(listenable[childName]){
-	            children[childName] = listenable[childName];
-	        }
-	    }
-	    return children;
-	};
-
-	/**
-	 * Make a flat dictionary of all listenables including their
-	 * possible children (recursively), concatenating names in camelCase.
-	 *
-	 * @param {Object} listenables The top-level listenables
-	 */
-	var flattenListenables = function(listenables) {
-	    var flattened = {};
-	    for(var key in listenables){
-	        var listenable = listenables[key];
-	        var childMap = mapChildListenables(listenable);
-
-	        // recursively flatten children
-	        var children = flattenListenables(childMap);
-
-	        // add the primary listenable and chilren
-	        flattened[key] = listenable;
-	        for(var childKey in children){
-	            var childListenable = children[childKey];
-	            flattened[key + _.capitalize(childKey)] = childListenable;
-	        }
-	    }
-
-	    return flattened;
-	};
-
-	/**
-	 * A module of methods related to listening.
-	 */
-	module.exports = {
-
-	    /**
-	     * An internal utility function used by `validateListening`
-	     *
-	     * @param {Action|Store} listenable The listenable we want to search for
-	     * @returns {Boolean} The result of a recursive search among `this.subscriptions`
-	     */
-	    hasListener: function(listenable) {
-	        var i = 0, j, listener, listenables;
-	        for (;i < (this.subscriptions||[]).length; ++i) {
-	            listenables = [].concat(this.subscriptions[i].listenable);
-	            for (j = 0; j < listenables.length; j++){
-	                listener = listenables[j];
-	                if (listener === listenable || listener.hasListener && listener.hasListener(listenable)) {
-	                    return true;
-	                }
-	            }
-	        }
-	        return false;
-	    },
-
-	    /**
-	     * A convenience method that listens to all listenables in the given object.
-	     *
-	     * @param {Object} listenables An object of listenables. Keys will be used as callback method names.
-	     */
-	    listenToMany: function(listenables){
-	        var allListenables = flattenListenables(listenables);
-	        for(var key in allListenables){
-	            var cbname = _.callbackName(key),
-	                localname = this[cbname] ? cbname : this[key] ? key : undefined;
-	            if (localname){
-	                this.listenTo(allListenables[key],localname,this[cbname+"Default"]||this[localname+"Default"]||localname);
-	            }
-	        }
-	    },
-
-	    /**
-	     * Checks if the current context can listen to the supplied listenable
-	     *
-	     * @param {Action|Store} listenable An Action or Store that should be
-	     *  listened to.
-	     * @returns {String|Undefined} An error message, or undefined if there was no problem.
-	     */
-	    validateListening: function(listenable){
-	        if (listenable === this) {
-	            return "Listener is not able to listen to itself";
-	        }
-	        if (!_.isFunction(listenable.listen)) {
-	            return listenable + " is missing a listen method";
-	        }
-	        if (listenable.hasListener && listenable.hasListener(this)) {
-	            return "Listener cannot listen to this listenable because of circular loop";
-	        }
-	    },
-
-	    /**
-	     * Sets up a subscription to the given listenable for the context object
-	     *
-	     * @param {Action|Store} listenable An Action or Store that should be
-	     *  listened to.
-	     * @param {Function|String} callback The callback to register as event handler
-	     * @param {Function|String} defaultCallback The callback to register as default handler
-	     * @returns {Object} A subscription obj where `stop` is an unsub function and `listenable` is the object being listened to
-	     */
-	    listenTo: function(listenable, callback, defaultCallback) {
-	        var desub, unsubscriber, subscriptionobj, subs = this.subscriptions = this.subscriptions || [];
-	        _.throwIf(this.validateListening(listenable));
-	        this.fetchInitialState(listenable, defaultCallback);
-	        desub = listenable.listen(this[callback]||callback, this);
-	        unsubscriber = function() {
-	            var index = subs.indexOf(subscriptionobj);
-	            _.throwIf(index === -1,'Tried to remove listen already gone from subscriptions list!');
-	            subs.splice(index, 1);
-	            desub();
-	        };
-	        subscriptionobj = {
-	            stop: unsubscriber,
-	            listenable: listenable
-	        };
-	        subs.push(subscriptionobj);
-	        return subscriptionobj;
-	    },
-
-	    /**
-	     * Stops listening to a single listenable
-	     *
-	     * @param {Action|Store} listenable The action or store we no longer want to listen to
-	     * @returns {Boolean} True if a subscription was found and removed, otherwise false.
-	     */
-	    stopListeningTo: function(listenable){
-	        var sub, i = 0, subs = this.subscriptions || [];
-	        for(;i < subs.length; i++){
-	            sub = subs[i];
-	            if (sub.listenable === listenable){
-	                sub.stop();
-	                _.throwIf(subs.indexOf(sub)!==-1,'Failed to remove listen from subscriptions list!');
-	                return true;
-	            }
-	        }
-	        return false;
-	    },
-
-	    /**
-	     * Stops all subscriptions and empties subscriptions array
-	     */
-	    stopListeningToAll: function(){
-	        var remaining, subs = this.subscriptions || [];
-	        while((remaining=subs.length)){
-	            subs[0].stop();
-	            _.throwIf(subs.length!==remaining-1,'Failed to remove listen from subscriptions list!');
-	        }
-	    },
-
-	    /**
-	     * Used in `listenTo`. Fetches initial data from a publisher if it has a `getInitialState` method.
-	     * @param {Action|Store} listenable The publisher we want to get initial state from
-	     * @param {Function|String} defaultCallback The method to receive the data
-	     */
-	    fetchInitialState: function (listenable, defaultCallback) {
-	        defaultCallback = (defaultCallback && this[defaultCallback]) || defaultCallback;
-	        var me = this;
-	        if (_.isFunction(defaultCallback) && _.isFunction(listenable.getInitialState)) {
-	            var data = listenable.getInitialState();
-	            if (data && _.isFunction(data.then)) {
-	                data.then(function() {
-	                    defaultCallback.apply(me, arguments);
-	                });
-	            } else {
-	                defaultCallback.call(this, data);
-	            }
-	        }
-	    },
-
-	    /**
-	     * The callback will be called once all listenables have triggered at least once.
-	     * It will be invoked with the last emission from each listenable.
-	     * @param {...Publishers} publishers Publishers that should be tracked.
-	     * @param {Function|String} callback The method to call when all publishers have emitted
-	     * @returns {Object} A subscription obj where `stop` is an unsub function and `listenable` is an array of listenables
-	     */
-	    joinTrailing: maker("last"),
-
-	    /**
-	     * The callback will be called once all listenables have triggered at least once.
-	     * It will be invoked with the first emission from each listenable.
-	     * @param {...Publishers} publishers Publishers that should be tracked.
-	     * @param {Function|String} callback The method to call when all publishers have emitted
-	     * @returns {Object} A subscription obj where `stop` is an unsub function and `listenable` is an array of listenables
-	     */
-	    joinLeading: maker("first"),
-
-	    /**
-	     * The callback will be called once all listenables have triggered at least once.
-	     * It will be invoked with all emission from each listenable.
-	     * @param {...Publishers} publishers Publishers that should be tracked.
-	     * @param {Function|String} callback The method to call when all publishers have emitted
-	     * @returns {Object} A subscription obj where `stop` is an unsub function and `listenable` is an array of listenables
-	     */
-	    joinConcat: maker("all"),
-
-	    /**
-	     * The callback will be called once all listenables have triggered.
-	     * If a callback triggers twice before that happens, an error is thrown.
-	     * @param {...Publishers} publishers Publishers that should be tracked.
-	     * @param {Function|String} callback The method to call when all publishers have emitted
-	     * @returns {Object} A subscription obj where `stop` is an unsub function and `listenable` is an array of listenables
-	     */
-	    joinStrict: maker("strict")
-	};
-
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199);
-
-	/**
-	 * A module of methods for object that you want to be able to listen to.
-	 * This module is consumed by `createStore` and `createAction`
-	 */
-	module.exports = {
-
-	    /**
-	     * Hook used by the publisher that is invoked before emitting
-	     * and before `shouldEmit`. The arguments are the ones that the action
-	     * is invoked with. If this function returns something other than
-	     * undefined, that will be passed on as arguments for shouldEmit and
-	     * emission.
-	     */
-	    preEmit: function() {},
-
-	    /**
-	     * Hook used by the publisher after `preEmit` to determine if the
-	     * event should be emitted with given arguments. This may be overridden
-	     * in your application, default implementation always returns true.
-	     *
-	     * @returns {Boolean} true if event should be emitted
-	     */
-	    shouldEmit: function() { return true; },
-
-	    /**
-	     * Subscribes the given callback for action triggered
-	     *
-	     * @param {Function} callback The callback to register as event handler
-	     * @param {Mixed} [optional] bindContext The context to bind the callback with
-	     * @returns {Function} Callback that unsubscribes the registered event handler
-	     */
-	    listen: function(callback, bindContext) {
-	        bindContext = bindContext || this;
-	        var eventHandler = function(args) {
-	            callback.apply(bindContext, args);
-	        }, me = this;
-	        this.emitter.addListener(this.eventLabel, eventHandler);
-	        return function() {
-	            me.emitter.removeListener(me.eventLabel, eventHandler);
-	        };
-	    },
-
-	    /**
-	     * Attach handlers to promise that trigger the completed and failed
-	     * child publishers, if available.
-	     *
-	     * @param {Object} The promise to attach to
-	     */
-	    promise: function(promise) {
-	        var me = this;
-
-	        var canHandlePromise =
-	            this.children.indexOf('completed') >= 0 &&
-	            this.children.indexOf('failed') >= 0;
-
-	        if (!canHandlePromise){
-	            throw new Error('Publisher must have "completed" and "failed" child publishers');
-	        }
-
-	        promise.then(function(response) {
-	            return me.completed(response);
-	        });
-	        // IE compatibility - catch is a reserved word - without bracket notation source compilation will fail under IE
-	        promise["catch"](function(error) {
-	            return me.failed(error);
-	        });
-	    },
-
-	    /**
-	     * Subscribes the given callback for action triggered, which should
-	     * return a promise that in turn is passed to `this.promise`
-	     *
-	     * @param {Function} callback The callback to register as event handler
-	     */
-	    listenAndPromise: function(callback, bindContext) {
-	        var me = this;
-	        bindContext = bindContext || this;
-
-	        return this.listen(function() {
-
-	            if (!callback) {
-	                throw new Error('Expected a function returning a promise but got ' + callback);
-	            }
-
-	            var args = arguments,
-	                promise = callback.apply(bindContext, args);
-	            return me.promise.call(me, promise);
-	        }, bindContext);
-	    },
-
-	    /**
-	     * Publishes an event using `this.emitter` (if `shouldEmit` agrees)
-	     */
-	    trigger: function() {
-	        var args = arguments,
-	            pre = this.preEmit.apply(this, args);
-	        args = pre === undefined ? args : _.isArguments(pre) ? pre : [].concat(pre);
-	        if (this.shouldEmit.apply(this, args)) {
-	            this.emitter.emit(this.eventLabel, args);
-	        }
-	    },
-
-	    /**
-	     * Tries to publish the event on the next tick
-	     */
-	    triggerAsync: function(){
-	        var args = arguments,me = this;
-	        _.nextTick(function() {
-	            me.trigger.apply(me, args);
-	        });
-	    },
-
-	    /**
-	     * Returns a Promise for the triggered action
-	     */
-	    triggerPromise: function(){
-	        var me = this;
-	        var args = arguments;
-
-	        var canHandlePromise =
-	            this.children.indexOf('completed') >= 0 &&
-	            this.children.indexOf('failed') >= 0;
-
-	        if (!canHandlePromise){
-	            throw new Error('Publisher must have "completed" and "failed" child publishers');
-	        }
-
-	        var promise = _.createPromise(function(resolve, reject) {
-	            var removeSuccess = me.completed.listen(function(args) {
-	                removeSuccess();
-	                removeFailed();
-	                resolve(args);
-	            });
-
-	            var removeFailed = me.failed.listen(function(args) {
-	                removeSuccess();
-	                removeFailed();
-	                reject(args);
-	            });
-
-	            me.triggerAsync.apply(me, args);
-	        });
-
-	        return promise;
-	    },
-	};
-
-
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * A module of methods that you want to include in all stores.
-	 * This module is consumed by `createStore`.
-	 */
-	module.exports = {
-	};
-
-
-/***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199),
-	    Reflux = __webpack_require__(139),
-	    Keep = __webpack_require__(200),
-	    allowed = {preEmit:1,shouldEmit:1};
-
-	/**
-	 * Creates an action functor object. It is mixed in with functions
-	 * from the `PublisherMethods` mixin. `preEmit` and `shouldEmit` may
-	 * be overridden in the definition object.
-	 *
-	 * @param {Object} definition The action object definition
-	 */
-	var createAction = function(definition) {
-
-	    definition = definition || {};
-	    if (!_.isObject(definition)){
-	        definition = {actionName: definition};
-	    }
-
-	    for(var a in Reflux.ActionMethods){
-	        if (!allowed[a] && Reflux.PublisherMethods[a]) {
-	            throw new Error("Cannot override API method " + a +
-	                " in Reflux.ActionMethods. Use another method name or override it on Reflux.PublisherMethods instead."
-	            );
-	        }
-	    }
-
-	    for(var d in definition){
-	        if (!allowed[d] && Reflux.PublisherMethods[d]) {
-	            throw new Error("Cannot override API method " + d +
-	                " in action creation. Use another method name or override it on Reflux.PublisherMethods instead."
-	            );
-	        }
-	    }
-
-	    definition.children = definition.children || [];
-	    if (definition.asyncResult){
-	        definition.children = definition.children.concat(["completed","failed"]);
-	    }
-
-	    var i = 0, childActions = {};
-	    for (; i < definition.children.length; i++) {
-	        var name = definition.children[i];
-	        childActions[name] = createAction(name);
-	    }
-
-	    var context = _.extend({
-	        eventLabel: "action",
-	        emitter: new _.EventEmitter(),
-	        _isAction: true
-	    }, Reflux.PublisherMethods, Reflux.ActionMethods, definition);
-
-	    var functor = function() {
-	        functor[functor.sync?"trigger":"triggerAsync"].apply(functor, arguments);
-	    };
-
-	    _.extend(functor,childActions,context);
-
-	    Keep.createdActions.push(functor);
-
-	    return functor;
-
-	};
-
-	module.exports = createAction;
-
-
-/***/ },
-/* 192 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199),
-	    Reflux = __webpack_require__(139),
-	    Keep = __webpack_require__(200),
-	    mixer = __webpack_require__(209),
-	    allowed = {preEmit:1,shouldEmit:1},
-	    bindMethods = __webpack_require__(210);
-
-	/**
-	 * Creates an event emitting Data Store. It is mixed in with functions
-	 * from the `ListenerMethods` and `PublisherMethods` mixins. `preEmit`
-	 * and `shouldEmit` may be overridden in the definition object.
-	 *
-	 * @param {Object} definition The data store object definition
-	 * @returns {Store} A data store instance
-	 */
-	module.exports = function(definition) {
-
-	    definition = definition || {};
-
-	    for(var a in Reflux.StoreMethods){
-	        if (!allowed[a] && (Reflux.PublisherMethods[a] || Reflux.ListenerMethods[a])){
-	            throw new Error("Cannot override API method " + a +
-	                " in Reflux.StoreMethods. Use another method name or override it on Reflux.PublisherMethods / Reflux.ListenerMethods instead."
-	            );
-	        }
-	    }
-
-	    for(var d in definition){
-	        if (!allowed[d] && (Reflux.PublisherMethods[d] || Reflux.ListenerMethods[d])){
-	            throw new Error("Cannot override API method " + d +
-	                " in store creation. Use another method name or override it on Reflux.PublisherMethods / Reflux.ListenerMethods instead."
-	            );
-	        }
-	    }
-
-	    definition = mixer(definition);
-
-	    function Store() {
-	        var i=0, arr;
-	        this.subscriptions = [];
-	        this.emitter = new _.EventEmitter();
-	        this.eventLabel = "change";
-	        bindMethods(this, definition);
-	        if (this.init && _.isFunction(this.init)) {
-	            this.init();
-	        }
-	        if (this.listenables){
-	            arr = [].concat(this.listenables);
-	            for(;i < arr.length;i++){
-	                this.listenToMany(arr[i]);
-	            }
-	        }
-	    }
-
-	    _.extend(Store.prototype, Reflux.ListenerMethods, Reflux.PublisherMethods, Reflux.StoreMethods, definition);
-
-	    var store = new Store();
-	    Keep.createdStores.push(store);
-
-	    return store;
-	};
-
-
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(139),
-	    _ = __webpack_require__(199);
-
-	module.exports = function(listenable,key){
-	    return {
-	        getInitialState: function(){
-	            if (!_.isFunction(listenable.getInitialState)) {
-	                return {};
-	            } else if (key === undefined) {
-	                return listenable.getInitialState();
-	            } else {
-	                return _.object([key],[listenable.getInitialState()]);
-	            }
-	        },
-	        componentDidMount: function(){
-	            _.extend(this,Reflux.ListenerMethods);
-	            var me = this, cb = (key === undefined ? this.setState : function(v){me.setState(_.object([key],[v]));});
-	            this.listenTo(listenable,cb);
-	        },
-	        componentWillUnmount: Reflux.ListenerMixin.componentWillUnmount
-	    };
-	};
-
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(139),
-	  _ = __webpack_require__(199);
-
-	module.exports = function(listenable, key, filterFunc) {
-	    filterFunc = _.isFunction(key) ? key : filterFunc;
-	    return {
-	        getInitialState: function() {
-	            if (!_.isFunction(listenable.getInitialState)) {
-	                return {};
-	            } else if (_.isFunction(key)) {
-	                return filterFunc.call(this, listenable.getInitialState());
-	            } else {
-	                // Filter initial payload from store.
-	                var result = filterFunc.call(this, listenable.getInitialState());
-	                if (result) {
-	                  return _.object([key], [result]);
-	                } else {
-	                  return {};
-	                }
-	            }
-	        },
-	        componentDidMount: function() {
-	            _.extend(this, Reflux.ListenerMethods);
-	            var me = this;
-	            var cb = function(value) {
-	                if (_.isFunction(key)) {
-	                    me.setState(filterFunc.call(me, value));
-	                } else {
-	                    var result = filterFunc.call(me, value);
-	                    me.setState(_.object([key], [result]));
-	                }
-	            };
-
-	            this.listenTo(listenable, cb);
-	        },
-	        componentWillUnmount: Reflux.ListenerMixin.componentWillUnmount
-	    };
-	};
-
-
-
-/***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199),
-	    ListenerMethods = __webpack_require__(188);
-
-	/**
-	 * A module meant to be consumed as a mixin by a React component. Supplies the methods from
-	 * `ListenerMethods` mixin and takes care of teardown of subscriptions.
-	 * Note that if you're using the `connect` mixin you don't need this mixin, as connect will
-	 * import everything this mixin contains!
-	 */
-	module.exports = _.extend({
-
-	    /**
-	     * Cleans up all listener previously registered.
-	     */
-	    componentWillUnmount: ListenerMethods.stopListeningToAll
-
-	}, ListenerMethods);
-
-
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(139);
-
-
-	/**
-	 * A mixin factory for a React component. Meant as a more convenient way of using the `ListenerMixin`,
-	 * without having to manually set listeners in the `componentDidMount` method.
-	 *
-	 * @param {Action|Store} listenable An Action or Store that should be
-	 *  listened to.
-	 * @param {Function|String} callback The callback to register as event handler
-	 * @param {Function|String} defaultCallback The callback to register as default handler
-	 * @returns {Object} An object to be used as a mixin, which sets up the listener for the given listenable.
-	 */
-	module.exports = function(listenable,callback,initial){
-	    return {
-	        /**
-	         * Set up the mixin before the initial rendering occurs. Import methods from `ListenerMethods`
-	         * and then make the call to `listenTo` with the arguments provided to the factory function
-	         */
-	        componentDidMount: function() {
-	            for(var m in Reflux.ListenerMethods){
-	                if (this[m] !== Reflux.ListenerMethods[m]){
-	                    if (this[m]){
-	                        throw "Can't have other property '"+m+"' when using Reflux.listenTo!";
-	                    }
-	                    this[m] = Reflux.ListenerMethods[m];
-	                }
-	            }
-	            this.listenTo(listenable,callback,initial);
-	        },
-	        /**
-	         * Cleans up all listener previously registered.
-	         */
-	        componentWillUnmount: Reflux.ListenerMethods.stopListeningToAll
-	    };
-	};
-
-
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(139);
-
-	/**
-	 * A mixin factory for a React component. Meant as a more convenient way of using the `listenerMixin`,
-	 * without having to manually set listeners in the `componentDidMount` method. This version is used
-	 * to automatically set up a `listenToMany` call.
-	 *
-	 * @param {Object} listenables An object of listenables
-	 * @returns {Object} An object to be used as a mixin, which sets up the listeners for the given listenables.
-	 */
-	module.exports = function(listenables){
-	    return {
-	        /**
-	         * Set up the mixin before the initial rendering occurs. Import methods from `ListenerMethods`
-	         * and then make the call to `listenTo` with the arguments provided to the factory function
-	         */
-	        componentDidMount: function() {
-	            for(var m in Reflux.ListenerMethods){
-	                if (this[m] !== Reflux.ListenerMethods[m]){
-	                    if (this[m]){
-	                        throw "Can't have other property '"+m+"' when using Reflux.listenToMany!";
-	                    }
-	                    this[m] = Reflux.ListenerMethods[m];
-	                }
-	            }
-	            this.listenToMany(listenables);
-	        },
-	        /**
-	         * Cleans up all listener previously registered.
-	         */
-	        componentWillUnmount: Reflux.ListenerMethods.stopListeningToAll
-	    };
-	};
-
-
-/***/ },
-/* 198 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Internal module used to create static and instance join methods
-	 */
-
-	var slice = Array.prototype.slice,
-	    _ = __webpack_require__(199),
-	    createStore = __webpack_require__(192),
-	    strategyMethodNames = {
-	        strict: "joinStrict",
-	        first: "joinLeading",
-	        last: "joinTrailing",
-	        all: "joinConcat"
-	    };
-
-	/**
-	 * Used in `index.js` to create the static join methods
-	 * @param {String} strategy Which strategy to use when tracking listenable trigger arguments
-	 * @returns {Function} A static function which returns a store with a join listen on the given listenables using the given strategy
-	 */
-	exports.staticJoinCreator = function(strategy){
-	    return function(/* listenables... */) {
-	        var listenables = slice.call(arguments);
-	        return createStore({
-	            init: function(){
-	                this[strategyMethodNames[strategy]].apply(this,listenables.concat("triggerAsync"));
-	            }
-	        });
-	    };
-	};
-
-	/**
-	 * Used in `ListenerMethods.js` to create the instance join methods
-	 * @param {String} strategy Which strategy to use when tracking listenable trigger arguments
-	 * @returns {Function} An instance method which sets up a join listen on the given listenables using the given strategy
-	 */
-	exports.instanceJoinCreator = function(strategy){
-	    return function(/* listenables..., callback*/){
-	        _.throwIf(arguments.length < 3,'Cannot create a join with less than 2 listenables!');
-	        var listenables = slice.call(arguments),
-	            callback = listenables.pop(),
-	            numberOfListenables = listenables.length,
-	            join = {
-	                numberOfListenables: numberOfListenables,
-	                callback: this[callback]||callback,
-	                listener: this,
-	                strategy: strategy
-	            }, i, cancels = [], subobj;
-	        for (i = 0; i < numberOfListenables; i++) {
-	            _.throwIf(this.validateListening(listenables[i]));
-	        }
-	        for (i = 0; i < numberOfListenables; i++) {
-	            cancels.push(listenables[i].listen(newListener(i,join),this));
-	        }
-	        reset(join);
-	        subobj = {listenable: listenables};
-	        subobj.stop = makeStopper(subobj,cancels,this);
-	        this.subscriptions = (this.subscriptions || []).concat(subobj);
-	        return subobj;
-	    };
-	};
-
-	// ---- internal join functions ----
-
-	function makeStopper(subobj,cancels,context){
-	    return function() {
-	        var i, subs = context.subscriptions,
-	            index = (subs ? subs.indexOf(subobj) : -1);
-	        _.throwIf(index === -1,'Tried to remove join already gone from subscriptions list!');
-	        for(i=0;i < cancels.length; i++){
-	            cancels[i]();
-	        }
-	        subs.splice(index, 1);
-	    };
-	}
-
-	function reset(join) {
-	    join.listenablesEmitted = new Array(join.numberOfListenables);
-	    join.args = new Array(join.numberOfListenables);
-	}
-
-	function newListener(i,join) {
-	    return function() {
-	        var callargs = slice.call(arguments);
-	        if (join.listenablesEmitted[i]){
-	            switch(join.strategy){
-	                case "strict": throw new Error("Strict join failed because listener triggered twice.");
-	                case "last": join.args[i] = callargs; break;
-	                case "all": join.args[i].push(callargs);
-	            }
-	        } else {
-	            join.listenablesEmitted[i] = true;
-	            join.args[i] = (join.strategy==="all"?[callargs]:callargs);
-	        }
-	        emitIfAllListenablesEmitted(join);
-	    };
-	}
-
-	function emitIfAllListenablesEmitted(join) {
-	    for (var i = 0; i < join.numberOfListenables; i++) {
-	        if (!join.listenablesEmitted[i]) {
-	            return;
-	        }
-	    }
-	    join.callback.apply(join.listener,join.args);
-	    reset(join);
-	}
-
-
-/***/ },
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-	 * isObject, extend, isFunction, isArguments are taken from undescore/lodash in
-	 * order to remove the dependency
-	 */
-	var isObject = exports.isObject = function(obj) {
-	    var type = typeof obj;
-	    return type === 'function' || type === 'object' && !!obj;
-	};
-
-	exports.extend = function(obj) {
-	    if (!isObject(obj)) {
-	        return obj;
-	    }
-	    var source, prop;
-	    for (var i = 1, length = arguments.length; i < length; i++) {
-	        source = arguments[i];
-	        for (prop in source) {
-	            obj[prop] = source[prop];
-	        }
-	    }
-	    return obj;
-	};
-
-	exports.isFunction = function(value) {
-	    return typeof value === 'function';
-	};
-
-	exports.EventEmitter = __webpack_require__(213);
-
-	exports.nextTick = function(callback) {
-	    setTimeout(callback, 0);
-	};
-
-	exports.capitalize = function(string){
-	    return string.charAt(0).toUpperCase()+string.slice(1);
-	};
-
-	exports.callbackName = function(string){
-	    return "on"+exports.capitalize(string);
-	};
-
-	exports.object = function(keys,vals){
-	    var o={}, i=0;
-	    for(;i<keys.length;i++){
-	        o[keys[i]] = vals[i];
-	    }
-	    return o;
-	};
-
-	exports.Promise = __webpack_require__(340);
-
-	exports.createPromise = function(resolver) {
-	    return new exports.Promise(resolver);
-	};
-
-	exports.isArguments = function(value) {
-	    return typeof value === 'object' && ('callee' in value) && typeof value.length === 'number';
-	};
-
-	exports.throwIf = function(val,msg){
-	    if (val){
-	        throw Error(msg||val);
-	    }
-	};
-
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports.createdStores = [];
-
-	exports.createdActions = [];
-
-	exports.reset = function() {
-	    while(exports.createdStores.length) {
-	        exports.createdStores.pop();
-	    }
-	    while(exports.createdActions.length) {
-	        exports.createdActions.pop();
-	    }
-	};
-
-
-/***/ },
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
 /* 201 */,
 /* 202 */,
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */,
-/* 207 */,
-/* 208 */,
-/* 209 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _ = __webpack_require__(199);
-
-	module.exports = function mix(def) {
-	    var composed = {
-	        init: [],
-	        preEmit: [],
-	        shouldEmit: []
-	    };
-
-	    var updated = (function mixDef(mixin) {
-	        var mixed = {};
-	        if (mixin.mixins) {
-	            mixin.mixins.forEach(function (subMixin) {
-	                _.extend(mixed, mixDef(subMixin));
-	            });
-	        }
-	        _.extend(mixed, mixin);
-	        Object.keys(composed).forEach(function (composable) {
-	            if (mixin.hasOwnProperty(composable)) {
-	                composed[composable].push(mixin[composable]);
-	            }
-	        });
-	        return mixed;
-	    }(def));
-
-	    if (composed.init.length > 1) {
-	        updated.init = function () {
-	            var args = arguments;
-	            composed.init.forEach(function (init) {
-	                init.apply(this, args);
-	            }, this);
-	        };
-	    }
-	    if (composed.preEmit.length > 1) {
-	        updated.preEmit = function () {
-	            return composed.preEmit.reduce(function (args, preEmit) {
-	                var newValue = preEmit.apply(this, args);
-	                return newValue === undefined ? args : [newValue];
-	            }.bind(this), arguments);
-	        };
-	    }
-	    if (composed.shouldEmit.length > 1) {
-	        updated.shouldEmit = function () {
-	            var args = arguments;
-	            return !composed.shouldEmit.some(function (shouldEmit) {
-	                return !shouldEmit.apply(this, args);
-	            }, this);
-	        };
-	    }
-	    Object.keys(composed).forEach(function (composable) {
-	        if (composed[composable].length === 1) {
-	            updated[composable] = composed[composable][0];
-	        }
-	    });
-
-	    return updated;
-	};
-
-
-/***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = function(store, definition) {
-	  for (var name in definition) {
-	    var property = definition[name];
-
-	    if (typeof property !== 'function' || !definition.hasOwnProperty(name)) {
-	      continue;
-	    }
-
-	    store[name] = property.bind(store);
-	  }
-
-	  return store;
-	};
-
-
-/***/ },
-/* 211 */,
-/* 212 */,
-/* 213 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/**
-	 * Representation of a single EventEmitter function.
-	 *
-	 * @param {Function} fn Event handler to be called.
-	 * @param {Mixed} context Context for function execution.
-	 * @param {Boolean} once Only emit once
-	 * @api private
-	 */
-	function EE(fn, context, once) {
-	  this.fn = fn;
-	  this.context = context;
-	  this.once = once || false;
-	}
-
-	/**
-	 * Minimal EventEmitter interface that is molded against the Node.js
-	 * EventEmitter interface.
-	 *
-	 * @constructor
-	 * @api public
-	 */
-	function EventEmitter() { /* Nothing to set */ }
-
-	/**
-	 * Holds the assigned EventEmitters by name.
-	 *
-	 * @type {Object}
-	 * @private
-	 */
-	EventEmitter.prototype._events = undefined;
-
-	/**
-	 * Return a list of assigned event listeners.
-	 *
-	 * @param {String} event The events that should be listed.
-	 * @returns {Array}
-	 * @api public
-	 */
-	EventEmitter.prototype.listeners = function listeners(event) {
-	  if (!this._events || !this._events[event]) return [];
-	  if (this._events[event].fn) return [this._events[event].fn];
-
-	  for (var i = 0, l = this._events[event].length, ee = new Array(l); i < l; i++) {
-	    ee[i] = this._events[event][i].fn;
-	  }
-
-	  return ee;
-	};
-
-	/**
-	 * Emit an event to all registered event listeners.
-	 *
-	 * @param {String} event The name of the event.
-	 * @returns {Boolean} Indication if we've emitted an event.
-	 * @api public
-	 */
-	EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
-	  if (!this._events || !this._events[event]) return false;
-
-	  var listeners = this._events[event]
-	    , len = arguments.length
-	    , args
-	    , i;
-
-	  if ('function' === typeof listeners.fn) {
-	    if (listeners.once) this.removeListener(event, listeners.fn, true);
-
-	    switch (len) {
-	      case 1: return listeners.fn.call(listeners.context), true;
-	      case 2: return listeners.fn.call(listeners.context, a1), true;
-	      case 3: return listeners.fn.call(listeners.context, a1, a2), true;
-	      case 4: return listeners.fn.call(listeners.context, a1, a2, a3), true;
-	      case 5: return listeners.fn.call(listeners.context, a1, a2, a3, a4), true;
-	      case 6: return listeners.fn.call(listeners.context, a1, a2, a3, a4, a5), true;
-	    }
-
-	    for (i = 1, args = new Array(len -1); i < len; i++) {
-	      args[i - 1] = arguments[i];
-	    }
-
-	    listeners.fn.apply(listeners.context, args);
-	  } else {
-	    var length = listeners.length
-	      , j;
-
-	    for (i = 0; i < length; i++) {
-	      if (listeners[i].once) this.removeListener(event, listeners[i].fn, true);
-
-	      switch (len) {
-	        case 1: listeners[i].fn.call(listeners[i].context); break;
-	        case 2: listeners[i].fn.call(listeners[i].context, a1); break;
-	        case 3: listeners[i].fn.call(listeners[i].context, a1, a2); break;
-	        default:
-	          if (!args) for (j = 1, args = new Array(len -1); j < len; j++) {
-	            args[j - 1] = arguments[j];
-	          }
-
-	          listeners[i].fn.apply(listeners[i].context, args);
-	      }
-	    }
-	  }
-
-	  return true;
-	};
-
-	/**
-	 * Register a new EventListener for the given event.
-	 *
-	 * @param {String} event Name of the event.
-	 * @param {Functon} fn Callback function.
-	 * @param {Mixed} context The context of the function.
-	 * @api public
-	 */
-	EventEmitter.prototype.on = function on(event, fn, context) {
-	  var listener = new EE(fn, context || this);
-
-	  if (!this._events) this._events = {};
-	  if (!this._events[event]) this._events[event] = listener;
-	  else {
-	    if (!this._events[event].fn) this._events[event].push(listener);
-	    else this._events[event] = [
-	      this._events[event], listener
-	    ];
-	  }
-
-	  return this;
-	};
-
-	/**
-	 * Add an EventListener that's only called once.
-	 *
-	 * @param {String} event Name of the event.
-	 * @param {Function} fn Callback function.
-	 * @param {Mixed} context The context of the function.
-	 * @api public
-	 */
-	EventEmitter.prototype.once = function once(event, fn, context) {
-	  var listener = new EE(fn, context || this, true);
-
-	  if (!this._events) this._events = {};
-	  if (!this._events[event]) this._events[event] = listener;
-	  else {
-	    if (!this._events[event].fn) this._events[event].push(listener);
-	    else this._events[event] = [
-	      this._events[event], listener
-	    ];
-	  }
-
-	  return this;
-	};
-
-	/**
-	 * Remove event listeners.
-	 *
-	 * @param {String} event The event we want to remove.
-	 * @param {Function} fn The listener that we need to find.
-	 * @param {Boolean} once Only remove once listeners.
-	 * @api public
-	 */
-	EventEmitter.prototype.removeListener = function removeListener(event, fn, once) {
-	  if (!this._events || !this._events[event]) return this;
-
-	  var listeners = this._events[event]
-	    , events = [];
-
-	  if (fn) {
-	    if (listeners.fn && (listeners.fn !== fn || (once && !listeners.once))) {
-	      events.push(listeners);
-	    }
-	    if (!listeners.fn) for (var i = 0, length = listeners.length; i < length; i++) {
-	      if (listeners[i].fn !== fn || (once && !listeners[i].once)) {
-	        events.push(listeners[i]);
-	      }
-	    }
-	  }
-
-	  //
-	  // Reset the array, or remove it completely if we have no more listeners.
-	  //
-	  if (events.length) {
-	    this._events[event] = events.length === 1 ? events[0] : events;
-	  } else {
-	    delete this._events[event];
-	  }
-
-	  return this;
-	};
-
-	/**
-	 * Remove all listeners or only the listeners for the specified event.
-	 *
-	 * @param {String} event The event want to remove all listeners for.
-	 * @api public
-	 */
-	EventEmitter.prototype.removeAllListeners = function removeAllListeners(event) {
-	  if (!this._events) return this;
-
-	  if (event) delete this._events[event];
-	  else this._events = {};
-
-	  return this;
-	};
-
-	//
-	// Alias methods names because people roll like that.
-	//
-	EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
-	EventEmitter.prototype.addListener = EventEmitter.prototype.on;
-
-	//
-	// This function doesn't apply anymore.
-	//
-	EventEmitter.prototype.setMaxListeners = function setMaxListeners() {
-	  return this;
-	};
-
-	//
-	// Expose the module.
-	//
-	EventEmitter.EventEmitter = EventEmitter;
-	EventEmitter.EventEmitter2 = EventEmitter;
-	EventEmitter.EventEmitter3 = EventEmitter;
-
-	//
-	// Expose the module.
-	//
-	module.exports = EventEmitter;
-
-
-/***/ },
-/* 214 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b629d353eb5d9a2da8058d84d2951400.jpg"
 
 /***/ },
-/* 215 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "35a15f04a200f0a8f34a460f93887d44.jpg"
 
 /***/ },
-/* 216 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c2281292c0e88f09bb4879c956a736cd.jpg"
 
 /***/ },
-/* 217 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "592bbd49a87f6b535657beb83e57593b.jpg"
 
 /***/ },
-/* 218 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "47da6b56bde4d227b20ad03043c9d5f1.jpg"
 
 /***/ },
-/* 219 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "8c9c35c937946957c2b82d3e25e05988.jpg"
 
 /***/ },
-/* 220 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "04c1ae101b8af01155632d1ba44152c4.jpg"
 
 /***/ },
-/* 221 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "f25f8bb5142cb454a388cc86f45bab22.jpg"
 
 /***/ },
-/* 222 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7b57798238651a83d4c1a8554c28343d.jpg"
 
 /***/ },
-/* 223 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e58fbc40bafe5f171bfc8062570aca3c.jpg"
 
 /***/ },
-/* 224 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "77d4daf0b30c3ce3224d981cdd592ef5.jpg"
 
 /***/ },
-/* 225 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "72636fbde5e77b64fb70dfe489c19e56.jpg"
 
 /***/ },
-/* 226 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "427be89296f5e1ba8006704694a54e13.jpg"
 
 /***/ },
-/* 227 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "387342e1dc75bdc7ce45b83d2c10cf4d.jpg"
 
 /***/ },
-/* 228 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e08f5e57b4ea82ddcc663b6a6dd8b920.jpg"
 
 /***/ },
-/* 229 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ffa179fc1630c306045cca50aa595726.jpg"
 
 /***/ },
-/* 230 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "897b2f3b291f3dff1fff6e4afe5367d7.jpg"
 
 /***/ },
-/* 231 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d7d1238cf93e76dbad9087044c8cb534.jpg"
 
 /***/ },
-/* 232 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ba13481333b3b77856c1edc8c255c296.jpg"
 
 /***/ },
-/* 233 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "4170c7ede5782fd0bb68c60548c9b4f2.jpg"
 
 /***/ },
-/* 234 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "de5dc17b5795657d3860f0b33340a386.jpg"
 
 /***/ },
-/* 235 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "02b2c851f58d12b1d1f7aa834437328b.jpg"
 
 /***/ },
-/* 236 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d6df4d6775e2b41b744ad86d092acf1d.jpg"
 
 /***/ },
-/* 237 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "86ac194f42ef0328f92ab339c53ea0b7.jpg"
 
 /***/ },
-/* 238 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "a31aef956a4ace1560b1cc827862a009.jpg"
 
 /***/ },
-/* 239 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "5aad5e2a5732683e2b21d17c9dd90ada.jpg"
 
 /***/ },
-/* 240 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "79c0fe1238391fbbcf3a25a3cd0b69bc.jpg"
 
 /***/ },
-/* 241 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "4027c396b1407793b9861ebf6c84d942.jpg"
 
 /***/ },
-/* 242 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c275ed348f330297aae32050824a2ce9.jpg"
 
 /***/ },
-/* 243 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ba6f062aeb863f4634cddac2440ef9da.jpg"
 
 /***/ },
-/* 244 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e40d7adb08fe914958f49abf2e94e631.jpg"
 
 /***/ },
-/* 245 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "40d09867d10b502daba60a4ec20f4ecf.jpg"
 
 /***/ },
-/* 246 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "0caa674c86f24b9f98cbc8175df8c36b.jpg"
 
 /***/ },
-/* 247 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "17f5b8f2fb6697b51bdfae65e8556d94.jpg"
 
 /***/ },
-/* 248 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7a174a81d1e35ef4cbd6c6f8e3d9854c.jpg"
 
 /***/ },
-/* 249 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e76a15c2b45f077eb7ccb636fab7e7b3.jpg"
 
 /***/ },
-/* 250 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dc0be9373b32b7265f28eef8c3283bfe.jpg"
 
 /***/ },
-/* 251 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d3b6b40af28a995cc3677fdb5346d3fa.jpg"
 
 /***/ },
-/* 252 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b3bf86477419c5d2178e4bf7aa25dc38.jpg"
 
 /***/ },
-/* 253 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "bcca0412724c88a3005adedac85efe30.jpg"
 
 /***/ },
-/* 254 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "0ffaa2ccef6577c6adc3ee1b69c2cd40.jpg"
 
 /***/ },
-/* 255 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c99dd5f76ec30cf8b748978f41e6ace6.jpg"
 
 /***/ },
-/* 256 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "d9cffe446306ac86b9be1816a75ce372.jpg"
 
 /***/ },
-/* 257 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7247b3042d32b5b5dae774add1970038.jpg"
 
 /***/ },
-/* 258 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "f49c8bd945f46518bec34ba82335bdc6.jpg"
 
 /***/ },
-/* 259 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "43f4fa0303fc222dea3293e681954d44.jpg"
 
 /***/ },
-/* 260 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6392f30989408e444364476a401d1882.jpg"
 
 /***/ },
-/* 261 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "90e38594d4f6375065ec4e0c391368b1.jpg"
 
 /***/ },
-/* 262 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9fd2c7c4d143ff0dfa1fdb57b505a41a.jpg"
 
 /***/ },
-/* 263 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "04cce7b3719f42e717053874607e1753.jpg"
 
 /***/ },
-/* 264 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "791f5e4b705025fc709a5f0f5ce99ab4.jpg"
 
 /***/ },
-/* 265 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "16acad9a0fecf8fcb8e45258116f5274.jpg"
 
 /***/ },
-/* 266 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6194ff6a5c127703a5ddcebcb9ecbb58.jpg"
 
 /***/ },
-/* 267 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "2cdaa5d4023b6ce67572601e1dcfbab5.jpg"
 
 /***/ },
-/* 268 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "65bb25d105e734a02b2d75d7aa77f151.jpg"
 
 /***/ },
-/* 269 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7f2fedcc750ed1082722792320823090.jpg"
 
 /***/ },
-/* 270 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ea4f29bf5de1d08b8a21de50f99872e1.jpg"
 
 /***/ },
-/* 271 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "4ad7e713e53c99211c498fd95bf35f77.jpg"
 
 /***/ },
-/* 272 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c88c848ed40aaade2c617238fdeef1de.jpg"
 
 /***/ },
-/* 273 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "869beff7f15130e46447364744405f53.jpg"
 
 /***/ },
-/* 274 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e0a9c4bd5a0f4bd97430920b2eac2337.jpg"
 
 /***/ },
-/* 275 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7c45a899c579b85e65633295654d0713.jpg"
 
 /***/ },
-/* 276 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "746ab31d0da3495dc4b22bcfe0f9d690.jpg"
 
 /***/ },
-/* 277 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "a6fbcad1959b2e4300b78e4602091798.jpg"
 
 /***/ },
-/* 278 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c55f44c56a725f7da997c5f892cae4fd.jpg"
 
 /***/ },
-/* 279 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "21e97b9a8f95a050c57bf35fdb856161.jpg"
 
 /***/ },
-/* 280 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "74c5430e9eb6d167e57bb1a2c84963ec.jpg"
 
 /***/ },
-/* 281 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "22688915bdd1e19504ef9741b4b2cf54.jpg"
 
 /***/ },
-/* 282 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c7cb2732441558027ef53da6200a73e5.jpg"
 
 /***/ },
-/* 283 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "1591e3ad75e923b780e514db0133bddc.jpg"
 
 /***/ },
-/* 284 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e980cb6d7795edf3b1459a83c87605f8.jpg"
 
 /***/ },
-/* 285 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "31f80ad8eab29ed10e56fc4ddd0fd222.jpg"
 
 /***/ },
-/* 286 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "0d7affadfcd3d1ac91c9f4997d01c59e.jpg"
 
 /***/ },
-/* 287 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6f636b0215a66e1af7c28744da8cc227.jpg"
 
 /***/ },
-/* 288 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "892aff422ace15fa34b732617bd6f530.jpg"
 
 /***/ },
-/* 289 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "2fff0536cf6061d7870bb9102c6b5dc8.jpg"
 
 /***/ },
-/* 290 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "2a91470d94cf966efd72567c990cb584.jpg"
 
 /***/ },
-/* 291 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6d0b462f68897e758120e083dbb90ca3.jpg"
 
 /***/ },
-/* 292 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "a7ecd336b65b823d4a5ae2c615b8e956.jpg"
 
 /***/ },
-/* 293 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "8f9e2b067f2c67e5d8b1cd26812944f8.jpg"
 
 /***/ },
-/* 294 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e13c3a582114d8be0fce30b3b00c990b.jpg"
 
 /***/ },
-/* 295 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "742c3b36acd7cd238e9892214c9bb7f8.jpg"
 
 /***/ },
-/* 296 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "285920d3c5c22f02cd7e2a49672f8f81.jpg"
 
 /***/ },
-/* 297 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "a52a1f2bf0a735f39c65389ef3212846.jpg"
 
 /***/ },
-/* 298 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "64238f246e404e25f520b3c59247fdf6.jpg"
 
 /***/ },
-/* 299 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "946485c6bf7bc6056bdc90febb74e925.jpg"
 
 /***/ },
-/* 300 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "5becd386d2267fa81b3600c35b5a10a2.jpg"
 
 /***/ },
-/* 301 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "f79e69a8d1bd96e7da19b3a006196397.jpg"
 
 /***/ },
-/* 302 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "86baba823d80356c83dde6915965341b.jpg"
 
 /***/ },
-/* 303 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "dfbfbbda92a65a5bf9456731220ee977.jpg"
 
 /***/ },
-/* 304 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "e87eb6a4566eeab6ea2933a8c65e383a.jpg"
 
 /***/ },
-/* 305 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "91b5fab97c794a65acf748a7fede8988.jpg"
 
 /***/ },
-/* 306 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "69cbd84e650abd8aa7968f3c562b5ed0.jpg"
 
 /***/ },
-/* 307 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "18751d08bbd4ebba27c2a277e18eebd0.jpg"
 
 /***/ },
-/* 308 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "24949f88be5608c92c781d93378554e1.jpg"
 
 /***/ },
-/* 309 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ca68dcf9679f899f5f8cdf49c2c6607b.jpg"
 
 /***/ },
-/* 310 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9b78e1d6c5f8697ac17ce7c773add3ad.jpg"
 
 /***/ },
-/* 311 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "bd081a0348f510ae312832dee8f37b90.jpg"
 
 /***/ },
-/* 312 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "12cf483bcf5bee066564ff97c7fb257a.jpg"
 
 /***/ },
-/* 313 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "3faab92c97076239538537e9e49beb5d.jpg"
 
 /***/ },
-/* 314 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9fdb302fd7e7dd974b3daaf695016a7b.jpg"
 
 /***/ },
-/* 315 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "ae3e343949186e7226e2b215e7f4d029.jpg"
 
 /***/ },
-/* 316 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "3819a8078a72fb97c9e11e7b68f5326a.jpg"
 
 /***/ },
-/* 317 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "bcc9451a97743f46cec7d43c4470d19d.jpg"
 
 /***/ },
-/* 318 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "728e06af197953e967638844fef736ed.jpg"
 
 /***/ },
-/* 319 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "004b7b28d2672bf879f116afcc5dcf26.jpg"
 
 /***/ },
-/* 320 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "46ae9b9d2747107454e47ee68a40272a.jpg"
 
 /***/ },
-/* 321 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "93f3df6e46ec1429caf03e5511527f70.jpg"
 
 /***/ },
-/* 322 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "8d5f176e3e4d7c833cfe9dfc727d2807.jpg"
 
 /***/ },
-/* 323 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "41ea4d715f4dfe6a0bd335241d858832.jpg"
 
 /***/ },
-/* 324 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "58f328e55a8b79769d481ffa4d298ba3.jpg"
 
 /***/ },
-/* 325 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9609fbfb504d8ae2c90224c292a4756f.jpg"
 
 /***/ },
-/* 326 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "de7666fd838b4c40c7e99a4bb23dcbad.jpg"
 
 /***/ },
-/* 327 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "a7bbcf92cc95b9b0a75dd9ddace4ccce.jpg"
 
 /***/ },
-/* 328 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "abb1e0631f94c7abbe7024b7a4b086bd.jpg"
 
 /***/ },
-/* 329 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "1f75e452c2fe6a55be77d91cb8f56450.jpg"
 
 /***/ },
-/* 330 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9ca171dec9d46cd170865c2576a9cbb5.jpg"
 
 /***/ },
-/* 331 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "8ab6f1e00a4beadcbd1be12ef0226244.jpg"
 
 /***/ },
-/* 332 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "2ec9bbc10ebebb9468d76f7a209f5dca.jpg"
 
 /***/ },
-/* 333 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "74948993bc76c52a5bc583e9e9d1cf3b.jpg"
 
 /***/ },
-/* 334 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "9794c34835a0f8dd33db44103f6744bd.jpg"
 
 /***/ },
-/* 335 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6dbbe06046faf07c9ec2f9e64ef26a08.jpg"
 
 /***/ },
-/* 336 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7a659a848c98b33976f77e4684154aa1.jpg"
 
 /***/ },
-/* 337 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "5a87c685b414a7be666e0f07b96b13f0.jpg"
 
 /***/ },
-/* 338 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "474aeadd09e3b92f02f447aef9018596.jpg"
 
 /***/ },
-/* 339 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "43f4902ec8da03aed4e5af7f592c1449.jpg"
-
-/***/ },
-/* 340 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*! Native Promise Only
-	    v0.7.6-a (c) Kyle Simpson
-	    MIT License: http://getify.mit-license.org
-	*/
-	!function(t,n,e){n[t]=n[t]||e(),"undefined"!=typeof module&&module.exports?module.exports=n[t]:"function"=="function"&&__webpack_require__(343)&&!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return n[t]}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))}("Promise","undefined"!=typeof global?global:this,function(){"use strict";function t(t,n){l.add(t,n),h||(h=y(l.drain))}function n(t){var n,e=typeof t;return null==t||"object"!=e&&"function"!=e||(n=t.then),"function"==typeof n?n:!1}function e(){for(var t=0;t<this.chain.length;t++)o(this,1===this.state?this.chain[t].success:this.chain[t].failure,this.chain[t]);this.chain.length=0}function o(t,e,o){var r,i;try{e===!1?o.reject(t.msg):(r=e===!0?t.msg:e.call(void 0,t.msg),r===o.promise?o.reject(TypeError("Promise-chain cycle")):(i=n(r))?i.call(r,o.resolve,o.reject):o.resolve(r))}catch(c){o.reject(c)}}function r(o){var c,u,a=this;if(!a.triggered){a.triggered=!0,a.def&&(a=a.def);try{(c=n(o))?(u=new f(a),c.call(o,function(){r.apply(u,arguments)},function(){i.apply(u,arguments)})):(a.msg=o,a.state=1,a.chain.length>0&&t(e,a))}catch(s){i.call(u||new f(a),s)}}}function i(n){var o=this;o.triggered||(o.triggered=!0,o.def&&(o=o.def),o.msg=n,o.state=2,o.chain.length>0&&t(e,o))}function c(t,n,e,o){for(var r=0;r<n.length;r++)!function(r){t.resolve(n[r]).then(function(t){e(r,t)},o)}(r)}function f(t){this.def=t,this.triggered=!1}function u(t){this.promise=t,this.state=0,this.triggered=!1,this.chain=[],this.msg=void 0}function a(n){if("function"!=typeof n)throw TypeError("Not a function");if(0!==this.__NPO__)throw TypeError("Not a promise");this.__NPO__=1;var o=new u(this);this.then=function(n,r){var i={success:"function"==typeof n?n:!0,failure:"function"==typeof r?r:!1};return i.promise=new this.constructor(function(t,n){if("function"!=typeof t||"function"!=typeof n)throw TypeError("Not a function");i.resolve=t,i.reject=n}),o.chain.push(i),0!==o.state&&t(e,o),i.promise},this["catch"]=function(t){return this.then(void 0,t)};try{n.call(void 0,function(t){r.call(o,t)},function(t){i.call(o,t)})}catch(c){i.call(o,c)}}var s,h,l,p=Object.prototype.toString,y="undefined"!=typeof setImmediate?function(t){return setImmediate(t)}:setTimeout;try{Object.defineProperty({},"x",{}),s=function(t,n,e,o){return Object.defineProperty(t,n,{value:e,writable:!0,configurable:o!==!1})}}catch(d){s=function(t,n,e){return t[n]=e,t}}l=function(){function t(t,n){this.fn=t,this.self=n,this.next=void 0}var n,e,o;return{add:function(r,i){o=new t(r,i),e?e.next=o:n=o,e=o,o=void 0},drain:function(){var t=n;for(n=e=h=void 0;t;)t.fn.call(t.self),t=t.next}}}();var g=s({},"constructor",a,!1);return s(a,"prototype",g,!1),s(g,"__NPO__",0,!1),s(a,"resolve",function(t){var n=this;return t&&"object"==typeof t&&1===t.__NPO__?t:new n(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");n(t)})}),s(a,"reject",function(t){return new this(function(n,e){if("function"!=typeof n||"function"!=typeof e)throw TypeError("Not a function");e(t)})}),s(a,"all",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):0===t.length?n.resolve([]):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");var r=t.length,i=Array(r),f=0;c(n,t,function(t,n){i[t]=n,++f===r&&e(i)},o)})}),s(a,"race",function(t){var n=this;return"[object Array]"!=p.call(t)?n.reject(TypeError("Not an array")):new n(function(e,o){if("function"!=typeof e||"function"!=typeof o)throw TypeError("Not a function");c(n,t,function(t,n){e(n)},o)})}),a});
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(345).setImmediate))
-
-/***/ },
-/* 341 */,
-/* 342 */,
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, {}))
-
-/***/ },
-/* 344 */,
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {var nextTick = __webpack_require__(347).nextTick;
-	var apply = Function.prototype.apply;
-	var slice = Array.prototype.slice;
-	var immediateIds = {};
-	var nextImmediateId = 0;
-
-	// DOM APIs, for completeness
-
-	exports.setTimeout = function() {
-	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-	};
-	exports.setInterval = function() {
-	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-	};
-	exports.clearTimeout =
-	exports.clearInterval = function(timeout) { timeout.close(); };
-
-	function Timeout(id, clearFn) {
-	  this._id = id;
-	  this._clearFn = clearFn;
-	}
-	Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-	Timeout.prototype.close = function() {
-	  this._clearFn.call(window, this._id);
-	};
-
-	// Does not start the time, just sets up the members needed.
-	exports.enroll = function(item, msecs) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = msecs;
-	};
-
-	exports.unenroll = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-	  item._idleTimeout = -1;
-	};
-
-	exports._unrefActive = exports.active = function(item) {
-	  clearTimeout(item._idleTimeoutId);
-
-	  var msecs = item._idleTimeout;
-	  if (msecs >= 0) {
-	    item._idleTimeoutId = setTimeout(function onTimeout() {
-	      if (item._onTimeout)
-	        item._onTimeout();
-	    }, msecs);
-	  }
-	};
-
-	// That's not how node.js implements it but the exposed api is the same.
-	exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function(fn) {
-	  var id = nextImmediateId++;
-	  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
-
-	  immediateIds[id] = true;
-
-	  nextTick(function onNextTick() {
-	    if (immediateIds[id]) {
-	      // fn.call() is faster so we optimize for the common use-case
-	      // @see http://jsperf.com/call-apply-segu
-	      if (args) {
-	        fn.apply(null, args);
-	      } else {
-	        fn.call(null);
-	      }
-	      // Prevent ids from leaking
-	      exports.clearImmediate(id);
-	    }
-	  });
-
-	  return id;
-	};
-
-	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
-	  delete immediateIds[id];
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(345).setImmediate, __webpack_require__(345).clearImmediate))
-
-/***/ },
-/* 346 */,
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// shim for using process in browser
-
-	var process = module.exports = {};
-	var queue = [];
-	var draining = false;
-
-	function drainQueue() {
-	    if (draining) {
-	        return;
-	    }
-	    draining = true;
-	    var currentQueue;
-	    var len = queue.length;
-	    while(len) {
-	        currentQueue = queue;
-	        queue = [];
-	        var i = -1;
-	        while (++i < len) {
-	            currentQueue[i]();
-	        }
-	        len = queue.length;
-	    }
-	    draining = false;
-	}
-	process.nextTick = function (fun) {
-	    queue.push(fun);
-	    if (!draining) {
-	        setTimeout(drainQueue, 0);
-	    }
-	};
-
-	process.title = 'browser';
-	process.browser = true;
-	process.env = {};
-	process.argv = [];
-	process.version = ''; // empty string to avoid regexp issues
-
-	function noop() {}
-
-	process.on = noop;
-	process.addListener = noop;
-	process.once = noop;
-	process.off = noop;
-	process.removeListener = noop;
-	process.removeAllListeners = noop;
-	process.emit = noop;
-
-	process.binding = function (name) {
-	    throw new Error('process.binding is not supported');
-	};
-
-	// TODO(shtylman)
-	process.cwd = function () { return '/' };
-	process.chdir = function (dir) {
-	    throw new Error('process.chdir is not supported');
-	};
-	process.umask = function() { return 0; };
-
 
 /***/ }
 ]);
