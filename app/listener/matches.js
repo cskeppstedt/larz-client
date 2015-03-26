@@ -1,6 +1,8 @@
 var Firebase = require('firebase'),
     matchesUpdate = require('../action/matches_update'),
+    matchesLoading = require('../action/matches_loading'),
     firebaseRef = undefined,
+    CACHE_KEY = 'larz-client.matches',
 
     callback = (snapshot) => {
       var val = snapshot.val(),
@@ -12,16 +14,27 @@ var Firebase = require('firebase'),
               matches.push(val[key]);
           }
       }
-      
+
       // matches will be sorted ascending on key
       // - we want descending order.
       matches.reverse();
 
-      console.log(matches);
+      localStorage.setItem(CACHE_KEY, JSON.stringify(matches));
+      matchesLoading(false);
       matchesUpdate(matches);
     },
 
     start = () => {
+      var cached = localStorage.getItem(CACHE_KEY),
+          matches;
+
+      matchesLoading(true);
+
+      if (cached) {
+        matches = JSON.parse(cached);
+        matchesUpdate(matches);
+      }
+
       if (firebaseRef !== undefined) {
         return;
       }
