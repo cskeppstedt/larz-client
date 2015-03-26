@@ -1,6 +1,5 @@
 var Reflux = require('reflux'),
     React  = require('react/addons'),
-    matchesStore = require('../store/matches'),
     postsStore = require('../store/posts'),
     Logo = require('./logo/logo'),
     MatchList = require('./matchlist/matchlist'),
@@ -9,23 +8,22 @@ var Reflux = require('reflux'),
 
 module.exports = React.createClass({
     mixins: [
-        Reflux.connect(matchesStore, 'matches'),
         Reflux.connect(postsStore, 'posts')
     ],
 
     getInitialState: function() {
         return {
-            matches: [],
             posts: []
         };
     },
 
+    // <Logo />
+    // <VideoBlog posts={this.state.posts} />
+
     render: function() {
         return (
             <div>
-                <Logo />
-                <VideoBlog posts={this.state.posts} />
-                <MatchList matches={this.state.matches} />
+                <MatchList />
             </div>
         );
     }

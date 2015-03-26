@@ -1,4 +1,12 @@
 .matchlist {
+    position: relative;
+}
+
+.matchlist.is-loading .matchlist__list {
+    opacity: 0.3;
+}
+
+.matchlist__list {
     list-style: none;
     display: block;
     padding: 0;
