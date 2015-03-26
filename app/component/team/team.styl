@@ -1,8 +1,18 @@
+wide = "screen and (min-width: 700px)"
 $row-height = 24px
 
 
 .digit-border
     border-left: 1px solid #aaa
+
+
+.team
+    &:nth-of-type(2)
+        margin-top: 20px
+
+    @media wide
+        &:nth-of-type(2)
+            margin-top: 0
 
 
 .team--winning .team__name

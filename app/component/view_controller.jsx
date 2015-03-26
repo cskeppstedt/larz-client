@@ -23,7 +23,8 @@ module.exports = React.createClass({
     render: function() {
         return (
             <div>
-
+                <Logo />
+                <VideoBlog posts={this.state.posts} />
                 <MatchList matches={this.state.matches} />
             </div>
         );

@@ -1,17 +1,19 @@
 .videoblog__title {
+    padding: 40px 0 20px 0;
     text-align: center;
 }
 
 .videoblog__post {
-    width: 100%;
-    height: auto;
     display: block;
+    height: 155px;
+    margin: 20px 0;
+    width: 100%;
 }
 
 @media screen and (min-width: 700px) {
     .videoblog__post {
-        width: 700px;
         height: 315px;
-        margin: 0 auto;
+        margin: 20px auto;
+        width: 700px;
     }
 }
