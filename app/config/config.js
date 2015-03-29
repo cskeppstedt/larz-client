@@ -2,7 +2,7 @@ module.exports = {
     team: [
         'Adelsmansman',
         'Pacoloco',
-        'schln',
+        'Schln',
         'skepparn_',
         'zwex'
     ]
