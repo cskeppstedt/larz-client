@@ -35,38 +35,25 @@ webpackJsonp([0],[
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(21);
+	module.exports = __webpack_require__(17);
 
 
 /***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(5),
-	    React  = __webpack_require__(6),
-	    postsStore = __webpack_require__(16),
-	    Logo = __webpack_require__(17),
-	    MatchList = __webpack_require__(18),
-	    VideoBlog  = __webpack_require__(19);
+	var React  = __webpack_require__(6),
+	    Logo = __webpack_require__(18),
+	    MatchList = __webpack_require__(19),
+	    VideoBlog  = __webpack_require__(20);
 
 
 	module.exports = React.createClass({displayName: "exports",
-	    mixins: [
-	        Reflux.connect(postsStore, 'posts')
-	    ],
-
-	    getInitialState: function() {
-	        return {
-	            posts: []
-	        };
-	    },
-
-	    // <Logo />
-	    // <VideoBlog posts={this.state.posts} />
-
 	    render: function() {
 	        return (
 	            React.createElement("div", null, 
+	                React.createElement(Logo, null), 
+	                React.createElement(VideoBlog, null), 
 	                React.createElement(MatchList, null)
 	            )
 	        );
@@ -79,7 +66,7 @@ webpackJsonp([0],[
 /***/ function(module, exports, __webpack_require__) {
 
 	var Firebase = __webpack_require__(4),
-	    postsUpdate = __webpack_require__(22),
+	    postsUpdate = __webpack_require__(21),
 	    firebaseRef = undefined,
 
 	    callback = function(snapshot)  {
@@ -127,8 +114,8 @@ webpackJsonp([0],[
 /***/ function(module, exports, __webpack_require__) {
 
 	var Firebase = __webpack_require__(4),
-	    matchesUpdate = __webpack_require__(23),
-	    matchesLoading = __webpack_require__(24),
+	    matchesUpdate = __webpack_require__(22),
+	    matchesLoading = __webpack_require__(23),
 	    firebaseRef = undefined,
 	    CACHE_KEY = 'larz-client.matches',
 
@@ -195,7 +182,7 @@ webpackJsonp([0],[
 	var content = __webpack_require__(13);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(24)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -212,7 +199,7 @@ webpackJsonp([0],[
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(52)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
 
 /***/ },
@@ -225,7 +212,7 @@ webpackJsonp([0],[
 	var content = __webpack_require__(15);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(24)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -242,37 +229,75 @@ webpackJsonp([0],[
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(52)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, "@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);", ""]);
 	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n\nh1,h2,h3,h4 {\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}", ""]);
 
 /***/ },
-/* 16 */
+/* 16 */,
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(5),
-	    postsUpdate = __webpack_require__(22),
-	    postsStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(postsUpdate, this.output);
-	      },
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactWithAddons
+	 */
 
-	      output: function(posts) {
-	          this.trigger(posts);
-	      }
-	  });
+	/**
+	 * This module exists purely in the open source project, and is meant as a way
+	 * to create a separate standalone build of React. This build has "addons", or
+	 * functionality we've built and think might be useful but doesn't have a good
+	 * place to live inside React core.
+	 */
 
+	"use strict";
 
-	module.exports = postsStore;
+	var LinkedStateMixin = __webpack_require__(54);
+	var React = __webpack_require__(10);
+	var ReactComponentWithPureRenderMixin =
+	  __webpack_require__(55);
+	var ReactCSSTransitionGroup = __webpack_require__(56);
+	var ReactTransitionGroup = __webpack_require__(57);
+	var ReactUpdates = __webpack_require__(58);
 
+	var cx = __webpack_require__(59);
+	var cloneWithProps = __webpack_require__(60);
+	var update = __webpack_require__(61);
+
+	React.addons = {
+	  CSSTransitionGroup: ReactCSSTransitionGroup,
+	  LinkedStateMixin: LinkedStateMixin,
+	  PureRenderMixin: ReactComponentWithPureRenderMixin,
+	  TransitionGroup: ReactTransitionGroup,
+
+	  batchedUpdates: ReactUpdates.batchedUpdates,
+	  classSet: cx,
+	  cloneWithProps: cloneWithProps,
+	  update: update
+	};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  React.addons.Perf = __webpack_require__(62);
+	  React.addons.TestUtils = __webpack_require__(63);
+	}
+
+	module.exports = React;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React  = __webpack_require__(6);
 
-	__webpack_require__(62);
+	__webpack_require__(52);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -285,19 +310,19 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var DateHeader   = __webpack_require__(55),
-	    Loader       = __webpack_require__(56),
-	    loadingStore = __webpack_require__(57),
-	    Match        = __webpack_require__(58),
-	    matchesStore = __webpack_require__(59),
+	var DateHeader   = __webpack_require__(67),
+	    Loader       = __webpack_require__(68),
+	    loadingStore = __webpack_require__(69),
+	    Match        = __webpack_require__(70),
+	    matchesStore = __webpack_require__(71),
 	    React        = __webpack_require__(6),
 	    Reflux       = __webpack_require__(5);
 
 
-	__webpack_require__(60);
+	__webpack_require__(72);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -346,20 +371,32 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(6);
+	var Reflux = __webpack_require__(5),
+	    React  = __webpack_require__(6),
+	    postsStore = __webpack_require__(64);
 
-	__webpack_require__(53);
+	__webpack_require__(65);
 
 
 	module.exports = React.createClass({displayName: "exports",
+	    mixins: [
+	        Reflux.connect(postsStore, 'posts')
+	    ],
+
+	    getInitialState: function() {
+	        return {
+	            posts: []
+	        };
+	    },
+
 	    render: function() {
 	        return (
 	            React.createElement("div", {className: "videoblog"}, 
 	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
-	                this.props.posts.map(function(post) {
+	                this.state.posts.map(function(post) {
 	                    return React.createElement("iframe", {
 	                        className: "videoblog__post", 
 	                        src: post.embed_url, 
@@ -373,62 +410,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 20 */,
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactWithAddons
-	 */
+	var Reflux = __webpack_require__(5);
 
-	/**
-	 * This module exists purely in the open source project, and is meant as a way
-	 * to create a separate standalone build of React. This build has "addons", or
-	 * functionality we've built and think might be useful but doesn't have a good
-	 * place to live inside React core.
-	 */
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
 
-	"use strict";
-
-	var LinkedStateMixin = __webpack_require__(64);
-	var React = __webpack_require__(10);
-	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(65);
-	var ReactCSSTransitionGroup = __webpack_require__(66);
-	var ReactTransitionGroup = __webpack_require__(67);
-	var ReactUpdates = __webpack_require__(68);
-
-	var cx = __webpack_require__(69);
-	var cloneWithProps = __webpack_require__(70);
-	var update = __webpack_require__(71);
-
-	React.addons = {
-	  CSSTransitionGroup: ReactCSSTransitionGroup,
-	  LinkedStateMixin: LinkedStateMixin,
-	  PureRenderMixin: ReactComponentWithPureRenderMixin,
-	  TransitionGroup: ReactTransitionGroup,
-
-	  batchedUpdates: ReactUpdates.batchedUpdates,
-	  classSet: cx,
-	  cloneWithProps: cloneWithProps,
-	  update: update
-	};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(72);
-	  React.addons.TestUtils = __webpack_require__(73);
-	}
-
-	module.exports = React;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
 /* 22 */
@@ -446,22 +435,12 @@ webpackJsonp([0],[
 
 	var Reflux = __webpack_require__(5);
 
-	// This action represents that the matches have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5);
-
 	// This action represents that the matches started/stopped loading
 	module.exports = Reflux.createAction();
 
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -657,6 +636,7 @@ webpackJsonp([0],[
 
 
 /***/ },
+/* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
@@ -681,9 +661,7 @@ webpackJsonp([0],[
 /* 47 */,
 /* 48 */,
 /* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function() {
@@ -704,193 +682,17 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 53 */
+/* 51 */,
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(54);
+	var content = __webpack_require__(53);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 54 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".videoblog__title {\n    padding: 40px 0 20px 0;\n    text-align: center;\n}\n\n.videoblog__post {\n    display: block;\n    height: 155px;\n    margin: 20px 0;\n    width: 100%;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        height: 315px;\n        margin: 20px auto;\n        width: 700px;\n    }\n}\n", ""]);
-
-/***/ },
-/* 55 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6),
-	    dateUtil = __webpack_require__(132);
-
-	__webpack_require__(185);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("li", {className: "date-header"}, 
-	                dateUtil.toFriendlyDate(this.props.date)
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 56 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6),
-	    Team  = __webpack_require__(131);
-
-	__webpack_require__(183);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-
-	        var classes = React.addons.classSet({
-	            'loader': true,
-	            'is-visible': this.props.isVisible,
-	            'is-hidden': !this.props.isVisible
-	        });
-
-	        return (React.createElement("div", {className: classes}, "Loading"));
-	    }
-	});
-
-
-/***/ },
-/* 57 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    matchesLoading = __webpack_require__(24),
-	    loadingStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(matchesLoading, this.onMatchesLoading);
-	      },
-
-	      onMatchesLoading: function(isLoading) {
-	          this.matchesLoading = isLoading;
-	          this.output();
-	      },
-
-	      output: function(matches) {
-	          this.trigger({
-	              matchesLoading: !!this.matchesLoading
-	          });
-	      }
-	  });
-
-
-	module.exports = loadingStore;
-
-
-/***/ },
-/* 58 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6),
-	    Team  = __webpack_require__(131);
-
-	__webpack_require__(187);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("li", {className: "match"}, 
-	                React.createElement("h2", {className: "match__title"}, 
-	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
-	                ), 
-	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
-	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    matchesUpdate = __webpack_require__(23),
-	    matchesStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(matchesUpdate, this.output);
-	      },
-
-	      output: function(matches) {
-	          this.trigger(matches);
-	      }
-	  });
-
-
-	module.exports = matchesStore;
-
-
-/***/ },
-/* 60 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(61);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".matchlist {\n    position: relative;\n}\n\n.matchlist.is-loading .matchlist__list {\n    opacity: 0.3;\n}\n\n.matchlist__list {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(63);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(24)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -904,14 +706,14 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 63 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(189)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(183)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
 
 /***/ },
-/* 64 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -928,8 +730,8 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var ReactLink = __webpack_require__(133);
-	var ReactStateSetters = __webpack_require__(134);
+	var ReactLink = __webpack_require__(131);
+	var ReactStateSetters = __webpack_require__(132);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -956,7 +758,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 65 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -972,7 +774,7 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var shallowEqual = __webpack_require__(135);
+	var shallowEqual = __webpack_require__(133);
 
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -1009,7 +811,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 66 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1028,13 +830,13 @@ webpackJsonp([0],[
 
 	var React = __webpack_require__(10);
 
-	var assign = __webpack_require__(46);
+	var assign = __webpack_require__(45);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(67)
+	  __webpack_require__(57)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(137)
+	  __webpack_require__(134)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -1080,7 +882,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 67 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1097,11 +899,11 @@ webpackJsonp([0],[
 	"use strict";
 
 	var React = __webpack_require__(10);
-	var ReactTransitionChildMapping = __webpack_require__(136);
+	var ReactTransitionChildMapping = __webpack_require__(135);
 
-	var assign = __webpack_require__(46);
-	var cloneWithProps = __webpack_require__(70);
-	var emptyFunction = __webpack_require__(125);
+	var assign = __webpack_require__(45);
+	var cloneWithProps = __webpack_require__(60);
+	var emptyFunction = __webpack_require__(127);
 
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1273,8 +1075,8 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 68 */,
-/* 69 */
+/* 58 */,
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1317,7 +1119,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 70 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1334,11 +1136,11 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var ReactElement = __webpack_require__(33);
-	var ReactPropTransferer = __webpack_require__(93);
+	var ReactElement = __webpack_require__(32);
+	var ReactPropTransferer = __webpack_require__(86);
 
 	var keyOf = __webpack_require__(90);
-	var warning = __webpack_require__(78);
+	var warning = __webpack_require__(77);
 
 	var CHILDREN_PROP = keyOf({children: null});
 
@@ -1379,7 +1181,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 71 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1395,9 +1197,9 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var assign = __webpack_require__(46);
+	var assign = __webpack_require__(45);
 	var keyOf = __webpack_require__(90);
-	var invariant = __webpack_require__(75);
+	var invariant = __webpack_require__(81);
 
 	function shallowCopy(x) {
 	  if (Array.isArray(x)) {
@@ -1550,8 +1352,8 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 72 */,
-/* 73 */
+/* 62 */,
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1567,18 +1369,18 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(74);
+	var EventConstants = __webpack_require__(80);
 	var EventPluginHub = __webpack_require__(140);
 	var EventPropagators = __webpack_require__(141);
 	var React = __webpack_require__(10);
-	var ReactElement = __webpack_require__(33);
-	var ReactBrowserEventEmitter = __webpack_require__(88);
-	var ReactMount = __webpack_require__(40);
-	var ReactTextComponent = __webpack_require__(45);
-	var ReactUpdates = __webpack_require__(68);
+	var ReactElement = __webpack_require__(32);
+	var ReactBrowserEventEmitter = __webpack_require__(120);
+	var ReactMount = __webpack_require__(39);
+	var ReactTextComponent = __webpack_require__(44);
+	var ReactUpdates = __webpack_require__(58);
 	var SyntheticEvent = __webpack_require__(142);
 
-	var assign = __webpack_require__(46);
+	var assign = __webpack_require__(45);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -1967,6 +1769,203 @@ webpackJsonp([0],[
 
 
 /***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    postsUpdate = __webpack_require__(21),
+	    postsStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(postsUpdate, this.output);
+	      },
+
+	      output: function(posts) {
+	          this.trigger(posts);
+	      }
+	  });
+
+
+	module.exports = postsStore;
+
+
+/***/ },
+/* 65 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(66);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(24)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".videoblog__title {\n    padding: 40px 0 20px 0;\n    text-align: center;\n}\n\n.videoblog__post {\n    display: block;\n    height: 155px;\n    margin: 20px 0;\n    width: 100%;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        height: 315px;\n        margin: 20px auto;\n        width: 700px;\n    }\n}\n", ""]);
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    dateUtil = __webpack_require__(143);
+
+	__webpack_require__(184);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("li", {className: "date-header"}, 
+	                dateUtil.toFriendlyDate(this.props.date)
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    Team  = __webpack_require__(144);
+
+	__webpack_require__(186);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+
+	        var classes = React.addons.classSet({
+	            'loader': true,
+	            'is-visible': this.props.isVisible,
+	            'is-hidden': !this.props.isVisible
+	        });
+
+	        return (React.createElement("div", {className: classes}, "Loading"));
+	    }
+	});
+
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    matchesLoading = __webpack_require__(23),
+	    loadingStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(matchesLoading, this.onMatchesLoading);
+	      },
+
+	      onMatchesLoading: function(isLoading) {
+	          this.matchesLoading = isLoading;
+	          this.output();
+	      },
+
+	      output: function(matches) {
+	          this.trigger({
+	              matchesLoading: !!this.matchesLoading
+	          });
+	      }
+	  });
+
+
+	module.exports = loadingStore;
+
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    Team  = __webpack_require__(144);
+
+	__webpack_require__(188);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("li", {className: "match"}, 
+	                React.createElement("h2", {className: "match__title"}, 
+	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
+	                ), 
+	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
+	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(5),
+	    matchesUpdate = __webpack_require__(22),
+	    matchesStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(matchesUpdate, this.output);
+	      },
+
+	      output: function(matches) {
+	          this.trigger(matches);
+	      }
+	  });
+
+
+	module.exports = matchesStore;
+
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(73);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(24)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".matchlist {\n    position: relative;\n}\n\n.matchlist.is-loading .matchlist__list {\n    opacity: 0.3;\n}\n\n.matchlist__list {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
+
+/***/ },
 /* 74 */,
 /* 75 */,
 /* 76 */,
@@ -2025,94 +2024,6 @@ webpackJsonp([0],[
 /* 129 */,
 /* 130 */,
 /* 131 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6),
-	    $__0=    __webpack_require__(190),team=$__0.team;
-
-	__webpack_require__(191);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        var winningElem;
-	        if (this.props.winning === true) {
-	            winningElem = React.createElement("span", {className: "team__name__winning"}, "(winners)");
-	        }
-
-	        var teamClasses = React.addons.classSet({
-	            'team': true,
-	            'team--winning': this.props.winning
-	        });
-
-	        return (
-	            React.createElement("div", {className: teamClasses}, 
-	                React.createElement("h2", {className: "team__name"}, 
-	                    this.props.name, 
-	                    winningElem
-	                ), 
-	                React.createElement("ul", {className: "team__players"}, 
-	                    this.props.players.map(function(player) {
-	                        var heroClassName = 'player__hero-icon--' + player.hero_id,
-	                            isInTeam = team.indexOf(player.nickname) >= 0,
-	                            playerNameClasses = React.addons.classSet({
-	                                'player__name': !isInTeam,
-	                                'player__name--in-team': isInTeam
-	                            });
-
-	                        return (React.createElement("li", {className: "player", key: player.nickname}, 
-	                            React.createElement("span", {className: heroClassName}), 
-	                            React.createElement("span", {className: playerNameClasses}, player.nickname), 
-	                            React.createElement("span", {className: "player__kills"}, player.herokills), 
-	                            React.createElement("span", {className: "player__deaths"}, player.deaths), 
-	                            React.createElement("span", {className: "player__assists"}, player.heroassists)
-	                        ));
-	                    })
-	                )
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 132 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var DATE_EXPRESSION = /([0-9]{4})-([0-9]{2})-([0-9]{2})/,
-
-	    MONTHS = [
-	        "January",
-	        "February",
-	        "March",
-	        "April",
-	        "May",
-	        "June",
-	        "July",
-	        "August",
-	        "September",
-	        "October",
-	        "November",
-	        "December"
-	    ]
-
-	    toFriendlyDate = function(yyyy_mm_dd)  {
-	        var yyyy, mm, dd;
-
-	        var $__0=     yyyy_mm_dd.match(DATE_EXPRESSION);_=$__0[0],yyyy=$__0[1],mm=$__0[2],dd=$__0[3];
-	        mm = parseInt(mm, 10);
-	        dd = parseInt(dd, 10);
-
-	        return (MONTHS[mm-1] + " " + dd + ", " + yyyy);
-	    };
-
-
-	module.exports = {
-	    toFriendlyDate:toFriendlyDate
-	};
-
-/***/ },
-/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2189,7 +2100,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 134 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2299,113 +2210,8 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 135 */,
-/* 136 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks static-only
-	 * @providesModule ReactTransitionChildMapping
-	 */
-
-	"use strict";
-
-	var ReactChildren = __webpack_require__(28);
-
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around ReactChildren.map().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function(children) {
-	    return ReactChildren.map(children, function(child) {
-	      return child;
-	    });
-	  },
-
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want to show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function(prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
-	            pendingNextKey
-	          );
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-
-	    return childMapping;
-	  }
-	};
-
-	module.exports = ReactTransitionChildMapping;
-
-
-/***/ },
-/* 137 */
+/* 133 */,
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2424,10 +2230,10 @@ webpackJsonp([0],[
 
 	var React = __webpack_require__(10);
 
-	var CSSCore = __webpack_require__(193);
-	var ReactTransitionEvents = __webpack_require__(194);
+	var CSSCore = __webpack_require__(190);
+	var ReactTransitionEvents = __webpack_require__(191);
 
-	var onlyChild = __webpack_require__(48);
+	var onlyChild = __webpack_require__(47);
 
 	// We don't remove the element from the DOM until we receive an animationend or
 	// transitionend event. If the user screws up and forgets to add an animation
@@ -2543,13 +2349,206 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
+	 */
+
+	"use strict";
+
+	var ReactChildren = __webpack_require__(27);
+
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around ReactChildren.map().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function(children) {
+	    return ReactChildren.map(children, function(child) {
+	      return child;
+	    });
+	  },
+
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want to show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function(prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
+	            pendingNextKey
+	          );
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+
+	    return childMapping;
+	  }
+	};
+
+	module.exports = ReactTransitionChildMapping;
+
+
+/***/ },
+/* 136 */,
+/* 137 */,
 /* 138 */,
 /* 139 */,
 /* 140 */,
 /* 141 */,
 /* 142 */,
-/* 143 */,
-/* 144 */,
+/* 143 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var DATE_EXPRESSION = /([0-9]{4})-([0-9]{2})-([0-9]{2})/,
+
+	    MONTHS = [
+	        "January",
+	        "February",
+	        "March",
+	        "April",
+	        "May",
+	        "June",
+	        "July",
+	        "August",
+	        "September",
+	        "October",
+	        "November",
+	        "December"
+	    ]
+
+	    toFriendlyDate = function(yyyy_mm_dd)  {
+	        var yyyy, mm, dd;
+
+	        var $__0=     yyyy_mm_dd.match(DATE_EXPRESSION);_=$__0[0],yyyy=$__0[1],mm=$__0[2],dd=$__0[3];
+	        mm = parseInt(mm, 10);
+	        dd = parseInt(dd, 10);
+
+	        return (MONTHS[mm-1] + " " + dd + ", " + yyyy);
+	    };
+
+
+	module.exports = {
+	    toFriendlyDate:toFriendlyDate
+	};
+
+/***/ },
+/* 144 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(6),
+	    $__0=    __webpack_require__(195),team=$__0.team;
+
+	__webpack_require__(196);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        var winningElem;
+	        if (this.props.winning === true) {
+	            winningElem = React.createElement("span", {className: "team__name__winning"}, "(winners)");
+	        }
+
+	        var teamClasses = React.addons.classSet({
+	            'team': true,
+	            'team--winning': this.props.winning
+	        });
+
+	        return (
+	            React.createElement("div", {className: teamClasses}, 
+	                React.createElement("h2", {className: "team__name"}, 
+	                    this.props.name, 
+	                    winningElem
+	                ), 
+	                React.createElement("ul", {className: "team__players"}, 
+	                    this.props.players.map(function(player) {
+	                        var heroClassName = 'player__hero-icon--' + player.hero_id,
+	                            isInTeam = team.indexOf(player.nickname) >= 0,
+	                            playerNameClasses = React.addons.classSet({
+	                                'player__name': !isInTeam,
+	                                'player__name--in-team': isInTeam
+	                            });
+
+	                        return (React.createElement("li", {className: "player", key: player.nickname}, 
+	                            React.createElement("span", {className: heroClassName}), 
+	                            React.createElement("span", {className: playerNameClasses}, player.nickname), 
+	                            React.createElement("span", {className: "player__kills"}, player.herokills), 
+	                            React.createElement("span", {className: "player__deaths"}, player.deaths), 
+	                            React.createElement("span", {className: "player__assists"}, player.heroassists)
+	                        ));
+	                    })
+	                )
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
 /* 145 */,
 /* 146 */,
 /* 147 */,
@@ -2591,43 +2590,19 @@ webpackJsonp([0],[
 /* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(184);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
+	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
 
 /***/ },
 /* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".loader {\n  border-bottom: 3px solid rgba(219,142,56,0.2);\n  border-left: 3px solid rgba(219,142,56,0.5);\n  border-right: 3px solid rgba(219,142,56,0.2);\n  border-top: 3px solid rgba(219,142,56,0.2);\n  font-size: 10px;\n  left: 50%;\n  margin-left: -10px;\n  position: absolute;\n  text-indent: -9999em;\n  -webkit-animation: spin 1.1s infinite linear;\n  animation: spin 1.1s infinite linear;\n}\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n}\n.loader.is-visible {\n  display: block;\n}\n.loader.is-hidden {\n  display: none;\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n", ""]);
-
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(186);
+	var content = __webpack_require__(185);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(24)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -2641,23 +2616,53 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 186 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(52)();
+	exports = module.exports = __webpack_require__(50)();
 	exports.push([module.id, ".date-header {\n  border-bottom: 1px solid rgba(219,142,56,0.5);\n  color: #db8e37;\n  display: block;\n  font-size: 24px;\n  font-weight: 300;\n  margin: 40px auto 20px auto;\n  padding: 30px 10px;\n}\n@media screen and (min-width: 700px) {\n  .date-header {\n    width: 700px;\n    padding: 30px 0;\n  }\n  .date-header:after {\n    visibility: hidden;\n    display: block;\n    font-size: 0;\n    content: \" \";\n    clear: both;\n    height: 0;\n  }\n}\n", ""]);
 
 /***/ },
-/* 187 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(188);
+	var content = __webpack_require__(187);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
+	var update = __webpack_require__(24)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".loader {\n  border-bottom: 3px solid rgba(219,142,56,0.2);\n  border-left: 3px solid rgba(219,142,56,0.5);\n  border-right: 3px solid rgba(219,142,56,0.2);\n  border-top: 3px solid rgba(219,142,56,0.2);\n  font-size: 10px;\n  left: 50%;\n  margin-left: -10px;\n  position: absolute;\n  text-indent: -9999em;\n  -webkit-animation: spin 1.1s infinite linear;\n  animation: spin 1.1s infinite linear;\n}\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n}\n.loader.is-visible {\n  display: block;\n}\n.loader.is-hidden {\n  display: none;\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n", ""]);
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(189);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(24)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -2671,65 +2676,14 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".match {\n  display: block;\n  margin: 10px auto;\n  padding: 20px 10px 10px 10px;\n  border-top: 1px solid #ccc;\n}\n.date-header + .match {\n  border-top: none;\n  padding-top: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    clear: both;\n    content: \" \";\n    display: block;\n    font-size: 0;\n    height: 0;\n    visibility: hidden;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  display: block;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n}\n.match__title__id {\n  color: #888;\n  display: none;\n  font-size: 14px;\n}\n", ""]);
-
-/***/ },
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".match {\n  display: block;\n  margin: 10px auto;\n  padding: 20px 10px 10px 10px;\n  border-top: 1px solid #ccc;\n}\n.date-header + .match {\n  border-top: none;\n  padding-top: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    clear: both;\n    content: \" \";\n    display: block;\n    font-size: 0;\n    height: 0;\n    visibility: hidden;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  display: block;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n}\n.match__title__id {\n  color: #888;\n  display: none;\n  font-size: 14px;\n}\n", ""]);
 
 /***/ },
 /* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	    team: [
-	        'Adelsmansman',
-	        'Pacoloco',
-	        'Schln',
-	        'skepparn_',
-	        'zwex'
-	    ]
-	};
-
-
-/***/ },
-/* 191 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(192);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(25)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 192 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(52)();
-	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.team:nth-of-type(2) {\n  margin-top: 20px;\n}\n@media screen and (min-width: 700px) {\n  .team:nth-of-type(2) {\n    margin-top: 0;\n  }\n}\n.team--winning .team__name {\n  color: #27ae60;\n}\n.team__name {\n  font-weight: 300;\n  font-size: 18px;\n  display: block;\n  margin-bottom: 10px;\n}\n.team__name__winning {\n  padding-left: 10px;\n}\n.team__players {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table;\n  border-collapse: separate;\n  border-spacing: 5px;\n  width: 90%;\n  line-height: 1.4em;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: table-row;\n  color: #aaa;\n  line-height: 24px;\n  height: 24px;\n}\n.player__name,\n.player__name--in-team {\n  display: table-cell;\n  vertical-align: middle;\n  color: #aaa;\n  font-weight: 200;\n}\n.player__name--in-team {\n  color: #000;\n}\n.player__kills {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #27ae60;\n}\n.player__deaths {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #c0392b;\n}\n.player__assists {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #7f8c8d;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96 {\n  display: table-cell;\n  width: 24px;\n  height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(208)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(209)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(210)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(211)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(212)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(213)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(214)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(215)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(216)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(217)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(218)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(219)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(220)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(221)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(222)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(223)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(224)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(225)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(226)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(227)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(228)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(229)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(230)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(231)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(232)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(233)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(234)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(235)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(236)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(237)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(238)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(239)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(240)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(241)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(328)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(329)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(330)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(331)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(332)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(333)+");\n}\n", ""]);
-
-/***/ },
-/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2744,7 +2698,7 @@ webpackJsonp([0],[
 	 * @typechecks
 	 */
 
-	var invariant = __webpack_require__(75);
+	var invariant = __webpack_require__(81);
 
 	/**
 	 * The CSSCore module specifies the API (and implements most of the methods)
@@ -2844,7 +2798,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(51)))
 
 /***/ },
-/* 194 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2860,7 +2814,7 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var ExecutionEnvironment = __webpack_require__(49);
+	var ExecutionEnvironment = __webpack_require__(48);
 
 	/**
 	 * EVENT_NAME_MAP is used to determine which event fired when a
@@ -2959,9 +2913,54 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 195 */,
-/* 196 */,
-/* 197 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	    team: [
+	        'Adelsmansman',
+	        'Pacoloco',
+	        'Schln',
+	        'skepparn_',
+	        'zwex'
+	    ]
+	};
+
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(197);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(24)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/team/team.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(50)();
+	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.team:nth-of-type(2) {\n  margin-top: 20px;\n}\n@media screen and (min-width: 700px) {\n  .team:nth-of-type(2) {\n    margin-top: 0;\n  }\n}\n.team--winning .team__name {\n  color: #27ae60;\n}\n.team__name {\n  font-weight: 300;\n  font-size: 18px;\n  display: block;\n  margin-bottom: 10px;\n}\n.team__name__winning {\n  padding-left: 10px;\n}\n.team__players {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table;\n  border-collapse: separate;\n  border-spacing: 5px;\n  width: 90%;\n  line-height: 1.4em;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: table-row;\n  color: #aaa;\n  line-height: 24px;\n  height: 24px;\n}\n.player__name,\n.player__name--in-team {\n  display: table-cell;\n  vertical-align: middle;\n  color: #aaa;\n  font-weight: 200;\n}\n.player__name--in-team {\n  color: #000;\n}\n.player__kills {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #27ae60;\n}\n.player__deaths {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #c0392b;\n}\n.player__assists {\n  display: table-cell;\n  text-align: center;\n  vertical-align: middle;\n  color: #7f8c8d;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96 {\n  display: table-cell;\n  width: 24px;\n  height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(208)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(209)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(210)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(211)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(212)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(213)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(214)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(215)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(216)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(217)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(218)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(219)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(220)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(221)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(222)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(223)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(224)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(225)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(226)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(227)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(228)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(229)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(230)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(231)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(232)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(233)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(234)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(235)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(236)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(237)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(238)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(239)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(240)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(241)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(328)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(329)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(330)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(331)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(332)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(333)+");\n}\n", ""]);
+
+/***/ },
 /* 198 */,
 /* 199 */,
 /* 200 */,
