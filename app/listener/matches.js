@@ -40,7 +40,7 @@ var Firebase = require('firebase'),
       }
 
       firebaseRef = new Firebase('https://larz-statsen.firebaseio.com/');
-      firebaseRef.child('/matches/').on('value', callback);
+      firebaseRef.child('/matches/').limitToLast(20).on('value', callback);
     },
 
     stop = () => {
