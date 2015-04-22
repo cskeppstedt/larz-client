@@ -1,5 +1,5 @@
-var React = require('react/addons'),
-    { team } = require('../../config/config');
+var React  = require('react/addons'),
+    Player = require('../player/player');
 
 require('./team.styl');
 
@@ -24,36 +24,7 @@ module.exports = React.createClass({
                 </h2>
                 <ul className='team__players'>
                     {this.props.players.map(function(player) {
-                        var heroClassName = 'player__hero-icon--' + player.hero_id,
-                            isInTeam = team.indexOf(player.nickname) >= 0,
-                            playerNameClasses = React.addons.classSet({
-                                'player__name': !isInTeam,
-                                'player__name--in-team': isInTeam
-                            });
-
-                        return (<li className='player' key={player.nickname}>
-                            <div className='player__wrapper--left'>
-                              <span className={heroClassName}></span>
-                              <span className='player__name'>
-                                {player.nickname}
-                              </span>
-                              <dl className='player__stats'>
-                                <dt className='player__stats__label'>LVL</dt>
-                                <dd className='player__stats__value'>{player.level}</dd>
-                                <dt className='player__stats__label'>APM</dt>
-                                <dd className='player__stats__value'>{player.apm}</dd>
-                                <dt className='player__stats__label'>GPM</dt>
-                                <dd className='player__stats__value'>{player.gpm}</dd>
-                                <dt className='player__stats__label'>XPM</dt>
-                                <dd className='player__stats__value'>{player.xpm}</dd>
-                              </dl>
-                            </div>
-                            <div className='player__wrapper--right'>
-                              <span className='player__kills'>{player.herokills}</span>
-                              <span className='player__deaths'>{player.deaths}</span>
-                              <span className='player__assists'>{player.heroassists}</span>
-                            </div>
-                        </li>);
+                        return <Player key={player.nickname} player={player}/>;
                     })}
                 </ul>
             </div>
