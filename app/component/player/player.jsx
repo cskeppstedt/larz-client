@@ -23,6 +23,10 @@ module.exports = React.createClass({
                 'player': true,
                 'is-expanded': this.state.showStats
             }),
+            playerNameClasses = React.addons.classSet({
+                'player__name': !this.props.isisInTeam,
+                'player__name--in-team': this.props.isInTeam
+            }),
             statsContent;
 
         if (this.state.showStats) {
@@ -48,7 +52,7 @@ module.exports = React.createClass({
           <li className={classes} onClick={this.onClick}>
               <div className='player__wrapper--left'>
                 <span className={heroClassName}></span>
-                <span className='player__name'>
+                <span className={playerNameClasses}>
                   {player.nickname}
                 </span>
                 {statsContent}

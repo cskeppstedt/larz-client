@@ -1,5 +1,6 @@
 var React  = require('react/addons'),
-    Player = require('../player/player');
+    Player = require('../player/player'),
+    { team } = require('../../config/config');
 
 require('./team.styl');
 
@@ -7,6 +8,7 @@ require('./team.styl');
 module.exports = React.createClass({
     render: function() {
         var winningElem;
+
         if (this.props.winning === true) {
             winningElem = <span className='team__name__winning'>(winners)</span>;
         }
@@ -24,7 +26,11 @@ module.exports = React.createClass({
                 </h2>
                 <ul className='team__players'>
                     {this.props.players.map(function(player) {
-                        return <Player key={player.nickname} player={player}/>;
+                        return <Player 
+                          key={player.nickname} 
+                          player={player}
+                          isInTeam={team.indexOf(player.nickname) >= 0}
+                        />;
                     })}
                 </ul>
             </div>
