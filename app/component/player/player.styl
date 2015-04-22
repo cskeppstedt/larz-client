@@ -1,0 +1,134 @@
+$row-height = 24px
+$icon-margin = 5px
+
+
+.digit-border
+    border-left: 1px solid #aaa
+
+.player
+    margin: 0
+    padding: 0
+    display: flex
+    color: #aaa
+
+    transition: all 0.3s ease
+    background-color: #ddd
+    cursor: pointer
+
+    &:hover
+        background-color: rgba(253, 227, 167, 0.4)
+    &.is-expanded
+        background-color: rgba(253, 227, 167, 1.0)
+
+.player__wrapper--left
+    flex: 3
+
+.player__wrapper--right
+    flex: 1
+    display: flex
+
+.player__name
+    line-height: $row-height
+    height: $row-height
+    display: inline-block
+    color: #aaa
+    font-weight: 200
+    vertical-align: middle
+    margin-left: $icon-margin
+
+.player__name--in-team
+    @extend .player__name
+    color: #000
+
+.player__kills 
+    flex: 1
+    text-align: center
+    line-height: $row-height
+    height: $row-height
+    color: #27ae60
+
+
+.player__deaths
+    flex: 1
+    text-align: center
+    line-height: $row-height
+    height: $row-height
+    color: #c0392b
+    @extend .digit-border
+
+
+.player__assists
+    flex: 1
+    text-align: center
+    line-height: $row-height
+    height: $row-height
+    color: #7f8c8d
+    @extend .digit-border
+
+
+.player__stats
+    font-size: 80%
+    padding-top: 5px
+    visibility: visible
+
+    opacity: 1
+    transform: none
+    transition: all 0.15s ease
+
+    &.is-hidden
+        padding-top: 0
+        visibility: hidden
+        transform: translate3d(-10%, 0, 0)
+        opacity: 0.5
+
+.player__stats__label
+    float: left
+    font-weight: 400
+    color: #333
+    margin: 0
+    margin-left: $row-height+$icon-margin
+    padding-bottom: $icon-margin
+    width: 30px
+    
+    &:nth-of-type(2n+1)
+        clear: left
+    
+
+.player__stats__value
+    float: left
+    color: #333
+    padding-bottom: $icon-margin
+    width: 40px
+
+
+@keyframes fadeInLeft
+    0%
+        opacity: 0
+        transform: translate3d(-100%, 0, 0)
+    100%
+        opacity: 1
+        transform: none
+
+
+// ========================================================
+//  HERO ICONS
+// ========================================================
+.player__hero-icon
+    display: inline-block
+    width: 24px
+    height: $row-height
+    line-height: $row-height
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    vertical-align: middle
+
+
+hero-icon(id)
+    .player__hero-icon--{id}
+        @extend .player__hero-icon
+        background-image: url(../../images/heroes/id/icon_128.jpg)
+
+for n in 10 102 103 104 105 106 108 109 110 114 115 116 117 12 120 121 122 123 124 125 126 127 128 13 14 15 16 160 161 162 163 164 165 166 167 168 169 17 170 18 185 187 188 192 194 195 196 197 2 20 201 202 203 204 205 206 207 208 209 21 210 211 212 213 214 215 216 217 218 219 22 220 221 222 223 224 225 226 227 228 229 230 232 233 234 235 236 237 238 24 240 241 242 243 25 26 27 29 3 30 31 34 35 36 37 38 39 4 40 41 42 43 44 5 6 7 8 89 9 90 91 92 93 94 95 96
+    hero-icon(n)
+

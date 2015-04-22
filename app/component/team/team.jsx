@@ -1,4 +1,5 @@
-var React = require('react/addons'),
+var React  = require('react/addons'),
+    Player = require('../player/player'),
     { team } = require('../../config/config');
 
 require('./team.styl');
@@ -7,6 +8,7 @@ require('./team.styl');
 module.exports = React.createClass({
     render: function() {
         var winningElem;
+
         if (this.props.winning === true) {
             winningElem = <span className='team__name__winning'>(winners)</span>;
         }
@@ -24,23 +26,29 @@ module.exports = React.createClass({
                 </h2>
                 <ul className='team__players'>
                     {this.props.players.map(function(player) {
-                        var heroClassName = 'player__hero-icon--' + player.hero_id,
-                            isInTeam = team.indexOf(player.nickname) >= 0,
-                            playerNameClasses = React.addons.classSet({
-                                'player__name': !isInTeam,
-                                'player__name--in-team': isInTeam
-                            });
-
-                        return (<li className='player' key={player.nickname}>
-                            <span className={heroClassName}></span>
-                            <span className={playerNameClasses}>{player.nickname}</span>
-                            <span className='player__kills'>{player.herokills}</span>
-                            <span className='player__deaths'>{player.deaths}</span>
-                            <span className='player__assists'>{player.heroassists}</span>
-                        </li>);
+                        return <Player 
+                          key={player.nickname} 
+                          player={player}
+                          isInTeam={team.indexOf(player.nickname) >= 0}
+                        />;
                     })}
                 </ul>
             </div>
         );
     }
 });
+/*
+apm: "122"
+deaths: "5"
+delta_mmr: "4.940"
+denies: "6"
+gpm: "349"
+hero_id: "14"
+heroassists: "10"
+herokills: "8"
+lasthits: "133"
+level: "19"
+nickname: "kha_alim"
+wards: "0"
+xpm: "517"
+*/
