@@ -5,12 +5,20 @@ $icon-margin = 5px
 .digit-border
     border-left: 1px solid #aaa
 
-
 .player
     margin: 0
     padding: 0
     display: flex
     color: #aaa
+
+    transition: all 0.3s ease
+    background-color: #ddd
+    cursor: pointer
+
+    &:hover
+        background-color: rgba(253, 227, 167, 0.4)
+    &.is-expanded
+        background-color: rgba(253, 227, 167, 1.0)
 
 .player__wrapper--left
     flex: 3
@@ -54,17 +62,29 @@ $icon-margin = 5px
     color: #7f8c8d
     @extend .digit-border
 
+
 .player__stats
+    font-size: 80%
+    padding-top: 5px
+    visibility: visible
+
+    opacity: 1
+    transform: none
+    transition: all 0.15s ease
+
     &.is-hidden
-        display: none
+        padding-top: 0
+        visibility: hidden
+        transform: translate3d(-10%, 0, 0)
+        opacity: 0.5
 
 .player__stats__label
     float: left
-    font-weight: bold
+    font-weight: 400
     color: #333
     margin: 0
     margin-left: $row-height+$icon-margin
-    padding: $icon-margin 0
+    padding-bottom: $icon-margin
     width: 30px
     
     &:nth-of-type(2n+1)
@@ -74,8 +94,18 @@ $icon-margin = 5px
 .player__stats__value
     float: left
     color: #333
-    padding: $icon-margin
+    padding-bottom: $icon-margin
     width: 40px
+
+
+@keyframes fadeInLeft
+    0%
+        opacity: 0
+        transform: translate3d(-100%, 0, 0)
+    100%
+        opacity: 1
+        transform: none
+
 
 // ========================================================
 //  HERO ICONS

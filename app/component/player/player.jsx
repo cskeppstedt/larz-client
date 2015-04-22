@@ -4,26 +4,54 @@ require('./player.styl');
 
 
 module.exports = React.createClass({
+    getInitialState: function() {
+        return {
+            showStats: false
+        };
+    },
+
+    onClick: function() {
+        this.setState({
+            showStats: !this.state.showStats
+        });
+    },
+
     render: function() {
         var player = this.props.player,
-            heroClassName = 'player__hero-icon--' + player.hero_id;
+            heroClassName = 'player__hero-icon--' + player.hero_id,
+            classes = React.addons.classSet({
+                'player': true,
+                'is-expanded': this.state.showStats
+            }),
+            statsContent;
+
+        if (this.state.showStats) {
+            statsContent = (
+              <dl className='player__stats'>
+                <dt className='player__stats__label'>LVL</dt>
+                <dd className='player__stats__value'>{player.level}</dd>
+                <dt className='player__stats__label'>APM</dt>
+                <dd className='player__stats__value'>{player.apm}</dd>
+                <dt className='player__stats__label'>GPM</dt>
+                <dd className='player__stats__value'>{player.gpm}</dd>
+                <dt className='player__stats__label'>XPM</dt>
+                <dd className='player__stats__value'>{player.xpm}</dd>
+              </dl>
+            );
+        } else {
+            statsContent = (
+              <dl className='player__stats is-hidden'></dl>
+            );
+        }
+
         return (
-          <li className='player'>
+          <li className={classes} onClick={this.onClick}>
               <div className='player__wrapper--left'>
                 <span className={heroClassName}></span>
                 <span className='player__name'>
                   {player.nickname}
                 </span>
-                <dl className='player__stats'>
-                  <dt className='player__stats__label'>LVL</dt>
-                  <dd className='player__stats__value'>{player.level}</dd>
-                  <dt className='player__stats__label'>APM</dt>
-                  <dd className='player__stats__value'>{player.apm}</dd>
-                  <dt className='player__stats__label'>GPM</dt>
-                  <dd className='player__stats__value'>{player.gpm}</dd>
-                  <dt className='player__stats__label'>XPM</dt>
-                  <dd className='player__stats__value'>{player.xpm}</dd>
-                </dl>
+                {statsContent}
               </div>
               <div className='player__wrapper--right'>
                 <span className='player__kills'>{player.herokills}</span>
