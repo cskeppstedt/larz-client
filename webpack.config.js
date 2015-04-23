@@ -1,6 +1,7 @@
 var path = require('path'),
     webpack = require('webpack'),
-    ReloadPlugin = require('webpack-reload-plugin');
+    ReloadPlugin = require('webpack-reload-plugin'),
+    autoprefixer = require('autoprefixer-core');
 
 module.exports = {
   entry: {
@@ -31,8 +32,9 @@ module.exports = {
       { test: /\.js$/,   loader: 'jsx-loader?harmony' },
       { test: /\.jsx$/,  loader: 'jsx-loader?harmony' },
       { test: /\.jpg$/,  loader: 'file-loader' },
-      { test: /\.css$/,  loader: 'style-loader!css-loader' },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' }
+      { test: /\.css$/,  loader: 'style-loader!css-loader!postcss-loader' },
+      { test: /\.styl$/, loader: 'style-loader!css-loader!postcss-loader!stylus-loader' }
     ]
-  }
+  },
+  postcss: [autoprefixer({})]
 };
