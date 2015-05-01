@@ -20,7 +20,7 @@ module.exports = React.createClass({
         return {
             matches: [],
             loading: {
-                matchesLoading: true
+                matchesLoading: false
             }
         };
     },

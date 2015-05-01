@@ -1,4 +1,5 @@
-var Firebase = require('firebase');
+var Firebase = require('firebase'),
+    offlineMode = false;
 
 
 module.exports = function(options) {
@@ -47,11 +48,13 @@ module.exports = function(options) {
                 return;
             }
 
-            loadingCallback(true);
-            isLoading = true;
+            if (offlineMode !== true) {
+                loadingCallback(true);
+                isLoading = true;
 
-            firebaseRef = new Firebase(options.firebaseUri);
-            firebaseRef.on('value', firebaseCallback);
+                firebaseRef = new Firebase(options.firebaseUri);
+                firebaseRef.on('value', firebaseCallback);
+            }
         },
 
         stop = () => {
