@@ -1,55 +1,8 @@
-var Firebase = require('firebase'),
-    matchesUpdate = require('../action/matches_update'),
-    matchesLoading = require('../action/matches_loading'),
-    firebaseRef = undefined,
-    CACHE_KEY = 'larz-client.matches',
+var Listener = require('./listener');
 
-    callback = (snapshot) => {
-      var val = snapshot.val(),
-          matches = [],
-          key;
-
-      for (key in val) {
-          if (Object.hasOwnProperty.call(val, key)) {
-              matches.push(val[key]);
-          }
-      }
-
-      // matches will be sorted ascending on key
-      // - we want descending order.
-      matches.reverse();
-
-      localStorage.setItem(CACHE_KEY, JSON.stringify(matches));
-      matchesLoading(false);
-      matchesUpdate(matches);
-    },
-
-    start = () => {
-      var cached = localStorage.getItem(CACHE_KEY),
-          matches;
-
-      matchesLoading(true);
-
-      if (cached) {
-        matches = JSON.parse(cached);
-        matchesUpdate(matches);
-      }
-
-      if (firebaseRef !== undefined) {
-        return;
-      }
-
-      firebaseRef = new Firebase('https://larz-statsen.firebaseio.com/');
-      firebaseRef.child('/matches/').limitToLast(20).on('value', callback);
-    },
-
-    stop = () => {
-      firebaseRef.child('/matches/').off('value', callback);
-      firebaseRef = undefined;
-    };
-
-
-module.exports = {
-  start: start,
-  stop: stop
-};
+module.exports = new Listener({
+    cacheKey:    'larz-client.matches',
+    firebaseUri: 'https://larz-statsen.firebaseio.com/matches/',
+    loadingCallback: require('../action/matches_loading'),
+    updateCallback:  require('../action/matches_update')
+});
