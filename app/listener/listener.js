@@ -3,29 +3,31 @@ var Firebase = require('firebase'),
 
 
 module.exports = function(options) {
+    'use strict';
+
     var firebaseRef,
         isLoading = false,
         loadingCallback = options.loadingCallback || function() {},
         updateCallback  = options.updateCallback  || function() {},
 
+        logger = (msg, ...rest) => {
+          var args = [`[listener] [${options.firebaseUri}] ${msg}`].concat(rest);
+          console.log.apply(console, args);
+        },
+
         updateFromCache = (cachedString) => {
             try {
-                updateCallback(JSON.parse(cachedString));
+                var data = JSON.parse(cachedString);
+                updateCallback(data);
+                logger('updated from cache', data);
             } catch(e) {
                 console.error(e);
             }
         },
 
         firebaseCallback = (snapshot) => {
-          var val = snapshot.val(),
-              items = [],
-              key;
-
-          for (key in val) {
-              if (Object.hasOwnProperty.call(val, key)) {
-                  items.push(val[key]);
-              }
-          }
+          var val   = snapshot.val(),
+              items = Object.keys(val).map(k => val[k]);
 
           // items will be sorted ascending on key
           // - we want descending order.
@@ -33,6 +35,8 @@ module.exports = function(options) {
 
           localStorage.setItem(options.cacheKey, JSON.stringify(items));
           loadingCallback(false);
+
+          logger('new data', items);
           updateCallback(items);
         },
 
@@ -53,7 +57,16 @@ module.exports = function(options) {
                 isLoading = true;
 
                 firebaseRef = new Firebase(options.firebaseUri);
-                firebaseRef.on('value', firebaseCallback);
+
+                if (options.limitToLast) {
+                    firebaseRef.limitToLast(options.limitToLast).on('value', firebaseCallback);
+                    logger(`started (limit to last ${options.limitToLast})`);
+                } else {
+                    firebaseRef.on('value', firebaseCallback);
+                    logger('started');
+                }
+            } else {
+                logger('offline mode enabled, no listener started');
             }
         },
 
@@ -65,6 +78,8 @@ module.exports = function(options) {
                 loadingCallback(false);
                 isLoading = false;
             }
+
+            logger('stopped');
         };
 
 
