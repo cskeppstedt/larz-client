@@ -11,13 +11,13 @@ module.exports = function(options) {
         updateCallback  = options.updateCallback  || function() {},
 
         logger = (msg, ...rest) => {
-          let args = [`[listener] [${options.firebaseUri}] ${msg}`].concat(rest);
+          var args = [`[listener] [${options.firebaseUri}] ${msg}`].concat(rest);
           console.log.apply(console, args);
         },
 
         updateFromCache = (cachedString) => {
             try {
-                let data = JSON.parse(cachedString);
+                var data = JSON.parse(cachedString);
                 updateCallback(data);
                 logger('updated from cache', data);
             } catch(e) {
