@@ -1,3 +1,5 @@
+var players = require('../../config/config').team;
+
 var color = (key) => {
     var defaultColor = '#000000';
     var map = {
@@ -12,13 +14,7 @@ var color = (key) => {
 };
 
 var toLegend = (stats) => {
-    if (!stats || !stats.length) {
-        return [];
-    }
-
-    var sample = stats[stats.length-1];
-
-    return Object.keys(sample.data).map( (key) => {
+    return players.map( (key) => {
         return {
             label: key,
             color: color(key)
@@ -47,9 +43,6 @@ var toChart = (stats) => {
     if (!stats || !stats.length) {
         return {};
     }
-
-    var sample  = stats[stats.length-1];
-    var players = Object.keys(sample.data);
 
     var labels = stats.map( s => '' );
 
