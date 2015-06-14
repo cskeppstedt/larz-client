@@ -1,725 +1,40 @@
-webpackJsonp([0],[
+webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(2);
+	module.exports = __webpack_require__(206);
 
 
 /***/ },
 /* 1 */,
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(6),
-	    ViewController   = __webpack_require__(7),
-	    posts_listener   = __webpack_require__(8),
-	    stats_listener   = __webpack_require__(9),
-	    matches_listener = __webpack_require__(10),
-	    node = document.body;
-
-	__webpack_require__(13);
-	__webpack_require__(15);
-
-	React.render(React.createElement(ViewController, null), node);
-
-	matches_listener.start();
-	posts_listener.start();
-	stats_listener.start();
-
-
-/***/ },
+/* 2 */,
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(18);
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React  = __webpack_require__(6),
-	    Logo = __webpack_require__(19),
-	    MatchList = __webpack_require__(20),
-	    Stats = __webpack_require__(21),
-	    VideoBlog  = __webpack_require__(22);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("div", null, 
-	                React.createElement(Logo, null), 
-	                React.createElement(VideoBlog, null), 
-	                React.createElement(Stats, null), 
-	                React.createElement(MatchList, null)
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Listener = __webpack_require__(24);
-
-	module.exports = new Listener({
-	    cacheKey:    'larz-client.posts',
-	    firebaseUri: 'https://larz-statsen.firebaseio.com/posts/',
-	    updateCallback:  __webpack_require__(25),
-	    limitToLast: 1
-	});
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Listener = __webpack_require__(24);
-
-	module.exports = new Listener({
-	    cacheKey:    'larz-client.stats',
-	    firebaseUri: 'https://larz-statsen.firebaseio.com/stats/',
-	    updateCallback:  __webpack_require__(26),
-	    limitToLast: 14 // 14 days
-	});
-
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Listener = __webpack_require__(24);
-
-	module.exports = new Listener({
-	    cacheKey:    'larz-client.matches',
-	    firebaseUri: 'https://larz-statsen.firebaseio.com/matches/',
-	    loadingCallback: __webpack_require__(27),
-	    updateCallback:  __webpack_require__(28),
-	    limitToLast: 20
-	});
-
-
-/***/ },
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
 /* 11 */,
 /* 12 */,
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(14);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(16);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, "@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);", ""]);
-	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n\nh1,h2,h3,h4 {\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}\n\ndl, dd, dt {\n  margin: 0;\n  padding: 0;\n}\n", ""]);
-
-/***/ },
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
 /* 17 */,
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactWithAddons
-	 */
-
-	/**
-	 * This module exists purely in the open source project, and is meant as a way
-	 * to create a separate standalone build of React. This build has "addons", or
-	 * functionality we've built and think might be useful but doesn't have a good
-	 * place to live inside React core.
-	 */
-
-	"use strict";
-
-	var LinkedStateMixin = __webpack_require__(56);
-	var React = __webpack_require__(11);
-	var ReactComponentWithPureRenderMixin =
-	  __webpack_require__(57);
-	var ReactCSSTransitionGroup = __webpack_require__(58);
-	var ReactTransitionGroup = __webpack_require__(59);
-	var ReactUpdates = __webpack_require__(60);
-
-	var cx = __webpack_require__(61);
-	var cloneWithProps = __webpack_require__(62);
-	var update = __webpack_require__(63);
-
-	React.addons = {
-	  CSSTransitionGroup: ReactCSSTransitionGroup,
-	  LinkedStateMixin: LinkedStateMixin,
-	  PureRenderMixin: ReactComponentWithPureRenderMixin,
-	  TransitionGroup: ReactTransitionGroup,
-
-	  batchedUpdates: ReactUpdates.batchedUpdates,
-	  classSet: cx,
-	  cloneWithProps: cloneWithProps,
-	  update: update
-	};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  React.addons.Perf = __webpack_require__(64);
-	  React.addons.TestUtils = __webpack_require__(65);
-	}
-
-	module.exports = React;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React  = __webpack_require__(6);
-
-	__webpack_require__(66);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        return (
-	            React.createElement("div", {className: "logo"})
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var DateHeader   = __webpack_require__(68),
-	    Loader       = __webpack_require__(69),
-	    loadingStore = __webpack_require__(70),
-	    Match        = __webpack_require__(71),
-	    matchesStore = __webpack_require__(72),
-	    React        = __webpack_require__(6),
-	    Reflux       = __webpack_require__(5);
-
-
-	__webpack_require__(73);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    mixins: [
-	        Reflux.connect(matchesStore, 'matches'),
-	        Reflux.connect(loadingStore, 'loading')
-	    ],
-
-	    getInitialState: function() {
-	        return {
-	            matches: [],
-	            loading: {
-	                matchesLoading: false
-	            }
-	        };
-	    },
-
-	    render: function() {
-	        var subviews = [],
-	            lastDate,
-	            classes = React.addons.classSet({
-	                'matchlist': true,
-	                'is-loading': this.state.loading.matchesLoading
-	            });
-
-
-	        this.state.matches.forEach(function(match)  {
-	            if (match.date !== lastDate) {
-	                lastDate = match.date;
-	                subviews.push(React.createElement(DateHeader, {date: match.date}));
-	            }
-
-	            subviews.push(React.createElement(Match, {key: match.match_id, match: match}));
-	        });
-
-	        return (
-	            React.createElement("div", {className: classes}, 
-	                React.createElement(Loader, {isVisible: this.state.loading.matchesLoading}), 
-	                React.createElement("ul", {className: "matchlist__list"}, 
-	                    subviews
-	                )
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    React  = __webpack_require__(6),
-	    statsStore = __webpack_require__(75),
-	    StatsLegend = __webpack_require__(76),
-	    StatsChart = __webpack_require__(77);
-
-	__webpack_require__(138);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    mixins: [
-	        Reflux.connect(statsStore, 'stats')
-	    ],
-
-	    getInitialState: function() {
-	        return {
-	            stats: []
-	        };
-	    },
-
-	    render: function() {
-	        return (
-	            React.createElement("div", {className: "stats"}, 
-	                React.createElement("h1", {className: "stats__title"}, "MMR last 14 days"), 
-	                React.createElement("div", {className: "stats__chart"}, 
-	                    React.createElement(StatsChart, {stats: this.state.stats})
-	                ), 
-	                React.createElement("div", {className: "stats__legend"}, 
-	                    React.createElement(StatsLegend, {stats: this.state.stats})
-	                )
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    React  = __webpack_require__(6),
-	    postsStore = __webpack_require__(78);
-
-	__webpack_require__(79);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    mixins: [
-	        Reflux.connect(postsStore, 'posts')
-	    ],
-
-	    getInitialState: function() {
-	        return {
-	            posts: []
-	        };
-	    },
-
-	    render: function() {
-	        return (
-	            React.createElement("div", {className: "videoblog"}, 
-	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
-	                this.state.posts.map(function(post) {
-	                    return React.createElement("iframe", {
-	                        className: "videoblog__post", 
-	                        src: post.embed_url, 
-	                        frameBorder: "0", 
-	                        allowFullScreen: true});
-	                })
-	            )
-	        );
-	    }
-	});
-
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isIE9 = memoize(function() {
-			return /msie 9\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0;
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isIE9();
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function createStyleElement() {
-		var styleElement = document.createElement("style");
-		var head = getHeadElement();
-		styleElement.type = "text/css";
-		head.appendChild(styleElement);
-		return styleElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement());
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else {
-			styleElement = createStyleElement();
-			update = applyToTag.bind(null, styleElement);
-			remove = function () {
-				styleElement.parentNode.removeChild(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	function replaceText(source, id, replacement) {
-		var boundaries = ["/** >>" + id + " **/", "/** " + id + "<< **/"];
-		var start = source.lastIndexOf(boundaries[0]);
-		var wrappedReplacement = replacement
-			? (boundaries[0] + replacement + boundaries[1])
-			: "";
-		if (source.lastIndexOf(boundaries[0]) >= 0) {
-			var end = source.lastIndexOf(boundaries[1]) + boundaries[1].length;
-			return source.slice(0, start) + wrappedReplacement + source.slice(end);
-		} else {
-			return source + wrappedReplacement;
-		}
-	}
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(styleElement.styleSheet.cssText, index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap && typeof btoa === "function") {
-			try {
-				css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
-				css = "@import url(\"data:text/css;base64," + btoa(css) + "\")";
-			} catch(e) {}
-		}
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Firebase = __webpack_require__(4),
-	    offlineMode = false;
-
-
-	module.exports = function(options) {
-	    'use strict';
-
-	    var firebaseRef,
-	        isLoading = false,
-	        loadingCallback = options.loadingCallback || function() {},
-	        updateCallback  = options.updateCallback  || function() {},
-
-	        logger = function(msg)   {for (var rest=[],$__0=1,$__1=arguments.length;$__0<$__1;$__0++) rest.push(arguments[$__0]);
-	          var args = [("[listener] [" + options.firebaseUri + "] " + msg)].concat(rest);
-	          console.log.apply(console, args);
-	        },
-
-	        updateFromCache = function(cachedString)  {
-	            try {
-	                var data = JSON.parse(cachedString);
-	                updateCallback(data);
-	                logger('updated from cache', data);
-	            } catch(e) {
-	                console.error(e);
-	            }
-	        },
-
-	        firebaseCallback = function(snapshot)  {
-	          var val   = snapshot.val(),
-	              items = Object.keys(val).map(function(k)  {return val[k];});
-
-	          // items will be sorted ascending on key
-	          // - we want descending order.
-	          items.reverse();
-
-	          localStorage.setItem(options.cacheKey, JSON.stringify(items));
-	          loadingCallback(false);
-
-	          logger('new data', items);
-	          updateCallback(items);
-	        },
-
-	        start = function()  {
-	            var cachedString = localStorage.getItem(options.cacheKey);
-
-	            if (cachedString) {
-	                updateFromCache(cachedString);
-	            }
-
-	            if (firebaseRef !== undefined) {
-	                console.warn('This listener for ' + options.firebaseUri + ' is already started, will not start a new one.');
-	                return;
-	            }
-
-	            if (offlineMode !== true) {
-	                loadingCallback(true);
-	                isLoading = true;
-
-	                firebaseRef = new Firebase(options.firebaseUri);
-
-	                if (options.limitToLast) {
-	                    firebaseRef.limitToLast(options.limitToLast).on('value', firebaseCallback);
-	                    logger(("started (limit to last " + options.limitToLast + ")"));
-	                } else {
-	                    firebaseRef.on('value', firebaseCallback);
-	                    logger('started');
-	                }
-	            } else {
-	                logger('offline mode enabled, no listener started');
-	            }
-	        },
-
-	        stop = function()  {
-	            firebaseRef.off('value', firebaseCallback);
-	            firebaseRef = undefined;
-
-	            if (isLoading) {
-	                loadingCallback(false);
-	                isLoading = false;
-	            }
-
-	            logger('stopped');
-	        };
-
-
-	    return {
-	        start: start,
-	        stop: stop
-	    };
-	};
-
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5);
-
-	// This action represents that the matches have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5);
-
-	// This action represents that the stats have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5);
-
-	// This action represents that the matches started/stopped loading
-	module.exports = Reflux.createAction();
-
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5);
-
-	// This action represents that the matches have been updated
-	module.exports = Reflux.createAction();
-
-
-/***/ },
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
 /* 29 */,
 /* 30 */,
 /* 31 */,
@@ -745,29 +60,246 @@ webpackJsonp([0],[
 /* 51 */,
 /* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = function() {
-		var list = [];
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-		return list;
-	}
+	'use strict';
+
+	var React = __webpack_require__(207),
+	    ViewController   = __webpack_require__(223),
+	    posts_listener   = __webpack_require__(403),
+	    stats_listener   = __webpack_require__(405),
+	    matches_listener = __webpack_require__(406),
+	    node = document.body;
+
+	__webpack_require__(407);
+	__webpack_require__(409);
+
+	React.render(React.createElement(ViewController, null), node);
+
+	matches_listener.start();
+	posts_listener.start();
+	stats_listener.start();
+
 
 /***/ },
-/* 55 */,
-/* 56 */
+/* 207 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(208);
+
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactWithAddons
+	 */
+
+	/**
+	 * This module exists purely in the open source project, and is meant as a way
+	 * to create a separate standalone build of React. This build has "addons", or
+	 * functionality we've built and think might be useful but doesn't have a good
+	 * place to live inside React core.
+	 */
+
+	"use strict";
+
+	var LinkedStateMixin = __webpack_require__(209);
+	var React = __webpack_require__(57);
+	var ReactComponentWithPureRenderMixin =
+	  __webpack_require__(212);
+	var ReactCSSTransitionGroup = __webpack_require__(213);
+	var ReactTransitionGroup = __webpack_require__(214);
+	var ReactUpdates = __webpack_require__(81);
+
+	var cx = __webpack_require__(220);
+	var cloneWithProps = __webpack_require__(216);
+	var update = __webpack_require__(221);
+
+	React.addons = {
+	  CSSTransitionGroup: ReactCSSTransitionGroup,
+	  LinkedStateMixin: LinkedStateMixin,
+	  PureRenderMixin: ReactComponentWithPureRenderMixin,
+	  TransitionGroup: ReactTransitionGroup,
+
+	  batchedUpdates: ReactUpdates.batchedUpdates,
+	  classSet: cx,
+	  cloneWithProps: cloneWithProps,
+	  update: update
+	};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  React.addons.Perf = __webpack_require__(196);
+	  React.addons.TestUtils = __webpack_require__(222);
+	}
+
+	module.exports = React;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
+
+/***/ },
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -784,8 +316,8 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var ReactLink = __webpack_require__(140);
-	var ReactStateSetters = __webpack_require__(141);
+	var ReactLink = __webpack_require__(210);
+	var ReactStateSetters = __webpack_require__(211);
 
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -812,7 +344,194 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 57 */
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactLink
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * ReactLink encapsulates a common pattern in which a component wants to modify
+	 * a prop received from its parent. ReactLink allows the parent to pass down a
+	 * value coupled with a callback that, when invoked, expresses an intent to
+	 * modify that value. For example:
+	 *
+	 * React.createClass({
+	 *   getInitialState: function() {
+	 *     return {value: ''};
+	 *   },
+	 *   render: function() {
+	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
+	 *     return <input valueLink={valueLink} />;
+	 *   },
+	 *   this._handleValueChange: function(newValue) {
+	 *     this.setState({value: newValue});
+	 *   }
+	 * });
+	 *
+	 * We have provided some sugary mixins to make the creation and
+	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
+	 */
+
+	var React = __webpack_require__(57);
+
+	/**
+	 * @param {*} value current value of the link
+	 * @param {function} requestChange callback to request a change
+	 */
+	function ReactLink(value, requestChange) {
+	  this.value = value;
+	  this.requestChange = requestChange;
+	}
+
+	/**
+	 * Creates a PropType that enforces the ReactLink API and optionally checks the
+	 * type of the value being passed inside the link. Example:
+	 *
+	 * MyComponent.propTypes = {
+	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
+	 * }
+	 */
+	function createLinkTypeChecker(linkType) {
+	  var shapes = {
+	    value: typeof linkType === 'undefined' ?
+	      React.PropTypes.any.isRequired :
+	      linkType.isRequired,
+	    requestChange: React.PropTypes.func.isRequired
+	  };
+	  return React.PropTypes.shape(shapes);
+	}
+
+	ReactLink.PropTypes = {
+	  link: createLinkTypeChecker
+	};
+
+	module.exports = ReactLink;
+
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactStateSetters
+	 */
+
+	"use strict";
+
+	var ReactStateSetters = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(component, funcReturningState) {
+	    return function(a, b, c, d, e, f) {
+	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
+	      if (partialState) {
+	        component.setState(partialState);
+	      }
+	    };
+	  },
+
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(component, key) {
+	    // Memoize the setters.
+	    var cache = component.__keySetters || (component.__keySetters = {});
+	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
+	  }
+	};
+
+	function createStateKeySetter(component, key) {
+	  // Partial state is allocated outside of the function closure so it can be
+	  // reused with every call, avoiding memory allocation when this function
+	  // is called.
+	  var partialState = {};
+	  return function stateKeySetter(value) {
+	    partialState[key] = value;
+	    component.setState(partialState);
+	  };
+	}
+
+	ReactStateSetters.Mixin = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateSetter(function(xValue) {
+	   *     return {x: xValue};
+	   *   })(1);
+	   *
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function(funcReturningState) {
+	    return ReactStateSetters.createStateSetter(this, funcReturningState);
+	  },
+
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateKeySetter('x')(1);
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function(key) {
+	    return ReactStateSetters.createStateKeySetter(this, key);
+	  }
+	};
+
+	module.exports = ReactStateSetters;
+
+
+/***/ },
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -828,7 +547,7 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var shallowEqual = __webpack_require__(142);
+	var shallowEqual = __webpack_require__(183);
 
 	/**
 	 * If your React component's render function is "pure", e.g. it will render the
@@ -865,7 +584,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 58 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -882,15 +601,15 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var React = __webpack_require__(11);
+	var React = __webpack_require__(57);
 
-	var assign = __webpack_require__(49);
+	var assign = __webpack_require__(76);
 
 	var ReactTransitionGroup = React.createFactory(
-	  __webpack_require__(59)
+	  __webpack_require__(214)
 	);
 	var ReactCSSTransitionGroupChild = React.createFactory(
-	  __webpack_require__(143)
+	  __webpack_require__(217)
 	);
 
 	var ReactCSSTransitionGroup = React.createClass({
@@ -936,7 +655,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 59 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -952,12 +671,12 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var React = __webpack_require__(11);
-	var ReactTransitionChildMapping = __webpack_require__(144);
+	var React = __webpack_require__(57);
+	var ReactTransitionChildMapping = __webpack_require__(215);
 
-	var assign = __webpack_require__(49);
-	var cloneWithProps = __webpack_require__(62);
-	var emptyFunction = __webpack_require__(134);
+	var assign = __webpack_require__(76);
+	var cloneWithProps = __webpack_require__(216);
+	var emptyFunction = __webpack_require__(67);
 
 	var ReactTransitionGroup = React.createClass({
 	  displayName: 'ReactTransitionGroup',
@@ -1129,8 +848,542 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 60 */,
-/* 61 */
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks static-only
+	 * @providesModule ReactTransitionChildMapping
+	 */
+
+	"use strict";
+
+	var ReactChildren = __webpack_require__(71);
+
+	var ReactTransitionChildMapping = {
+	  /**
+	   * Given `this.props.children`, return an object mapping key to child. Just
+	   * simple syntactic sugar around ReactChildren.map().
+	   *
+	   * @param {*} children `this.props.children`
+	   * @return {object} Mapping of key to child
+	   */
+	  getChildMapping: function(children) {
+	    return ReactChildren.map(children, function(child) {
+	      return child;
+	    });
+	  },
+
+	  /**
+	   * When you're adding or removing children some may be added or removed in the
+	   * same render pass. We want to show *both* since we want to simultaneously
+	   * animate elements in and out. This function takes a previous set of keys
+	   * and a new set of keys and merges them with its best guess of the correct
+	   * ordering. In the future we may expose some of the utilities in
+	   * ReactMultiChild to make this easy, but for now React itself does not
+	   * directly have this concept of the union of prevChildren and nextChildren
+	   * so we implement it here.
+	   *
+	   * @param {object} prev prev children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @param {object} next next children as returned from
+	   * `ReactTransitionChildMapping.getChildMapping()`.
+	   * @return {object} a key set that contains all keys in `prev` and all keys
+	   * in `next` in a reasonable order.
+	   */
+	  mergeChildMappings: function(prev, next) {
+	    prev = prev || {};
+	    next = next || {};
+
+	    function getValueForKey(key) {
+	      if (next.hasOwnProperty(key)) {
+	        return next[key];
+	      } else {
+	        return prev[key];
+	      }
+	    }
+
+	    // For each key of `next`, the list of keys to insert before that key in
+	    // the combined list
+	    var nextKeysPending = {};
+
+	    var pendingKeys = [];
+	    for (var prevKey in prev) {
+	      if (next.hasOwnProperty(prevKey)) {
+	        if (pendingKeys.length) {
+	          nextKeysPending[prevKey] = pendingKeys;
+	          pendingKeys = [];
+	        }
+	      } else {
+	        pendingKeys.push(prevKey);
+	      }
+	    }
+
+	    var i;
+	    var childMapping = {};
+	    for (var nextKey in next) {
+	      if (nextKeysPending.hasOwnProperty(nextKey)) {
+	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
+	          var pendingNextKey = nextKeysPending[nextKey][i];
+	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
+	            pendingNextKey
+	          );
+	        }
+	      }
+	      childMapping[nextKey] = getValueForKey(nextKey);
+	    }
+
+	    // Finally, add the keys which didn't appear before any key in `next`
+	    for (i = 0; i < pendingKeys.length; i++) {
+	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
+	    }
+
+	    return childMapping;
+	  }
+	};
+
+	module.exports = ReactTransitionChildMapping;
+
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks
+	 * @providesModule cloneWithProps
+	 */
+
+	"use strict";
+
+	var ReactElement = __webpack_require__(74);
+	var ReactPropTransferer = __webpack_require__(92);
+
+	var keyOf = __webpack_require__(97);
+	var warning = __webpack_require__(66);
+
+	var CHILDREN_PROP = keyOf({children: null});
+
+	/**
+	 * Sometimes you want to change the props of a child passed to you. Usually
+	 * this is to add a CSS class.
+	 *
+	 * @param {object} child child component you'd like to clone
+	 * @param {object} props props you'd like to modify. They will be merged
+	 * as if you used `transferPropsTo()`.
+	 * @return {object} a clone of child with props merged in.
+	 */
+	function cloneWithProps(child, props) {
+	  if ("production" !== process.env.NODE_ENV) {
+	    ("production" !== process.env.NODE_ENV ? warning(
+	      !child.ref,
+	      'You are calling cloneWithProps() on a child with a ref. This is ' +
+	      'dangerous because you\'re creating a new child which will not be ' +
+	      'added as a ref to its parent.'
+	    ) : null);
+	  }
+
+	  var newProps = ReactPropTransferer.mergeProps(props, child.props);
+
+	  // Use `child.props.children` if it is provided.
+	  if (!newProps.hasOwnProperty(CHILDREN_PROP) &&
+	      child.props.hasOwnProperty(CHILDREN_PROP)) {
+	    newProps.children = child.props.children;
+	  }
+
+	  // The current API doesn't retain _owner and _context, which is why this
+	  // doesn't use ReactElement.cloneAndReplaceProps.
+	  return ReactElement.createElement(child.type, newProps);
+	}
+
+	module.exports = cloneWithProps;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @typechecks
+	 * @providesModule ReactCSSTransitionGroupChild
+	 */
+
+	"use strict";
+
+	var React = __webpack_require__(57);
+
+	var CSSCore = __webpack_require__(218);
+	var ReactTransitionEvents = __webpack_require__(219);
+
+	var onlyChild = __webpack_require__(202);
+
+	// We don't remove the element from the DOM until we receive an animationend or
+	// transitionend event. If the user screws up and forgets to add an animation
+	// their node will be stuck in the DOM forever, so we detect if an animation
+	// does not start and if it doesn't, we just call the end listener immediately.
+	var TICK = 17;
+	var NO_EVENT_TIMEOUT = 5000;
+
+	var noEventListener = null;
+
+
+	if ("production" !== process.env.NODE_ENV) {
+	  noEventListener = function() {
+	    console.warn(
+	      'transition(): tried to perform an animation without ' +
+	      'an animationend or transitionend event after timeout (' +
+	      NO_EVENT_TIMEOUT + 'ms). You should either disable this ' +
+	      'transition in JS or add a CSS animation/transition.'
+	    );
+	  };
+	}
+
+	var ReactCSSTransitionGroupChild = React.createClass({
+	  displayName: 'ReactCSSTransitionGroupChild',
+
+	  transition: function(animationType, finishCallback) {
+	    var node = this.getDOMNode();
+	    var className = this.props.name + '-' + animationType;
+	    var activeClassName = className + '-active';
+	    var noEventTimeout = null;
+
+	    var endListener = function(e) {
+	      if (e && e.target !== node) {
+	        return;
+	      }
+	      if ("production" !== process.env.NODE_ENV) {
+	        clearTimeout(noEventTimeout);
+	      }
+
+	      CSSCore.removeClass(node, className);
+	      CSSCore.removeClass(node, activeClassName);
+
+	      ReactTransitionEvents.removeEndEventListener(node, endListener);
+
+	      // Usually this optional callback is used for informing an owner of
+	      // a leave animation and telling it to remove the child.
+	      finishCallback && finishCallback();
+	    };
+
+	    ReactTransitionEvents.addEndEventListener(node, endListener);
+
+	    CSSCore.addClass(node, className);
+
+	    // Need to do this to actually trigger a transition.
+	    this.queueClass(activeClassName);
+
+	    if ("production" !== process.env.NODE_ENV) {
+	      noEventTimeout = setTimeout(noEventListener, NO_EVENT_TIMEOUT);
+	    }
+	  },
+
+	  queueClass: function(className) {
+	    this.classNameQueue.push(className);
+
+	    if (!this.timeout) {
+	      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
+	    }
+	  },
+
+	  flushClassNameQueue: function() {
+	    if (this.isMounted()) {
+	      this.classNameQueue.forEach(
+	        CSSCore.addClass.bind(CSSCore, this.getDOMNode())
+	      );
+	    }
+	    this.classNameQueue.length = 0;
+	    this.timeout = null;
+	  },
+
+	  componentWillMount: function() {
+	    this.classNameQueue = [];
+	  },
+
+	  componentWillUnmount: function() {
+	    if (this.timeout) {
+	      clearTimeout(this.timeout);
+	    }
+	  },
+
+	  componentWillEnter: function(done) {
+	    if (this.props.enter) {
+	      this.transition('enter', done);
+	    } else {
+	      done();
+	    }
+	  },
+
+	  componentWillLeave: function(done) {
+	    if (this.props.leave) {
+	      this.transition('leave', done);
+	    } else {
+	      done();
+	    }
+	  },
+
+	  render: function() {
+	    return onlyChild(this.props.children);
+	  }
+	});
+
+	module.exports = ReactCSSTransitionGroupChild;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule CSSCore
+	 * @typechecks
+	 */
+
+	var invariant = __webpack_require__(61);
+
+	/**
+	 * The CSSCore module specifies the API (and implements most of the methods)
+	 * that should be used when dealing with the display of elements (via their
+	 * CSS classes and visibility on screen. It is an API focused on mutating the
+	 * display and not reading it as no logical state should be encoded in the
+	 * display of elements.
+	 */
+
+	var CSSCore = {
+
+	  /**
+	   * Adds the class passed in to the element if it doesn't already have it.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  addClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSSCore.addClass takes only a single class name. "%s" contains ' +
+	      'multiple classes.', className
+	    ) : invariant(!/\s/.test(className)));
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.add(className);
+	      } else if (!CSSCore.hasClass(element, className)) {
+	        element.className = element.className + ' ' + className;
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Removes the class passed in from the element
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {DOMElement} the element passed in
+	   */
+	  removeClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSSCore.removeClass takes only a single class name. "%s" contains ' +
+	      'multiple classes.', className
+	    ) : invariant(!/\s/.test(className)));
+
+	    if (className) {
+	      if (element.classList) {
+	        element.classList.remove(className);
+	      } else if (CSSCore.hasClass(element, className)) {
+	        element.className = element.className
+	          .replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1')
+	          .replace(/\s+/g, ' ') // multiple spaces to one
+	          .replace(/^\s*|\s*$/g, ''); // trim the ends
+	      }
+	    }
+	    return element;
+	  },
+
+	  /**
+	   * Helper to add or remove a class from an element based on a condition.
+	   *
+	   * @param {DOMElement} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @param {*} bool condition to whether to add or remove the class
+	   * @return {DOMElement} the element passed in
+	   */
+	  conditionClass: function(element, className, bool) {
+	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
+	  },
+
+	  /**
+	   * Tests whether the element has the class specified.
+	   *
+	   * @param {DOMNode|DOMWindow} element the element to set the class on
+	   * @param {string} className the CSS className
+	   * @return {boolean} true if the element has the class, false if not
+	   */
+	  hasClass: function(element, className) {
+	    ("production" !== process.env.NODE_ENV ? invariant(
+	      !/\s/.test(className),
+	      'CSS.hasClass takes only a single class name.'
+	    ) : invariant(!/\s/.test(className)));
+	    if (element.classList) {
+	      return !!className && element.classList.contains(className);
+	    }
+	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+	  }
+
+	};
+
+	module.exports = CSSCore;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactTransitionEvents
+	 */
+
+	"use strict";
+
+	var ExecutionEnvironment = __webpack_require__(104);
+
+	/**
+	 * EVENT_NAME_MAP is used to determine which event fired when a
+	 * transition/animation ends, based on the style property used to
+	 * define that event.
+	 */
+	var EVENT_NAME_MAP = {
+	  transitionend: {
+	    'transition': 'transitionend',
+	    'WebkitTransition': 'webkitTransitionEnd',
+	    'MozTransition': 'mozTransitionEnd',
+	    'OTransition': 'oTransitionEnd',
+	    'msTransition': 'MSTransitionEnd'
+	  },
+
+	  animationend: {
+	    'animation': 'animationend',
+	    'WebkitAnimation': 'webkitAnimationEnd',
+	    'MozAnimation': 'mozAnimationEnd',
+	    'OAnimation': 'oAnimationEnd',
+	    'msAnimation': 'MSAnimationEnd'
+	  }
+	};
+
+	var endEvents = [];
+
+	function detectEvents() {
+	  var testEl = document.createElement('div');
+	  var style = testEl.style;
+
+	  // On some platforms, in particular some releases of Android 4.x,
+	  // the un-prefixed "animation" and "transition" properties are defined on the
+	  // style object but the events that fire will still be prefixed, so we need
+	  // to check if the un-prefixed events are useable, and if not remove them
+	  // from the map
+	  if (!('AnimationEvent' in window)) {
+	    delete EVENT_NAME_MAP.animationend.animation;
+	  }
+
+	  if (!('TransitionEvent' in window)) {
+	    delete EVENT_NAME_MAP.transitionend.transition;
+	  }
+
+	  for (var baseEventName in EVENT_NAME_MAP) {
+	    var baseEvents = EVENT_NAME_MAP[baseEventName];
+	    for (var styleName in baseEvents) {
+	      if (styleName in style) {
+	        endEvents.push(baseEvents[styleName]);
+	        break;
+	      }
+	    }
+	  }
+	}
+
+	if (ExecutionEnvironment.canUseDOM) {
+	  detectEvents();
+	}
+
+	// We use the raw {add|remove}EventListener() call because EventListener
+	// does not know how to remove event listeners and we really should
+	// clean up. Also, these events are not triggered in older browsers
+	// so we should be A-OK here.
+
+	function addEventListener(node, eventName, eventListener) {
+	  node.addEventListener(eventName, eventListener, false);
+	}
+
+	function removeEventListener(node, eventName, eventListener) {
+	  node.removeEventListener(eventName, eventListener, false);
+	}
+
+	var ReactTransitionEvents = {
+	  addEndEventListener: function(node, eventListener) {
+	    if (endEvents.length === 0) {
+	      // If CSS transitions are not supported, trigger an "end animation"
+	      // event immediately.
+	      window.setTimeout(eventListener, 0);
+	      return;
+	    }
+	    endEvents.forEach(function(endEvent) {
+	      addEventListener(node, endEvent, eventListener);
+	    });
+	  },
+
+	  removeEndEventListener: function(node, eventListener) {
+	    if (endEvents.length === 0) {
+	      return;
+	    }
+	    endEvents.forEach(function(endEvent) {
+	      removeEventListener(node, endEvent, eventListener);
+	    });
+	  }
+	};
+
+	module.exports = ReactTransitionEvents;
+
+
+/***/ },
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1173,69 +1426,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks
-	 * @providesModule cloneWithProps
-	 */
-
-	"use strict";
-
-	var ReactElement = __webpack_require__(36);
-	var ReactPropTransferer = __webpack_require__(93);
-
-	var keyOf = __webpack_require__(97);
-	var warning = __webpack_require__(84);
-
-	var CHILDREN_PROP = keyOf({children: null});
-
-	/**
-	 * Sometimes you want to change the props of a child passed to you. Usually
-	 * this is to add a CSS class.
-	 *
-	 * @param {object} child child component you'd like to clone
-	 * @param {object} props props you'd like to modify. They will be merged
-	 * as if you used `transferPropsTo()`.
-	 * @return {object} a clone of child with props merged in.
-	 */
-	function cloneWithProps(child, props) {
-	  if ("production" !== process.env.NODE_ENV) {
-	    ("production" !== process.env.NODE_ENV ? warning(
-	      !child.ref,
-	      'You are calling cloneWithProps() on a child with a ref. This is ' +
-	      'dangerous because you\'re creating a new child which will not be ' +
-	      'added as a ref to its parent.'
-	    ) : null);
-	  }
-
-	  var newProps = ReactPropTransferer.mergeProps(props, child.props);
-
-	  // Use `child.props.children` if it is provided.
-	  if (!newProps.hasOwnProperty(CHILDREN_PROP) &&
-	      child.props.hasOwnProperty(CHILDREN_PROP)) {
-	    newProps.children = child.props.children;
-	  }
-
-	  // The current API doesn't retain _owner and _context, which is why this
-	  // doesn't use ReactElement.cloneAndReplaceProps.
-	  return ReactElement.createElement(child.type, newProps);
-	}
-
-	module.exports = cloneWithProps;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
-
-/***/ },
-/* 63 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -1251,9 +1442,9 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var assign = __webpack_require__(49);
+	var assign = __webpack_require__(76);
 	var keyOf = __webpack_require__(97);
-	var invariant = __webpack_require__(86);
+	var invariant = __webpack_require__(61);
 
 	function shallowCopy(x) {
 	  if (Array.isArray(x)) {
@@ -1402,12 +1593,11 @@ webpackJsonp([0],[
 	}
 
 	module.exports = update;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
 
 /***/ },
-/* 64 */,
-/* 65 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1423,18 +1613,18 @@ webpackJsonp([0],[
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(85);
-	var EventPluginHub = __webpack_require__(149);
-	var EventPropagators = __webpack_require__(150);
-	var React = __webpack_require__(11);
-	var ReactElement = __webpack_require__(36);
-	var ReactBrowserEventEmitter = __webpack_require__(103);
-	var ReactMount = __webpack_require__(43);
-	var ReactTextComponent = __webpack_require__(48);
-	var ReactUpdates = __webpack_require__(60);
-	var SyntheticEvent = __webpack_require__(151);
+	var EventConstants = __webpack_require__(69);
+	var EventPluginHub = __webpack_require__(116);
+	var EventPropagators = __webpack_require__(134);
+	var React = __webpack_require__(57);
+	var ReactElement = __webpack_require__(74);
+	var ReactBrowserEventEmitter = __webpack_require__(115);
+	var ReactMount = __webpack_require__(111);
+	var ReactTextComponent = __webpack_require__(129);
+	var ReactUpdates = __webpack_require__(81);
+	var SyntheticEvent = __webpack_require__(136);
 
-	var assign = __webpack_require__(49);
+	var assign = __webpack_require__(76);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -1823,16 +2013,59 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 66 */
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(207),
+	    Logo = __webpack_require__(224),
+	    MatchList = __webpack_require__(230),
+	    Stats = __webpack_require__(381),
+	    VideoBlog  = __webpack_require__(398);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("div", null, 
+	                React.createElement(Logo, null), 
+	                React.createElement(VideoBlog, null), 
+	                React.createElement(Stats, null), 
+	                React.createElement(MatchList, null)
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(207);
+
+	__webpack_require__(225);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "logo"})
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(67);
+	var content = __webpack_require__(226);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(229)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -1846,103 +2079,290 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 67 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(200)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".logo {\n    background-image: url("+__webpack_require__(228)+");\n    background-position: left top;\n    background-repeat: no-repeat;\n    background-size: cover;\n    width: 320px;\n    height: 317px;\n    margin: 0 auto;\n}\n\n@media screen and (min-width: 700px) {\n    .logo {\n        width: 700px;\n        height: 694px;\n        margin: 0 auto;\n    }\n}\n", ""]);
 
 /***/ },
-/* 68 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(6),
-	    dateUtil = __webpack_require__(152);
+	module.exports = function() {
+		var list = [];
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+		return list;
+	}
 
-	__webpack_require__(153);
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isIE9 = memoize(function() {
+			return /msie 9\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0;
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isIE9();
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function createStyleElement() {
+		var styleElement = document.createElement("style");
+		var head = getHeadElement();
+		styleElement.type = "text/css";
+		head.appendChild(styleElement);
+		return styleElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement());
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else {
+			styleElement = createStyleElement();
+			update = applyToTag.bind(null, styleElement);
+			remove = function () {
+				styleElement.parentNode.removeChild(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	function replaceText(source, id, replacement) {
+		var boundaries = ["/** >>" + id + " **/", "/** " + id + "<< **/"];
+		var start = source.lastIndexOf(boundaries[0]);
+		var wrappedReplacement = replacement
+			? (boundaries[0] + replacement + boundaries[1])
+			: "";
+		if (source.lastIndexOf(boundaries[0]) >= 0) {
+			var end = source.lastIndexOf(boundaries[1]) + boundaries[1].length;
+			return source.slice(0, start) + wrappedReplacement + source.slice(end);
+		} else {
+			return source + wrappedReplacement;
+		}
+	}
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(styleElement.styleSheet.cssText, index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap && typeof btoa === "function") {
+			try {
+				css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
+				css = "@import url(\"data:text/css;base64," + btoa(css) + "\")";
+			} catch(e) {}
+		}
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+
+/***/ },
+/* 230 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var DateHeader   = __webpack_require__(233),
+	    Loader       = __webpack_require__(237),
+	    loadingStore = __webpack_require__(374),
+	    Match        = __webpack_require__(376),
+	    matchesStore = __webpack_require__(231),
+	    React        = __webpack_require__(207),
+	    Reflux       = __webpack_require__(204);
+
+
+	__webpack_require__(379);
 
 
 	module.exports = React.createClass({displayName: "exports",
+	    mixins: [
+	        Reflux.connect(matchesStore, 'matches'),
+	        Reflux.connect(loadingStore, 'loading')
+	    ],
+
+	    getInitialState: function() {
+	        return {
+	            matches: [],
+	            loading: {
+	                matchesLoading: false
+	            }
+	        };
+	    },
+
 	    render: function() {
-	        return (
-	            React.createElement("li", {className: "date-header"}, 
-	                dateUtil.toFriendlyDate(this.props.date)
-	            )
-	        );
-	    }
-	});
+	        var subviews = [],
+	            lastDate,
+	            classes = React.addons.classSet({
+	                'matchlist': true,
+	                'is-loading': this.state.loading.matchesLoading
+	            });
 
 
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
+	        this.state.matches.forEach(function(match)  {
+	            if (match.date !== lastDate) {
+	                lastDate = match.date;
+	                subviews.push(React.createElement(DateHeader, {date: match.date}));
+	            }
 
-	var React = __webpack_require__(6),
-	    Team  = __webpack_require__(155);
-
-	__webpack_require__(156);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-
-	        var classes = React.addons.classSet({
-	            'loader': true,
-	            'is-visible': this.props.isVisible,
-	            'is-hidden': !this.props.isVisible
+	            subviews.push(React.createElement(Match, {key: match.match_id, match: match}));
 	        });
 
-	        return (React.createElement("div", {className: classes}, "Loading"));
-	    }
-	});
-
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    matchesLoading = __webpack_require__(27),
-	    loadingStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(matchesLoading, this.onMatchesLoading);
-	      },
-
-	      onMatchesLoading: function(isLoading) {
-	          this.matchesLoading = isLoading;
-	          this.output();
-	      },
-
-	      output: function(matches) {
-	          this.trigger({
-	              matchesLoading: !!this.matchesLoading
-	          });
-	      }
-	  });
-
-
-	module.exports = loadingStore;
-
-
-/***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6),
-	    Team  = __webpack_require__(155);
-
-	__webpack_require__(158);
-
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
 	        return (
-	            React.createElement("li", {className: "match"}, 
-	                React.createElement("h2", {className: "match__title"}, 
-	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
-	                ), 
-	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
-	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
+	            React.createElement("div", {className: classes}, 
+	                React.createElement(Loader, {isVisible: this.state.loading.matchesLoading}), 
+	                React.createElement("ul", {className: "matchlist__list"}, 
+	                    subviews
+	                )
 	            )
 	        );
 	    }
@@ -1950,11 +2370,11 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 72 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Reflux = __webpack_require__(5),
-	    matchesUpdate = __webpack_require__(28),
+	var Reflux = __webpack_require__(204),
+	    matchesUpdate = __webpack_require__(232),
 	    matchesStore = Reflux.createStore({
 	      init: function() {
 	        this.listenTo(matchesUpdate, this.output);
@@ -1970,80 +2390,30 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 73 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	var Reflux = __webpack_require__(204);
 
-	// load the styles
-	var content = __webpack_require__(74);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 74 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".matchlist {\n    position: relative;\n}\n\n.matchlist.is-loading .matchlist__list {\n    opacity: 0.3;\n}\n\n.matchlist__list {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
-
-/***/ },
-/* 75 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    statsUpdate = __webpack_require__(26),
-	    statsStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(statsUpdate, this.output);
-	      },
-
-	      output: function(stats) {
-	          this.trigger(stats);
-	      }
-	  });
-
-
-	module.exports = statsStore;
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
 
 
 /***/ },
-/* 76 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React  = __webpack_require__(6),
-	    transform = __webpack_require__(160);
+	var React = __webpack_require__(207),
+	    dateUtil = __webpack_require__(234);
 
-	__webpack_require__(138);
+	__webpack_require__(235);
 
 
 	module.exports = React.createClass({displayName: "exports",
 	    render: function() {
-	        var data = transform.toLegend(this.props.stats);
-
 	        return (
-	            React.createElement("ul", {className: "legend"}, 
-	                data.map(function(d)  {
-	                    var style = {
-	                        backgroundColor: d.color
-	                    };
-	                    return React.createElement("li", {className: "legend__item", key: d.label}, 
-	                      React.createElement("span", {className: "legend__item__color", style: style}), 
-	                      React.createElement("span", {className: "legend__item__label"}, d.label)
-	                    )
-	                })
+	            React.createElement("li", {className: "date-header"}, 
+	                dateUtil.toFriendlyDate(this.props.date)
 	            )
 	        );
 	    }
@@ -2051,616 +2421,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 77 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React  = __webpack_require__(6),
-	    LineChart = __webpack_require__(199).Line,
-	    transform = __webpack_require__(160);
-
-	__webpack_require__(138);
-
-
-	var chartOptions = {
-	        scaleShowGridLines: false,
-	        pointDotRadius: 3,
-	        scaleIntegersOnly: false,
-	        multiTooltipTemplate: "<%= datasetLabel %>: <%= value %>",
-	        datasetFill: false,
-	        responsive: true
-	    };
-
-	module.exports = React.createClass({displayName: "exports",
-	    render: function() {
-	        //var chartData = transform.toChart(this.props.stats);
-	        chartData = transform.toChart(this.props.stats);
-	        console.log('chartData', chartData);
-	        if (!chartData || !chartData.datasets) {
-	            return React.createElement("div", null);
-	        }
-
-	        return React.createElement(LineChart, {data: chartData, options: chartOptions, width: "600", height: "250"});
-	    }
-	});
-
-
-/***/ },
-/* 78 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Reflux = __webpack_require__(5),
-	    postsUpdate = __webpack_require__(25),
-	    postsStore = Reflux.createStore({
-	      init: function() {
-	        this.listenTo(postsUpdate, this.output);
-	      },
-
-	      output: function(posts) {
-	          this.trigger(posts);
-	      }
-	  });
-
-
-	module.exports = postsStore;
-
-
-/***/ },
-/* 79 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(80);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 80 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".videoblog__title {\n    padding: 40px 0 20px 0;\n    text-align: center;\n}\n\n.videoblog__post {\n    display: block;\n    height: 155px;\n    margin: 20px 0;\n    width: 100%;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        height: 315px;\n        margin: 20px auto;\n        width: 700px;\n    }\n}\n", ""]);
-
-/***/ },
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(139);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/stats/stats.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/stats/stats.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 139 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".stats {\n  margin: 20px 0;\n  padding: 10px;\n}\n.stats__title {\n  padding: 40px 0 20px 0;\n  text-align: center;\n}\n.legend {\n  list-style: none;\n  padding: 0;\n  margin: 1em 0;\n  font-size: 0.9rem;\n}\n.legend__item {\n  float: left;\n  padding: 0;\n  margin: 0 0.5em 0.3em 0;\n}\n.legend__item__color {\n  border-radius: 50%;\n  display: inline-block;\n  height: 0.5em;\n  margin-bottom: 0.25em;\n  margin-right: 0.5em;\n  width: 0.5em;\n}\n@media screen and (min-width: 700px) {\n  .stats {\n    margin: 20px auto;\n    width: 700px;\n    padding: 0;\n  }\n}\n", ""]);
-
-/***/ },
-/* 140 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactLink
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * ReactLink encapsulates a common pattern in which a component wants to modify
-	 * a prop received from its parent. ReactLink allows the parent to pass down a
-	 * value coupled with a callback that, when invoked, expresses an intent to
-	 * modify that value. For example:
-	 *
-	 * React.createClass({
-	 *   getInitialState: function() {
-	 *     return {value: ''};
-	 *   },
-	 *   render: function() {
-	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
-	 *     return <input valueLink={valueLink} />;
-	 *   },
-	 *   this._handleValueChange: function(newValue) {
-	 *     this.setState({value: newValue});
-	 *   }
-	 * });
-	 *
-	 * We have provided some sugary mixins to make the creation and
-	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
-	 */
-
-	var React = __webpack_require__(11);
-
-	/**
-	 * @param {*} value current value of the link
-	 * @param {function} requestChange callback to request a change
-	 */
-	function ReactLink(value, requestChange) {
-	  this.value = value;
-	  this.requestChange = requestChange;
-	}
-
-	/**
-	 * Creates a PropType that enforces the ReactLink API and optionally checks the
-	 * type of the value being passed inside the link. Example:
-	 *
-	 * MyComponent.propTypes = {
-	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
-	 * }
-	 */
-	function createLinkTypeChecker(linkType) {
-	  var shapes = {
-	    value: typeof linkType === 'undefined' ?
-	      React.PropTypes.any.isRequired :
-	      linkType.isRequired,
-	    requestChange: React.PropTypes.func.isRequired
-	  };
-	  return React.PropTypes.shape(shapes);
-	}
-
-	ReactLink.PropTypes = {
-	  link: createLinkTypeChecker
-	};
-
-	module.exports = ReactLink;
-
-
-/***/ },
-/* 141 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactStateSetters
-	 */
-
-	"use strict";
-
-	var ReactStateSetters = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(component, funcReturningState) {
-	    return function(a, b, c, d, e, f) {
-	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
-	      if (partialState) {
-	        component.setState(partialState);
-	      }
-	    };
-	  },
-
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(component, key) {
-	    // Memoize the setters.
-	    var cache = component.__keySetters || (component.__keySetters = {});
-	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
-	  }
-	};
-
-	function createStateKeySetter(component, key) {
-	  // Partial state is allocated outside of the function closure so it can be
-	  // reused with every call, avoiding memory allocation when this function
-	  // is called.
-	  var partialState = {};
-	  return function stateKeySetter(value) {
-	    partialState[key] = value;
-	    component.setState(partialState);
-	  };
-	}
-
-	ReactStateSetters.Mixin = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateSetter(function(xValue) {
-	   *     return {x: xValue};
-	   *   })(1);
-	   *
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function(funcReturningState) {
-	    return ReactStateSetters.createStateSetter(this, funcReturningState);
-	  },
-
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateKeySetter('x')(1);
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function(key) {
-	    return ReactStateSetters.createStateKeySetter(this, key);
-	  }
-	};
-
-	module.exports = ReactStateSetters;
-
-
-/***/ },
-/* 142 */,
-/* 143 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks
-	 * @providesModule ReactCSSTransitionGroupChild
-	 */
-
-	"use strict";
-
-	var React = __webpack_require__(11);
-
-	var CSSCore = __webpack_require__(201);
-	var ReactTransitionEvents = __webpack_require__(202);
-
-	var onlyChild = __webpack_require__(51);
-
-	// We don't remove the element from the DOM until we receive an animationend or
-	// transitionend event. If the user screws up and forgets to add an animation
-	// their node will be stuck in the DOM forever, so we detect if an animation
-	// does not start and if it doesn't, we just call the end listener immediately.
-	var TICK = 17;
-	var NO_EVENT_TIMEOUT = 5000;
-
-	var noEventListener = null;
-
-
-	if ("production" !== process.env.NODE_ENV) {
-	  noEventListener = function() {
-	    console.warn(
-	      'transition(): tried to perform an animation without ' +
-	      'an animationend or transitionend event after timeout (' +
-	      NO_EVENT_TIMEOUT + 'ms). You should either disable this ' +
-	      'transition in JS or add a CSS animation/transition.'
-	    );
-	  };
-	}
-
-	var ReactCSSTransitionGroupChild = React.createClass({
-	  displayName: 'ReactCSSTransitionGroupChild',
-
-	  transition: function(animationType, finishCallback) {
-	    var node = this.getDOMNode();
-	    var className = this.props.name + '-' + animationType;
-	    var activeClassName = className + '-active';
-	    var noEventTimeout = null;
-
-	    var endListener = function(e) {
-	      if (e && e.target !== node) {
-	        return;
-	      }
-	      if ("production" !== process.env.NODE_ENV) {
-	        clearTimeout(noEventTimeout);
-	      }
-
-	      CSSCore.removeClass(node, className);
-	      CSSCore.removeClass(node, activeClassName);
-
-	      ReactTransitionEvents.removeEndEventListener(node, endListener);
-
-	      // Usually this optional callback is used for informing an owner of
-	      // a leave animation and telling it to remove the child.
-	      finishCallback && finishCallback();
-	    };
-
-	    ReactTransitionEvents.addEndEventListener(node, endListener);
-
-	    CSSCore.addClass(node, className);
-
-	    // Need to do this to actually trigger a transition.
-	    this.queueClass(activeClassName);
-
-	    if ("production" !== process.env.NODE_ENV) {
-	      noEventTimeout = setTimeout(noEventListener, NO_EVENT_TIMEOUT);
-	    }
-	  },
-
-	  queueClass: function(className) {
-	    this.classNameQueue.push(className);
-
-	    if (!this.timeout) {
-	      this.timeout = setTimeout(this.flushClassNameQueue, TICK);
-	    }
-	  },
-
-	  flushClassNameQueue: function() {
-	    if (this.isMounted()) {
-	      this.classNameQueue.forEach(
-	        CSSCore.addClass.bind(CSSCore, this.getDOMNode())
-	      );
-	    }
-	    this.classNameQueue.length = 0;
-	    this.timeout = null;
-	  },
-
-	  componentWillMount: function() {
-	    this.classNameQueue = [];
-	  },
-
-	  componentWillUnmount: function() {
-	    if (this.timeout) {
-	      clearTimeout(this.timeout);
-	    }
-	  },
-
-	  componentWillEnter: function(done) {
-	    if (this.props.enter) {
-	      this.transition('enter', done);
-	    } else {
-	      done();
-	    }
-	  },
-
-	  componentWillLeave: function(done) {
-	    if (this.props.leave) {
-	      this.transition('leave', done);
-	    } else {
-	      done();
-	    }
-	  },
-
-	  render: function() {
-	    return onlyChild(this.props.children);
-	  }
-	});
-
-	module.exports = ReactCSSTransitionGroupChild;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
-
-/***/ },
-/* 144 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @typechecks static-only
-	 * @providesModule ReactTransitionChildMapping
-	 */
-
-	"use strict";
-
-	var ReactChildren = __webpack_require__(31);
-
-	var ReactTransitionChildMapping = {
-	  /**
-	   * Given `this.props.children`, return an object mapping key to child. Just
-	   * simple syntactic sugar around ReactChildren.map().
-	   *
-	   * @param {*} children `this.props.children`
-	   * @return {object} Mapping of key to child
-	   */
-	  getChildMapping: function(children) {
-	    return ReactChildren.map(children, function(child) {
-	      return child;
-	    });
-	  },
-
-	  /**
-	   * When you're adding or removing children some may be added or removed in the
-	   * same render pass. We want to show *both* since we want to simultaneously
-	   * animate elements in and out. This function takes a previous set of keys
-	   * and a new set of keys and merges them with its best guess of the correct
-	   * ordering. In the future we may expose some of the utilities in
-	   * ReactMultiChild to make this easy, but for now React itself does not
-	   * directly have this concept of the union of prevChildren and nextChildren
-	   * so we implement it here.
-	   *
-	   * @param {object} prev prev children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @param {object} next next children as returned from
-	   * `ReactTransitionChildMapping.getChildMapping()`.
-	   * @return {object} a key set that contains all keys in `prev` and all keys
-	   * in `next` in a reasonable order.
-	   */
-	  mergeChildMappings: function(prev, next) {
-	    prev = prev || {};
-	    next = next || {};
-
-	    function getValueForKey(key) {
-	      if (next.hasOwnProperty(key)) {
-	        return next[key];
-	      } else {
-	        return prev[key];
-	      }
-	    }
-
-	    // For each key of `next`, the list of keys to insert before that key in
-	    // the combined list
-	    var nextKeysPending = {};
-
-	    var pendingKeys = [];
-	    for (var prevKey in prev) {
-	      if (next.hasOwnProperty(prevKey)) {
-	        if (pendingKeys.length) {
-	          nextKeysPending[prevKey] = pendingKeys;
-	          pendingKeys = [];
-	        }
-	      } else {
-	        pendingKeys.push(prevKey);
-	      }
-	    }
-
-	    var i;
-	    var childMapping = {};
-	    for (var nextKey in next) {
-	      if (nextKeysPending.hasOwnProperty(nextKey)) {
-	        for (i = 0; i < nextKeysPending[nextKey].length; i++) {
-	          var pendingNextKey = nextKeysPending[nextKey][i];
-	          childMapping[nextKeysPending[nextKey][i]] = getValueForKey(
-	            pendingNextKey
-	          );
-	        }
-	      }
-	      childMapping[nextKey] = getValueForKey(nextKey);
-	    }
-
-	    // Finally, add the keys which didn't appear before any key in `next`
-	    for (i = 0; i < pendingKeys.length; i++) {
-	      childMapping[pendingKeys[i]] = getValueForKey(pendingKeys[i]);
-	    }
-
-	    return childMapping;
-	  }
-	};
-
-	module.exports = ReactTransitionChildMapping;
-
-
-/***/ },
-/* 145 */,
-/* 146 */,
-/* 147 */,
-/* 148 */,
-/* 149 */,
-/* 150 */,
-/* 151 */,
-/* 152 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var DATE_EXPRESSION = /([0-9]{4})-([0-9]{2})-([0-9]{2})/,
@@ -2696,16 +2457,16 @@ webpackJsonp([0],[
 	};
 
 /***/ },
-/* 153 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(154);
+	var content = __webpack_require__(236);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(229)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -2719,21 +2480,45 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 154 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(54)();
+	exports = module.exports = __webpack_require__(227)();
 	exports.push([module.id, ".date-header {\n  border-bottom: 1px solid rgba(219,142,56,0.5);\n  color: #db8e37;\n  display: block;\n  font-size: 24px;\n  font-weight: 300;\n  margin: 40px auto 20px auto;\n  padding: 30px 10px;\n}\n@media screen and (min-width: 700px) {\n  .date-header {\n    width: 700px;\n    padding: 30px 0;\n  }\n  .date-header:after {\n    visibility: hidden;\n    display: block;\n    font-size: 0;\n    content: \" \";\n    clear: both;\n    height: 0;\n  }\n}\n", ""]);
 
 /***/ },
-/* 155 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React  = __webpack_require__(6),
-	    Player = __webpack_require__(206),
-	    $__0=    __webpack_require__(207),team=$__0.team;
+	var React = __webpack_require__(207),
+	    Team  = __webpack_require__(238);
 
-	__webpack_require__(208);
+	__webpack_require__(372);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+
+	        var classes = React.addons.classSet({
+	            'loader': true,
+	            'is-visible': this.props.isVisible,
+	            'is-hidden': !this.props.isVisible
+	        });
+
+	        return (React.createElement("div", {className: classes}, "Loading"));
+	    }
+	});
+
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(207),
+	    Player = __webpack_require__(239),
+	    $__0=    __webpack_require__(369),team=$__0.team;
+
+	__webpack_require__(370);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -2786,440 +2571,12 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 156 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
+	var React = __webpack_require__(207);
 
-	// load the styles
-	var content = __webpack_require__(157);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 157 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".loader {\n  border-bottom: 3px solid rgba(219,142,56,0.2);\n  border-left: 3px solid rgba(219,142,56,0.5);\n  border-right: 3px solid rgba(219,142,56,0.2);\n  border-top: 3px solid rgba(219,142,56,0.2);\n  font-size: 10px;\n  left: 50%;\n  margin-left: -10px;\n  position: absolute;\n  text-indent: -9999em;\n  -webkit-animation: spin 1.1s infinite linear;\n  animation: spin 1.1s infinite linear;\n}\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n}\n.loader.is-visible {\n  display: block;\n}\n.loader.is-hidden {\n  display: none;\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n", ""]);
-
-/***/ },
-/* 158 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(159);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 159 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".match {\n  display: block;\n  margin: 10px auto;\n  padding: 20px 10px 10px 10px;\n  border-top: 1px solid #ccc;\n}\n.date-header + .match {\n  border-top: none;\n  padding-top: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    clear: both;\n    content: \" \";\n    display: block;\n    font-size: 0;\n    height: 0;\n    visibility: hidden;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  display: block;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n}\n.match__title__id {\n  color: #888;\n  display: none;\n  font-size: 14px;\n}\n", ""]);
-
-/***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var players = __webpack_require__(207).team;
-
-	var color = function(key)  {
-	    var defaultColor = '#000000';
-	    var map = {
-	        'skepparn_': '#F4B350',
-	        'Schln': '#87D37C',
-	        'zwex': '#52B3D9',
-	        'Pacoloco': '#D35400',
-	        'Adelsmansman': '#6C7A89'
-	    };
-
-	    return map[key] || defaultColor;
-	};
-
-	var toLegend = function(stats)  {
-	    return players.map( function(key)  {
-	        return {
-	            label: key,
-	            color: color(key)
-	        };
-	    });
-	};
-
-	var mapData = function(stats, player)  {
-	    var dataPoints = [],
-	        lastPoint  = null,
-	        propName   = 'mmr';
-
-	    stats.forEach( function(s)  {
-	        var value = lastPoint;
-	        if (s.data[player] && s.data[player][propName] !== undefined)
-	            lastPoint = value = parseInt(s.data[player][propName], 10);
-	        dataPoints.push(value);
-	    });
-
-	    return dataPoints;
-	};
-
-	var toChart = function(stats)  {
-	    stats = stats.reverse();
-
-	    if (!stats || !stats.length) {
-	        return {};
-	    }
-
-	    var labels = stats.map( function(s)  {return '';} );
-
-	    var datasets = players.map( function(player)  { return {
-	            label: player,
-	            strokeColor: color(player),
-	            pointColor: color(player),
-	            pointStrokeColor: color(player),
-	            pointHighlightFill: '#fff',
-	            pointHighlightStroke: color(player),
-	            data: mapData(stats, player)
-	        };
-	    });
-
-
-	    return {
-	        labels:labels,
-	        datasets:datasets
-	    };
-	};
-
-	module.exports = {
-	    toLegend:toLegend,
-	    toChart:toChart
-	};
-
-
-/***/ },
-/* 161 */,
-/* 162 */,
-/* 163 */,
-/* 164 */,
-/* 165 */,
-/* 166 */,
-/* 167 */,
-/* 168 */,
-/* 169 */,
-/* 170 */,
-/* 171 */,
-/* 172 */,
-/* 173 */,
-/* 174 */,
-/* 175 */,
-/* 176 */,
-/* 177 */,
-/* 178 */,
-/* 179 */,
-/* 180 */,
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */,
-/* 185 */,
-/* 186 */,
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */,
-/* 192 */,
-/* 193 */,
-/* 194 */,
-/* 195 */,
-/* 196 */,
-/* 197 */,
-/* 198 */,
-/* 199 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	  Bar: __webpack_require__(218),
-	  Doughnut: __webpack_require__(219),
-	  Line: __webpack_require__(220),
-	  Pie: __webpack_require__(221),
-	  PolarArea: __webpack_require__(222),
-	  Radar: __webpack_require__(223),
-	  createClass: __webpack_require__(224).createClass
-	};
-
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "93599fa95f8713a2175ea8ff4501f804.jpg"
-
-/***/ },
-/* 201 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule CSSCore
-	 * @typechecks
-	 */
-
-	var invariant = __webpack_require__(86);
-
-	/**
-	 * The CSSCore module specifies the API (and implements most of the methods)
-	 * that should be used when dealing with the display of elements (via their
-	 * CSS classes and visibility on screen. It is an API focused on mutating the
-	 * display and not reading it as no logical state should be encoded in the
-	 * display of elements.
-	 */
-
-	var CSSCore = {
-
-	  /**
-	   * Adds the class passed in to the element if it doesn't already have it.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  addClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSSCore.addClass takes only a single class name. "%s" contains ' +
-	      'multiple classes.', className
-	    ) : invariant(!/\s/.test(className)));
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.add(className);
-	      } else if (!CSSCore.hasClass(element, className)) {
-	        element.className = element.className + ' ' + className;
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Removes the class passed in from the element
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {DOMElement} the element passed in
-	   */
-	  removeClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSSCore.removeClass takes only a single class name. "%s" contains ' +
-	      'multiple classes.', className
-	    ) : invariant(!/\s/.test(className)));
-
-	    if (className) {
-	      if (element.classList) {
-	        element.classList.remove(className);
-	      } else if (CSSCore.hasClass(element, className)) {
-	        element.className = element.className
-	          .replace(new RegExp('(^|\\s)' + className + '(?:\\s|$)', 'g'), '$1')
-	          .replace(/\s+/g, ' ') // multiple spaces to one
-	          .replace(/^\s*|\s*$/g, ''); // trim the ends
-	      }
-	    }
-	    return element;
-	  },
-
-	  /**
-	   * Helper to add or remove a class from an element based on a condition.
-	   *
-	   * @param {DOMElement} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @param {*} bool condition to whether to add or remove the class
-	   * @return {DOMElement} the element passed in
-	   */
-	  conditionClass: function(element, className, bool) {
-	    return (bool ? CSSCore.addClass : CSSCore.removeClass)(element, className);
-	  },
-
-	  /**
-	   * Tests whether the element has the class specified.
-	   *
-	   * @param {DOMNode|DOMWindow} element the element to set the class on
-	   * @param {string} className the CSS className
-	   * @return {boolean} true if the element has the class, false if not
-	   */
-	  hasClass: function(element, className) {
-	    ("production" !== process.env.NODE_ENV ? invariant(
-	      !/\s/.test(className),
-	      'CSS.hasClass takes only a single class name.'
-	    ) : invariant(!/\s/.test(className)));
-	    if (element.classList) {
-	      return !!className && element.classList.contains(className);
-	    }
-	    return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
-	  }
-
-	};
-
-	module.exports = CSSCore;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)))
-
-/***/ },
-/* 202 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactTransitionEvents
-	 */
-
-	"use strict";
-
-	var ExecutionEnvironment = __webpack_require__(52);
-
-	/**
-	 * EVENT_NAME_MAP is used to determine which event fired when a
-	 * transition/animation ends, based on the style property used to
-	 * define that event.
-	 */
-	var EVENT_NAME_MAP = {
-	  transitionend: {
-	    'transition': 'transitionend',
-	    'WebkitTransition': 'webkitTransitionEnd',
-	    'MozTransition': 'mozTransitionEnd',
-	    'OTransition': 'oTransitionEnd',
-	    'msTransition': 'MSTransitionEnd'
-	  },
-
-	  animationend: {
-	    'animation': 'animationend',
-	    'WebkitAnimation': 'webkitAnimationEnd',
-	    'MozAnimation': 'mozAnimationEnd',
-	    'OAnimation': 'oAnimationEnd',
-	    'msAnimation': 'MSAnimationEnd'
-	  }
-	};
-
-	var endEvents = [];
-
-	function detectEvents() {
-	  var testEl = document.createElement('div');
-	  var style = testEl.style;
-
-	  // On some platforms, in particular some releases of Android 4.x,
-	  // the un-prefixed "animation" and "transition" properties are defined on the
-	  // style object but the events that fire will still be prefixed, so we need
-	  // to check if the un-prefixed events are useable, and if not remove them
-	  // from the map
-	  if (!('AnimationEvent' in window)) {
-	    delete EVENT_NAME_MAP.animationend.animation;
-	  }
-
-	  if (!('TransitionEvent' in window)) {
-	    delete EVENT_NAME_MAP.transitionend.transition;
-	  }
-
-	  for (var baseEventName in EVENT_NAME_MAP) {
-	    var baseEvents = EVENT_NAME_MAP[baseEventName];
-	    for (var styleName in baseEvents) {
-	      if (styleName in style) {
-	        endEvents.push(baseEvents[styleName]);
-	        break;
-	      }
-	    }
-	  }
-	}
-
-	if (ExecutionEnvironment.canUseDOM) {
-	  detectEvents();
-	}
-
-	// We use the raw {add|remove}EventListener() call because EventListener
-	// does not know how to remove event listeners and we really should
-	// clean up. Also, these events are not triggered in older browsers
-	// so we should be A-OK here.
-
-	function addEventListener(node, eventName, eventListener) {
-	  node.addEventListener(eventName, eventListener, false);
-	}
-
-	function removeEventListener(node, eventName, eventListener) {
-	  node.removeEventListener(eventName, eventListener, false);
-	}
-
-	var ReactTransitionEvents = {
-	  addEndEventListener: function(node, eventListener) {
-	    if (endEvents.length === 0) {
-	      // If CSS transitions are not supported, trigger an "end animation"
-	      // event immediately.
-	      window.setTimeout(eventListener, 0);
-	      return;
-	    }
-	    endEvents.forEach(function(endEvent) {
-	      addEventListener(node, endEvent, eventListener);
-	    });
-	  },
-
-	  removeEndEventListener: function(node, eventListener) {
-	    if (endEvents.length === 0) {
-	      return;
-	    }
-	    endEvents.forEach(function(endEvent) {
-	      removeEventListener(node, endEvent, eventListener);
-	    });
-	  }
-	};
-
-	module.exports = ReactTransitionEvents;
-
-
-/***/ },
-/* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(6);
-
-	__webpack_require__(225);
+	__webpack_require__(240);
 
 
 	module.exports = React.createClass({displayName: "exports",
@@ -3304,7 +2661,799 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 207 */
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(241);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/player/player.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/player/player.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  color: #aaa;\n  -webkit-transition: all 0.3s ease;\n          transition: all 0.3s ease;\n  background-color: #ddd;\n  cursor: pointer;\n}\n.player:hover {\n  background-color: rgba(253,227,167,0.4);\n}\n.player.is-expanded {\n  background-color: #fde3a7;\n}\n.player__wrapper--left {\n  -webkit-box-flex: 3;\n  -webkit-flex: 3;\n      -ms-flex: 3;\n          flex: 3;\n}\n.player__wrapper--right {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.player__name,\n.player__name--in-team {\n  line-height: 24px;\n  height: 24px;\n  display: inline-block;\n  color: #aaa;\n  font-weight: 200;\n  vertical-align: middle;\n  margin-left: 5px;\n}\n.player__name--in-team {\n  color: #000;\n}\n.player__kills {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #27ae60;\n}\n.player__deaths {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #c0392b;\n}\n.player__assists {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #7f8c8d;\n}\n.player__stats {\n  font-size: 80%;\n  padding-top: 5px;\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: none;\n      -ms-transform: none;\n          transform: none;\n  -webkit-transition: all 0.15s ease;\n          transition: all 0.15s ease;\n}\n.player__stats.is-hidden {\n  padding-top: 0;\n  visibility: hidden;\n  -webkit-transform: translate3d(-10%, 0, 0);\n          transform: translate3d(-10%, 0, 0);\n  opacity: 0.5;\n}\n.player__stats__label {\n  float: left;\n  font-weight: 400;\n  color: #333;\n  margin: 0;\n  margin-left: 29px;\n  padding-bottom: 5px;\n  width: 30px;\n}\n.player__stats__label:nth-of-type(2n+1) {\n  clear: left;\n}\n.player__stats__value {\n  float: left;\n  color: #333;\n  padding-bottom: 5px;\n  width: 40px;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96,\n.player__hero-icon--239 {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  vertical-align: middle;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(328)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(329)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(330)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(331)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(332)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(333)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(334)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(335)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(336)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(337)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(338)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(339)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(340)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(341)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(342)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(343)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(344)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(345)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(346)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(347)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(348)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(349)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(350)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(351)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(352)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(353)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(354)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(355)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(356)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(357)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(358)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(359)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(360)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(361)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(362)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(363)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(364)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(365)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(366)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(367)+");\n}\n.player__hero-icon--239 {\n  background-image: url("+__webpack_require__(368)+");\n}\n@-webkit-keyframes fadeInLeft {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n            transform: translate3d(-100%, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n            transform: none;\n  }\n}\n@keyframes fadeInLeft {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n            transform: translate3d(-100%, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n            transform: none;\n  }\n}\n", ""]);
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "8f8a5c16af3a8bc628a7272de19f24d1.jpg"
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2873f2b6668948f5fbcf89290ed8e928.jpg"
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "05280eae6a34c07b496ee70321944950.jpg"
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "734adb3c2f4a3c0c0536c64c7a14e951.jpg"
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "5408461aad11722d72751393c99bd88a.jpg"
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a957999c8b42583f962f7b375c4256f9.jpg"
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6f80729fa47f25e4b59a79d250d6f59a.jpg"
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "04c1ae101b8af01155632d1ba44152c4.jpg"
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "f25f8bb5142cb454a388cc86f45bab22.jpg"
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "07cea4632c713af3c294a0b3e55a9ea7.jpg"
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "96051217e14135319ed3c16feb6bcbc1.jpg"
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "bef51d6f564336dd89d7ed9bfc2b7306.jpg"
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "72636fbde5e77b64fb70dfe489c19e56.jpg"
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2820a93f4f2482da017881422f3782c9.jpg"
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "5f735c918fb696e1f4d00c5a314ff404.jpg"
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "027ad06a6b0521de30106e4f383beb1f.jpg"
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "ffa179fc1630c306045cca50aa595726.jpg"
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "60e2d747ff5550595ed87a3ac9825037.jpg"
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d7d1238cf93e76dbad9087044c8cb534.jpg"
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e4bdf92102005f86d46e2c6581930964.jpg"
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "241c584492a17f028d4d95fd6de84897.jpg"
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "de5dc17b5795657d3860f0b33340a386.jpg"
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "bf777db163867bd5aea8d1ecb4c93e49.jpg"
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2f9e2e556fb89d9bce9baa8595b14b47.jpg"
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a7e16a8368f1478a747222f224e4e72d.jpg"
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e7f8036ba02a302cc534237405ca3611.jpg"
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "551d32e6c70b929c986aafd9c70e1c54.jpg"
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a1245c20cb7bce17691d727504d057b7.jpg"
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "8a6301e0638637af58a2ac6aad1d7c2c.jpg"
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "c87b2c686546dd54eb179bc98af43564.jpg"
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "105f7e4963762d7cd587a55864418e08.jpg"
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "455a22a851ecf5fd5a982dca3cd29202.jpg"
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "1df65d17178ef6dca740942e91a49a1c.jpg"
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0caa674c86f24b9f98cbc8175df8c36b.jpg"
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "12d87dc5e79211fb8c2bc83a468678ac.jpg"
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6e649f4bceb8cdfbcb7ef24151781a4f.jpg"
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "b71123be2ce92f4348efa4f31ab85068.jpg"
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "7c6b9bb82a33e4c681d21ee2c0f2bd15.jpg"
+
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "79e4e26bf257193cb2df25e50b25ff98.jpg"
+
+/***/ },
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "b3bf86477419c5d2178e4bf7aa25dc38.jpg"
+
+/***/ },
+/* 282 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "f9c16632d36c07d90c4ebf1fd1dae549.jpg"
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0ffaa2ccef6577c6adc3ee1b69c2cd40.jpg"
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "29dd80e57c4adf63e1a9d3e3d41f7cae.jpg"
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "b5b18c9c06c6580a47dfbfb8b9993268.jpg"
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "c2674e6c8e8fe2900668ee36de5b8e04.jpg"
+
+/***/ },
+/* 287 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "c1686f7c49364b4bdbe1470e8c3d30bb.jpg"
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9baa80d1b278a35ebf7d37fde55a5f31.jpg"
+
+/***/ },
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6392f30989408e444364476a401d1882.jpg"
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "90e38594d4f6375065ec4e0c391368b1.jpg"
+
+/***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9fd2c7c4d143ff0dfa1fdb57b505a41a.jpg"
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "794e76e1737b4a1a8ea27582ab03af7e.jpg"
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2ad097cb46a01216f7fc7e7a976bf200.jpg"
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "ff51511d222a46d3de089bd7c6665855.jpg"
+
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0c12fcf76ae0844b3881e5586ac83905.jpg"
+
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d3912df78e5b9eeacaba504d1783ed58.jpg"
+
+/***/ },
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "661a658d490954c172d63dd39f6b76fa.jpg"
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "f616756cdeec2f5cbb74fae008be1013.jpg"
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d8badfb595044ec2b3c6ca747a1f9850.jpg"
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0c419cb8637679293438aeef57bee932.jpg"
+
+/***/ },
+/* 301 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e0d396d9483576cb81ea04b973611170.jpg"
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "7b9e94670ac9ad70a00366821b846680.jpg"
+
+/***/ },
+/* 303 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "88e4d1f1d168155a6662515a8f476d96.jpg"
+
+/***/ },
+/* 304 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "7c45a899c579b85e65633295654d0713.jpg"
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "4165bce28dab462a92b4e5545b9e3585.jpg"
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d5785103d516e339e5fb9ed9bc910fea.jpg"
+
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "7d434cc09f72f743ceba35cc40551c31.jpg"
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "74c5430e9eb6d167e57bb1a2c84963ec.jpg"
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "4c87650b491facb510a05f4094cf8aab.jpg"
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6138ef8979fecdb11790fb45c5180189.jpg"
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6ace220b28d2d5186abb40ad740e96e9.jpg"
+
+/***/ },
+/* 312 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "bb568b04c873e3997ef976000abb9fb6.jpg"
+
+/***/ },
+/* 313 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "8d1a087da08be2e70126a7570dbaa6f4.jpg"
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0d7affadfcd3d1ac91c9f4997d01c59e.jpg"
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "1bc3d7520ca8ee7159d685c520960cd0.jpg"
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dc349c11026d89f376c8679b31f08148.jpg"
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "993ee09bcf65d9e497382decf37d2d22.jpg"
+
+/***/ },
+/* 318 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2a91470d94cf966efd72567c990cb584.jpg"
+
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "d5e50f7252b39e2de5fe081cbf3eaaaf.jpg"
+
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a7ecd336b65b823d4a5ae2c615b8e956.jpg"
+
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "1322538c5dffcb2bada9db7a8375889f.jpg"
+
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "f0d1c0514fd17c5eaa4abbcb6342ea6a.jpg"
+
+/***/ },
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "83d2295227ed22a556cacf40526c2329.jpg"
+
+/***/ },
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "322a9df01071d2c2fbb9b19de5cab224.jpg"
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "8aa828e588ed6bbc542c8cd53ba0a6bb.jpg"
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "feb05f6709606fedb50a605ab21fef49.jpg"
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "946485c6bf7bc6056bdc90febb74e925.jpg"
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dfa52b2b92d0255f17e932568be89413.jpg"
+
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "8599639e71b2f1a75eeaae70e4c7edb0.jpg"
+
+/***/ },
+/* 330 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "86baba823d80356c83dde6915965341b.jpg"
+
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "acb6efbac4e81865df86fdb22dbdb2f4.jpg"
+
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "0b47521da179e821eaf45c60761b31dc.jpg"
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9d7269536205ef9a606469992d1811b0.jpg"
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "fd48a76a13b73fdee680a4ae18ac1a21.jpg"
+
+/***/ },
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "70f9222d9a163d3b13c25619bba3fbe5.jpg"
+
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2e94526ba209717f2648a9b687461a35.jpg"
+
+/***/ },
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "12fc3758968bd2e0404679f42ed86a58.jpg"
+
+/***/ },
+/* 338 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "91494a97d68d0dd5b197eec5a80eb3cf.jpg"
+
+/***/ },
+/* 339 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a9afabf5f5344a947d5aca54a223b553.jpg"
+
+/***/ },
+/* 340 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "1534f2efc3a254b87ad12b801431b407.jpg"
+
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9c1fb3ee1e6ba466bbd96e4cb026c2cc.jpg"
+
+/***/ },
+/* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "6501c0ac17dec50a49ddd8f43c713368.jpg"
+
+/***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "16a74dfdafdb384fc5a2865e74c35116.jpg"
+
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e285762d03ced6a73891ad4a27fe538b.jpg"
+
+/***/ },
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "11fad230b4ae60e5459f645b8398e2c9.jpg"
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "7daf9a99b3de4a5742900ba9edae4ffe.jpg"
+
+/***/ },
+/* 347 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "004b7b28d2672bf879f116afcc5dcf26.jpg"
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a3f961a36749519e3182ead6677af71b.jpg"
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "91d2608b81c84b11258d6130a074bf49.jpg"
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "cb28d59423f199007ba08d9d8014ab63.jpg"
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "2107d32d0829d13607d6c82e0a2bf6a6.jpg"
+
+/***/ },
+/* 352 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "adae903708820c4e6344fa9c7d03cafc.jpg"
+
+/***/ },
+/* 353 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "dda6ae7028c1b21d1d911081c58f1127.jpg"
+
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "46f75ff5a7bfbf854a2e75e03185e05a.jpg"
+
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a7bbcf92cc95b9b0a75dd9ddace4ccce.jpg"
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "79a38586458e883d3df3e643cc99e78e.jpg"
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "b089c7f94f8ec834909c02457ace0ea1.jpg"
+
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "eb9517fd0955afbc37463130a6a71311.jpg"
+
+/***/ },
+/* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "48b0d610c4e72bf42524cb1c1546ba8f.jpg"
+
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "e61ab6d65a6b410db6ff07bb64c092c1.jpg"
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "ade184f54cf1552f59d607849618ce12.jpg"
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "75e17010cc26e946f06a30f8c015df3c.jpg"
+
+/***/ },
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "a02a623a5eed3283a1ea1865a9b13d66.jpg"
+
+/***/ },
+/* 364 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "9c10b856072fa653fc3badc660b06d62.jpg"
+
+/***/ },
+/* 365 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "3aee567116a70fb8e2586c91b3c8eee2.jpg"
+
+/***/ },
+/* 366 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "55c0c00337dcbe60e7d96d90daf60d96.jpg"
+
+/***/ },
+/* 367 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "ffa84347cf517248fa1300d1b22df210.jpg"
+
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "eeeb132363e4935879db6403fbea06bd.jpg"
+
+/***/ },
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {
@@ -3319,16 +3468,16 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 208 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(209);
+	var content = __webpack_require__(371);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
+	var update = __webpack_require__(229)(content, {});
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
@@ -3342,76 +3491,442 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 209 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(54)();
+	exports = module.exports = __webpack_require__(227)();
 	exports.push([module.id, ".team:nth-of-type(2) {\n  margin-top: 20px;\n}\n@media screen and (min-width: 700px) {\n  .team:nth-of-type(2) {\n    margin-top: 0px;\n  }\n}\n.team--winning .team__name {\n  color: #27ae60;\n}\n.team__name {\n  font-weight: 300;\n  font-size: 18px;\n  display: block;\n  margin-bottom: 10px;\n}\n.team__name__winning {\n  padding-left: 10px;\n}\n.team__players {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  line-height: 1.4em;\n}\n", ""]);
 
 /***/ },
-/* 210 */,
-/* 211 */,
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var vars = __webpack_require__(224);
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(373);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/loader/loader.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".loader {\n  border-bottom: 3px solid rgba(219,142,56,0.2);\n  border-left: 3px solid rgba(219,142,56,0.5);\n  border-right: 3px solid rgba(219,142,56,0.2);\n  border-top: 3px solid rgba(219,142,56,0.2);\n  font-size: 10px;\n  left: 50%;\n  margin-left: -10px;\n  position: absolute;\n  text-indent: -9999em;\n  -webkit-animation: spin 1.1s infinite linear;\n  animation: spin 1.1s infinite linear;\n}\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n}\n.loader.is-visible {\n  display: block;\n}\n.loader.is-hidden {\n  display: none;\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n", ""]);
+
+/***/ },
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(204),
+	    matchesLoading = __webpack_require__(375),
+	    loadingStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(matchesLoading, this.onMatchesLoading);
+	      },
+
+	      onMatchesLoading: function(isLoading) {
+	          this.matchesLoading = isLoading;
+	          this.output();
+	      },
+
+	      output: function(matches) {
+	          this.trigger({
+	              matchesLoading: !!this.matchesLoading
+	          });
+	      }
+	  });
+
+
+	module.exports = loadingStore;
+
+
+/***/ },
+/* 375 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(204);
+
+	// This action represents that the matches started/stopped loading
+	module.exports = Reflux.createAction();
+
+
+/***/ },
+/* 376 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(207),
+	    Team  = __webpack_require__(238);
+
+	__webpack_require__(377);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        return (
+	            React.createElement("li", {className: "match"}, 
+	                React.createElement("h2", {className: "match__title"}, 
+	                    React.createElement("span", {className: "match__title__id"}, this.props.match.match_id)
+	                ), 
+	                React.createElement(Team, {players: this.props.match.team1, name: "Team 1", winning: this.props.match.winning_team === '1'}), 
+	                React.createElement(Team, {players: this.props.match.team2, name: "Team 2", winning: this.props.match.winning_team === '2'})
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 377 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(378);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/match/match.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 378 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".match {\n  display: block;\n  margin: 10px auto;\n  padding: 20px 10px 10px 10px;\n  border-top: 1px solid #ccc;\n}\n.date-header + .match {\n  border-top: none;\n  padding-top: 10px;\n}\n@media screen and (min-width: 700px) {\n  .match {\n    width: 700px;\n  }\n  .match:after {\n    clear: both;\n    content: \" \";\n    display: block;\n    font-size: 0;\n    height: 0;\n    visibility: hidden;\n  }\n  .match .team {\n    box-sizing: border-box;\n    float: left;\n    width: 350px;\n  }\n}\n.match__title {\n  display: block;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n}\n.match__title__id {\n  color: #888;\n  display: none;\n  font-size: 14px;\n}\n", ""]);
+
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(380);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/matchlist/matchlist.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".matchlist {\n    position: relative;\n}\n\n.matchlist.is-loading .matchlist__list {\n    opacity: 0.3;\n}\n\n.matchlist__list {\n    list-style: none;\n    display: block;\n    padding: 0;\n    margin: 0;\n}\n", ""]);
+
+/***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(204),
+	    React  = __webpack_require__(207),
+	    statsStore = __webpack_require__(386),
+	    StatsLegend = __webpack_require__(382),
+	    StatsChart = __webpack_require__(388);
+
+	__webpack_require__(384);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    mixins: [
+	        Reflux.connect(statsStore, 'stats')
+	    ],
+
+	    getInitialState: function() {
+	        return {
+	            stats: []
+	        };
+	    },
+
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "stats"}, 
+	                React.createElement("h1", {className: "stats__title"}, "MMR last 14 days"), 
+	                React.createElement("div", {className: "stats__chart"}, 
+	                    React.createElement(StatsChart, {stats: this.state.stats})
+	                ), 
+	                React.createElement("div", {className: "stats__legend"}, 
+	                    React.createElement(StatsLegend, {stats: this.state.stats})
+	                )
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 382 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(207),
+	    transform = __webpack_require__(383);
+
+	__webpack_require__(384);
+
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        var data = transform.toLegend(this.props.stats);
+
+	        return (
+	            React.createElement("ul", {className: "legend"}, 
+	                data.map(function(d)  {
+	                    var style = {
+	                        backgroundColor: d.color
+	                    };
+	                    return React.createElement("li", {className: "legend__item", key: d.label}, 
+	                      React.createElement("span", {className: "legend__item__color", style: style}), 
+	                      React.createElement("span", {className: "legend__item__label"}, d.label)
+	                    )
+	                })
+	            )
+	        );
+	    }
+	});
+
+
+/***/ },
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var players = __webpack_require__(369).team;
+
+	var color = function(key)  {
+	    var defaultColor = '#000000';
+	    var map = {
+	        'skepparn_': '#F4B350',
+	        'Schln': '#87D37C',
+	        'zwex': '#52B3D9',
+	        'Pacoloco': '#D35400',
+	        'Adelsmansman': '#6C7A89'
+	    };
+
+	    return map[key] || defaultColor;
+	};
+
+	var toLegend = function(stats)  {
+	    return players.map( function(key)  {
+	        return {
+	            label: key,
+	            color: color(key)
+	        };
+	    });
+	};
+
+	var filterData = function(stats)  {
+	    // If any player has a value of null for a date,
+	    // the graph library fails to scale the y-axis.
+	    return stats.filter( function(s)  {
+	        var p, data;
+
+	        for(p in players) {
+	            data = s.data[players[p]]
+	            if (data === null || data === undefined) {
+	                return false;
+	            }
+	        }
+
+	        return true;
+	    });
+	};
+
+	var mapData = function(stats, player)  {
+	    var propName = 'mmr';
+
+	    return stats.map( function(s)  {
+	        return parseInt(s.data[player][propName], 10);
+	    });
+	};
+
+	var toChart = function(stats)  {
+	    stats = stats.reverse();
+
+	    if (!stats || !stats.length) {
+	        return {};
+	    }
+
+	    stats = filterData(stats);
+	    var labels = stats.map( function(s)  {return '';} );
+
+	    var datasets = players.map( function(player)  { return {
+	            label: player,
+	            strokeColor: color(player),
+	            pointColor: color(player),
+	            pointStrokeColor: color(player),
+	            pointHighlightFill: '#fff',
+	            pointHighlightStroke: color(player),
+	            data: mapData(stats, player)
+	        };
+	    });
+
+
+	    return {
+	        labels:labels,
+	        datasets:datasets
+	    };
+	};
+
+	module.exports = {
+	    toLegend:toLegend,
+	    toChart:toChart
+	};
+
+
+/***/ },
+/* 384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(385);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/stats/stats.styl", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/stats/stats.styl");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".stats {\n  margin: 20px 0;\n  padding: 10px;\n}\n.stats__title {\n  padding: 40px 0 20px 0;\n  text-align: center;\n}\n.legend {\n  list-style: none;\n  padding: 0;\n  margin: 1em 0;\n  font-size: 0.9rem;\n}\n.legend__item {\n  float: right;\n  padding: 0;\n  margin: 0 0.5em 0.3em 0;\n}\n.legend__item__color {\n  border-radius: 50%;\n  display: inline-block;\n  height: 0.5em;\n  margin-bottom: 0.25em;\n  margin-right: 0.5em;\n  width: 0.5em;\n}\n@media screen and (min-width: 700px) {\n  .stats {\n    margin: 20px auto;\n    width: 700px;\n    padding: 0;\n  }\n}\n", ""]);
+
+/***/ },
+/* 386 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(204),
+	    statsUpdate = __webpack_require__(387),
+	    statsStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(statsUpdate, this.output);
+	      },
+
+	      output: function(stats) {
+	          this.trigger(stats);
+	      }
+	  });
+
+
+	module.exports = statsStore;
+
+
+/***/ },
+/* 387 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Reflux = __webpack_require__(204);
+
+	// This action represents that the stats have been updated
+	module.exports = Reflux.createAction();
+
+
+/***/ },
+/* 388 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React  = __webpack_require__(207),
+	    LineChart = __webpack_require__(389).Line,
+	    transform = __webpack_require__(383);
+
+	__webpack_require__(384);
+
+
+	var chartOptions = {
+	        scaleShowGridLines: false,
+	        pointDotRadius: 3,
+	        scaleIntegersOnly: false,
+	        multiTooltipTemplate: "<%= datasetLabel %>: <%= value %>",
+	        datasetFill: false,
+	        responsive: true
+	    };
+
+	module.exports = React.createClass({displayName: "exports",
+	    render: function() {
+	        //var chartData = transform.toChart(this.props.stats);
+	        chartData = transform.toChart(this.props.stats);
+	        console.log('chartData', chartData);
+	        if (!chartData || !chartData.datasets) {
+	            return React.createElement("div", null);
+	        }
+
+	        return React.createElement(LineChart, {data: chartData, options: chartOptions, width: "600", height: "250"});
+	    }
+	});
+
+
+/***/ },
+/* 389 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	  Bar: __webpack_require__(390),
+	  Doughnut: __webpack_require__(393),
+	  Line: __webpack_require__(394),
+	  Pie: __webpack_require__(395),
+	  PolarArea: __webpack_require__(396),
+	  Radar: __webpack_require__(397),
+	  createClass: __webpack_require__(391).createClass
+	};
+
+
+/***/ },
+/* 390 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var vars = __webpack_require__(391);
 
 	module.exports = vars.createClass('Bar', ['getBarsAtEvent']);
 
 
 /***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var vars = __webpack_require__(224);
-
-	module.exports = vars.createClass('Doughnut', ['getSegmentsAtEvent']);
-
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var vars = __webpack_require__(224);
-
-	module.exports = vars.createClass('Line', ['getPointsAtEvent']);
-
-
-/***/ },
-/* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var vars = __webpack_require__(224);
-
-	module.exports = vars.createClass('Pie', ['getSegmentsAtEvent']);
-
-
-/***/ },
-/* 222 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var vars = __webpack_require__(224);
-
-	module.exports = vars.createClass('PolarArea', ['getSegmentsAtEvent']);
-
-
-/***/ },
-/* 223 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var vars = __webpack_require__(224);
-
-	module.exports = vars.createClass('Radar', ['getPointsAtEvent']);
-
-
-/***/ },
-/* 224 */
+/* 391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = {
@@ -3463,7 +3978,7 @@ webpackJsonp([0],[
 	    };
 
 	    classData.initializeChart = function(nextProps) {
-	      var Chart = __webpack_require__(231);
+	      var Chart = __webpack_require__(392);
 	      var el = this.getDOMNode();
 	      var ctx = el.getContext("2d");
 	      var chart = new Chart(ctx)[chartType](nextProps.data, nextProps.options || {});
@@ -3488,7 +4003,7 @@ webpackJsonp([0],[
 	      extra(methodNames[i]);
 	    }
 
-	    var React = __webpack_require__(3);
+	    var React = __webpack_require__(56);
 	    return React.createClass(classData);
 	  }
 	};
@@ -3521,41 +4036,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(226);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(23)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/player/player.styl", function() {
-			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/stylus-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/player/player.styl");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 226 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(54)();
-	exports.push([module.id, ".digit-border,\n.player__deaths,\n.player__assists {\n  border-left: 1px solid #aaa;\n}\n.player {\n  margin: 0;\n  padding: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  color: #aaa;\n  -webkit-transition: all 0.3s ease;\n          transition: all 0.3s ease;\n  background-color: #ddd;\n  cursor: pointer;\n}\n.player:hover {\n  background-color: rgba(253,227,167,0.4);\n}\n.player.is-expanded {\n  background-color: #fde3a7;\n}\n.player__wrapper--left {\n  -webkit-box-flex: 3;\n  -webkit-flex: 3;\n      -ms-flex: 3;\n          flex: 3;\n}\n.player__wrapper--right {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.player__name,\n.player__name--in-team {\n  line-height: 24px;\n  height: 24px;\n  display: inline-block;\n  color: #aaa;\n  font-weight: 200;\n  vertical-align: middle;\n  margin-left: 5px;\n}\n.player__name--in-team {\n  color: #000;\n}\n.player__kills {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #27ae60;\n}\n.player__deaths {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #c0392b;\n}\n.player__assists {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  line-height: 24px;\n  height: 24px;\n  color: #7f8c8d;\n}\n.player__stats {\n  font-size: 80%;\n  padding-top: 5px;\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: none;\n      -ms-transform: none;\n          transform: none;\n  -webkit-transition: all 0.15s ease;\n          transition: all 0.15s ease;\n}\n.player__stats.is-hidden {\n  padding-top: 0;\n  visibility: hidden;\n  -webkit-transform: translate3d(-10%, 0, 0);\n          transform: translate3d(-10%, 0, 0);\n  opacity: 0.5;\n}\n.player__stats__label {\n  float: left;\n  font-weight: 400;\n  color: #333;\n  margin: 0;\n  margin-left: 29px;\n  padding-bottom: 5px;\n  width: 30px;\n}\n.player__stats__label:nth-of-type(2n+1) {\n  clear: left;\n}\n.player__stats__value {\n  float: left;\n  color: #333;\n  padding-bottom: 5px;\n  width: 40px;\n}\n.player__hero-icon,\n.player__hero-icon--10,\n.player__hero-icon--102,\n.player__hero-icon--103,\n.player__hero-icon--104,\n.player__hero-icon--105,\n.player__hero-icon--106,\n.player__hero-icon--108,\n.player__hero-icon--109,\n.player__hero-icon--110,\n.player__hero-icon--114,\n.player__hero-icon--115,\n.player__hero-icon--116,\n.player__hero-icon--117,\n.player__hero-icon--12,\n.player__hero-icon--120,\n.player__hero-icon--121,\n.player__hero-icon--122,\n.player__hero-icon--123,\n.player__hero-icon--124,\n.player__hero-icon--125,\n.player__hero-icon--126,\n.player__hero-icon--127,\n.player__hero-icon--128,\n.player__hero-icon--13,\n.player__hero-icon--14,\n.player__hero-icon--15,\n.player__hero-icon--16,\n.player__hero-icon--160,\n.player__hero-icon--161,\n.player__hero-icon--162,\n.player__hero-icon--163,\n.player__hero-icon--164,\n.player__hero-icon--165,\n.player__hero-icon--166,\n.player__hero-icon--167,\n.player__hero-icon--168,\n.player__hero-icon--169,\n.player__hero-icon--17,\n.player__hero-icon--170,\n.player__hero-icon--18,\n.player__hero-icon--185,\n.player__hero-icon--187,\n.player__hero-icon--188,\n.player__hero-icon--192,\n.player__hero-icon--194,\n.player__hero-icon--195,\n.player__hero-icon--196,\n.player__hero-icon--197,\n.player__hero-icon--2,\n.player__hero-icon--20,\n.player__hero-icon--201,\n.player__hero-icon--202,\n.player__hero-icon--203,\n.player__hero-icon--204,\n.player__hero-icon--205,\n.player__hero-icon--206,\n.player__hero-icon--207,\n.player__hero-icon--208,\n.player__hero-icon--209,\n.player__hero-icon--21,\n.player__hero-icon--210,\n.player__hero-icon--211,\n.player__hero-icon--212,\n.player__hero-icon--213,\n.player__hero-icon--214,\n.player__hero-icon--215,\n.player__hero-icon--216,\n.player__hero-icon--217,\n.player__hero-icon--218,\n.player__hero-icon--219,\n.player__hero-icon--22,\n.player__hero-icon--220,\n.player__hero-icon--221,\n.player__hero-icon--222,\n.player__hero-icon--223,\n.player__hero-icon--224,\n.player__hero-icon--225,\n.player__hero-icon--226,\n.player__hero-icon--227,\n.player__hero-icon--228,\n.player__hero-icon--229,\n.player__hero-icon--230,\n.player__hero-icon--232,\n.player__hero-icon--233,\n.player__hero-icon--234,\n.player__hero-icon--235,\n.player__hero-icon--236,\n.player__hero-icon--237,\n.player__hero-icon--238,\n.player__hero-icon--24,\n.player__hero-icon--240,\n.player__hero-icon--241,\n.player__hero-icon--242,\n.player__hero-icon--243,\n.player__hero-icon--25,\n.player__hero-icon--26,\n.player__hero-icon--27,\n.player__hero-icon--29,\n.player__hero-icon--3,\n.player__hero-icon--30,\n.player__hero-icon--31,\n.player__hero-icon--34,\n.player__hero-icon--35,\n.player__hero-icon--36,\n.player__hero-icon--37,\n.player__hero-icon--38,\n.player__hero-icon--39,\n.player__hero-icon--4,\n.player__hero-icon--40,\n.player__hero-icon--41,\n.player__hero-icon--42,\n.player__hero-icon--43,\n.player__hero-icon--44,\n.player__hero-icon--5,\n.player__hero-icon--6,\n.player__hero-icon--7,\n.player__hero-icon--8,\n.player__hero-icon--89,\n.player__hero-icon--9,\n.player__hero-icon--90,\n.player__hero-icon--91,\n.player__hero-icon--92,\n.player__hero-icon--93,\n.player__hero-icon--94,\n.player__hero-icon--95,\n.player__hero-icon--96,\n.player__hero-icon--239 {\n  display: inline-block;\n  width: 24px;\n  height: 24px;\n  line-height: 24px;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: contain;\n  vertical-align: middle;\n}\n.player__hero-icon--10 {\n  background-image: url("+__webpack_require__(232)+");\n}\n.player__hero-icon--102 {\n  background-image: url("+__webpack_require__(233)+");\n}\n.player__hero-icon--103 {\n  background-image: url("+__webpack_require__(234)+");\n}\n.player__hero-icon--104 {\n  background-image: url("+__webpack_require__(235)+");\n}\n.player__hero-icon--105 {\n  background-image: url("+__webpack_require__(236)+");\n}\n.player__hero-icon--106 {\n  background-image: url("+__webpack_require__(237)+");\n}\n.player__hero-icon--108 {\n  background-image: url("+__webpack_require__(238)+");\n}\n.player__hero-icon--109 {\n  background-image: url("+__webpack_require__(239)+");\n}\n.player__hero-icon--110 {\n  background-image: url("+__webpack_require__(240)+");\n}\n.player__hero-icon--114 {\n  background-image: url("+__webpack_require__(241)+");\n}\n.player__hero-icon--115 {\n  background-image: url("+__webpack_require__(242)+");\n}\n.player__hero-icon--116 {\n  background-image: url("+__webpack_require__(243)+");\n}\n.player__hero-icon--117 {\n  background-image: url("+__webpack_require__(244)+");\n}\n.player__hero-icon--12 {\n  background-image: url("+__webpack_require__(245)+");\n}\n.player__hero-icon--120 {\n  background-image: url("+__webpack_require__(246)+");\n}\n.player__hero-icon--121 {\n  background-image: url("+__webpack_require__(247)+");\n}\n.player__hero-icon--122 {\n  background-image: url("+__webpack_require__(248)+");\n}\n.player__hero-icon--123 {\n  background-image: url("+__webpack_require__(249)+");\n}\n.player__hero-icon--124 {\n  background-image: url("+__webpack_require__(250)+");\n}\n.player__hero-icon--125 {\n  background-image: url("+__webpack_require__(251)+");\n}\n.player__hero-icon--126 {\n  background-image: url("+__webpack_require__(252)+");\n}\n.player__hero-icon--127 {\n  background-image: url("+__webpack_require__(253)+");\n}\n.player__hero-icon--128 {\n  background-image: url("+__webpack_require__(254)+");\n}\n.player__hero-icon--13 {\n  background-image: url("+__webpack_require__(255)+");\n}\n.player__hero-icon--14 {\n  background-image: url("+__webpack_require__(256)+");\n}\n.player__hero-icon--15 {\n  background-image: url("+__webpack_require__(257)+");\n}\n.player__hero-icon--16 {\n  background-image: url("+__webpack_require__(258)+");\n}\n.player__hero-icon--160 {\n  background-image: url("+__webpack_require__(259)+");\n}\n.player__hero-icon--161 {\n  background-image: url("+__webpack_require__(260)+");\n}\n.player__hero-icon--162 {\n  background-image: url("+__webpack_require__(261)+");\n}\n.player__hero-icon--163 {\n  background-image: url("+__webpack_require__(262)+");\n}\n.player__hero-icon--164 {\n  background-image: url("+__webpack_require__(263)+");\n}\n.player__hero-icon--165 {\n  background-image: url("+__webpack_require__(264)+");\n}\n.player__hero-icon--166 {\n  background-image: url("+__webpack_require__(265)+");\n}\n.player__hero-icon--167 {\n  background-image: url("+__webpack_require__(266)+");\n}\n.player__hero-icon--168 {\n  background-image: url("+__webpack_require__(267)+");\n}\n.player__hero-icon--169 {\n  background-image: url("+__webpack_require__(268)+");\n}\n.player__hero-icon--17 {\n  background-image: url("+__webpack_require__(269)+");\n}\n.player__hero-icon--170 {\n  background-image: url("+__webpack_require__(270)+");\n}\n.player__hero-icon--18 {\n  background-image: url("+__webpack_require__(271)+");\n}\n.player__hero-icon--185 {\n  background-image: url("+__webpack_require__(272)+");\n}\n.player__hero-icon--187 {\n  background-image: url("+__webpack_require__(273)+");\n}\n.player__hero-icon--188 {\n  background-image: url("+__webpack_require__(274)+");\n}\n.player__hero-icon--192 {\n  background-image: url("+__webpack_require__(275)+");\n}\n.player__hero-icon--194 {\n  background-image: url("+__webpack_require__(276)+");\n}\n.player__hero-icon--195 {\n  background-image: url("+__webpack_require__(277)+");\n}\n.player__hero-icon--196 {\n  background-image: url("+__webpack_require__(278)+");\n}\n.player__hero-icon--197 {\n  background-image: url("+__webpack_require__(279)+");\n}\n.player__hero-icon--2 {\n  background-image: url("+__webpack_require__(280)+");\n}\n.player__hero-icon--20 {\n  background-image: url("+__webpack_require__(281)+");\n}\n.player__hero-icon--201 {\n  background-image: url("+__webpack_require__(282)+");\n}\n.player__hero-icon--202 {\n  background-image: url("+__webpack_require__(283)+");\n}\n.player__hero-icon--203 {\n  background-image: url("+__webpack_require__(284)+");\n}\n.player__hero-icon--204 {\n  background-image: url("+__webpack_require__(285)+");\n}\n.player__hero-icon--205 {\n  background-image: url("+__webpack_require__(286)+");\n}\n.player__hero-icon--206 {\n  background-image: url("+__webpack_require__(287)+");\n}\n.player__hero-icon--207 {\n  background-image: url("+__webpack_require__(288)+");\n}\n.player__hero-icon--208 {\n  background-image: url("+__webpack_require__(289)+");\n}\n.player__hero-icon--209 {\n  background-image: url("+__webpack_require__(290)+");\n}\n.player__hero-icon--21 {\n  background-image: url("+__webpack_require__(291)+");\n}\n.player__hero-icon--210 {\n  background-image: url("+__webpack_require__(292)+");\n}\n.player__hero-icon--211 {\n  background-image: url("+__webpack_require__(293)+");\n}\n.player__hero-icon--212 {\n  background-image: url("+__webpack_require__(294)+");\n}\n.player__hero-icon--213 {\n  background-image: url("+__webpack_require__(295)+");\n}\n.player__hero-icon--214 {\n  background-image: url("+__webpack_require__(296)+");\n}\n.player__hero-icon--215 {\n  background-image: url("+__webpack_require__(297)+");\n}\n.player__hero-icon--216 {\n  background-image: url("+__webpack_require__(298)+");\n}\n.player__hero-icon--217 {\n  background-image: url("+__webpack_require__(299)+");\n}\n.player__hero-icon--218 {\n  background-image: url("+__webpack_require__(300)+");\n}\n.player__hero-icon--219 {\n  background-image: url("+__webpack_require__(301)+");\n}\n.player__hero-icon--22 {\n  background-image: url("+__webpack_require__(302)+");\n}\n.player__hero-icon--220 {\n  background-image: url("+__webpack_require__(303)+");\n}\n.player__hero-icon--221 {\n  background-image: url("+__webpack_require__(304)+");\n}\n.player__hero-icon--222 {\n  background-image: url("+__webpack_require__(305)+");\n}\n.player__hero-icon--223 {\n  background-image: url("+__webpack_require__(306)+");\n}\n.player__hero-icon--224 {\n  background-image: url("+__webpack_require__(307)+");\n}\n.player__hero-icon--225 {\n  background-image: url("+__webpack_require__(308)+");\n}\n.player__hero-icon--226 {\n  background-image: url("+__webpack_require__(309)+");\n}\n.player__hero-icon--227 {\n  background-image: url("+__webpack_require__(310)+");\n}\n.player__hero-icon--228 {\n  background-image: url("+__webpack_require__(311)+");\n}\n.player__hero-icon--229 {\n  background-image: url("+__webpack_require__(312)+");\n}\n.player__hero-icon--230 {\n  background-image: url("+__webpack_require__(313)+");\n}\n.player__hero-icon--232 {\n  background-image: url("+__webpack_require__(314)+");\n}\n.player__hero-icon--233 {\n  background-image: url("+__webpack_require__(315)+");\n}\n.player__hero-icon--234 {\n  background-image: url("+__webpack_require__(316)+");\n}\n.player__hero-icon--235 {\n  background-image: url("+__webpack_require__(317)+");\n}\n.player__hero-icon--236 {\n  background-image: url("+__webpack_require__(318)+");\n}\n.player__hero-icon--237 {\n  background-image: url("+__webpack_require__(319)+");\n}\n.player__hero-icon--238 {\n  background-image: url("+__webpack_require__(320)+");\n}\n.player__hero-icon--24 {\n  background-image: url("+__webpack_require__(321)+");\n}\n.player__hero-icon--240 {\n  background-image: url("+__webpack_require__(322)+");\n}\n.player__hero-icon--241 {\n  background-image: url("+__webpack_require__(323)+");\n}\n.player__hero-icon--242 {\n  background-image: url("+__webpack_require__(324)+");\n}\n.player__hero-icon--243 {\n  background-image: url("+__webpack_require__(325)+");\n}\n.player__hero-icon--25 {\n  background-image: url("+__webpack_require__(326)+");\n}\n.player__hero-icon--26 {\n  background-image: url("+__webpack_require__(327)+");\n}\n.player__hero-icon--27 {\n  background-image: url("+__webpack_require__(328)+");\n}\n.player__hero-icon--29 {\n  background-image: url("+__webpack_require__(329)+");\n}\n.player__hero-icon--3 {\n  background-image: url("+__webpack_require__(330)+");\n}\n.player__hero-icon--30 {\n  background-image: url("+__webpack_require__(331)+");\n}\n.player__hero-icon--31 {\n  background-image: url("+__webpack_require__(332)+");\n}\n.player__hero-icon--34 {\n  background-image: url("+__webpack_require__(333)+");\n}\n.player__hero-icon--35 {\n  background-image: url("+__webpack_require__(334)+");\n}\n.player__hero-icon--36 {\n  background-image: url("+__webpack_require__(335)+");\n}\n.player__hero-icon--37 {\n  background-image: url("+__webpack_require__(336)+");\n}\n.player__hero-icon--38 {\n  background-image: url("+__webpack_require__(337)+");\n}\n.player__hero-icon--39 {\n  background-image: url("+__webpack_require__(338)+");\n}\n.player__hero-icon--4 {\n  background-image: url("+__webpack_require__(339)+");\n}\n.player__hero-icon--40 {\n  background-image: url("+__webpack_require__(340)+");\n}\n.player__hero-icon--41 {\n  background-image: url("+__webpack_require__(341)+");\n}\n.player__hero-icon--42 {\n  background-image: url("+__webpack_require__(342)+");\n}\n.player__hero-icon--43 {\n  background-image: url("+__webpack_require__(343)+");\n}\n.player__hero-icon--44 {\n  background-image: url("+__webpack_require__(344)+");\n}\n.player__hero-icon--5 {\n  background-image: url("+__webpack_require__(345)+");\n}\n.player__hero-icon--6 {\n  background-image: url("+__webpack_require__(346)+");\n}\n.player__hero-icon--7 {\n  background-image: url("+__webpack_require__(347)+");\n}\n.player__hero-icon--8 {\n  background-image: url("+__webpack_require__(348)+");\n}\n.player__hero-icon--89 {\n  background-image: url("+__webpack_require__(349)+");\n}\n.player__hero-icon--9 {\n  background-image: url("+__webpack_require__(350)+");\n}\n.player__hero-icon--90 {\n  background-image: url("+__webpack_require__(351)+");\n}\n.player__hero-icon--91 {\n  background-image: url("+__webpack_require__(352)+");\n}\n.player__hero-icon--92 {\n  background-image: url("+__webpack_require__(353)+");\n}\n.player__hero-icon--93 {\n  background-image: url("+__webpack_require__(354)+");\n}\n.player__hero-icon--94 {\n  background-image: url("+__webpack_require__(355)+");\n}\n.player__hero-icon--95 {\n  background-image: url("+__webpack_require__(356)+");\n}\n.player__hero-icon--96 {\n  background-image: url("+__webpack_require__(357)+");\n}\n.player__hero-icon--239 {\n  background-image: url("+__webpack_require__(358)+");\n}\n@-webkit-keyframes fadeInLeft {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n            transform: translate3d(-100%, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n            transform: none;\n  }\n}\n@keyframes fadeInLeft {\n  0% {\n    opacity: 0;\n    -webkit-transform: translate3d(-100%, 0, 0);\n            transform: translate3d(-100%, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    -webkit-transform: none;\n            transform: none;\n  }\n}\n", ""]);
-
-/***/ },
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -3862,7 +4343,7 @@ webpackJsonp([0],[
 				//Method for warning of errors
 				if (window.console && typeof window.console.warn == "function") console.warn(str);
 			},
-			amd = helpers.amd = ("function" == 'function' && __webpack_require__(360)),
+			amd = helpers.amd = ("function" == 'function' && __webpack_require__(10)),
 			//-- Math methods
 			isNumber = helpers.isNumber = function(n){
 				return !isNaN(parseFloat(n)) && isFinite(n);
@@ -7037,775 +7518,348 @@ webpackJsonp([0],[
 	}).call(this);
 
 /***/ },
-/* 232 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "2873f2b6668948f5fbcf89290ed8e928.jpg"
+	var vars = __webpack_require__(391);
 
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "05280eae6a34c07b496ee70321944950.jpg"
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "734adb3c2f4a3c0c0536c64c7a14e951.jpg"
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "5408461aad11722d72751393c99bd88a.jpg"
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "a957999c8b42583f962f7b375c4256f9.jpg"
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6f80729fa47f25e4b59a79d250d6f59a.jpg"
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "04c1ae101b8af01155632d1ba44152c4.jpg"
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "f25f8bb5142cb454a388cc86f45bab22.jpg"
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "07cea4632c713af3c294a0b3e55a9ea7.jpg"
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "96051217e14135319ed3c16feb6bcbc1.jpg"
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "bef51d6f564336dd89d7ed9bfc2b7306.jpg"
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "72636fbde5e77b64fb70dfe489c19e56.jpg"
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "2820a93f4f2482da017881422f3782c9.jpg"
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "5f735c918fb696e1f4d00c5a314ff404.jpg"
-
-/***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "027ad06a6b0521de30106e4f383beb1f.jpg"
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "ffa179fc1630c306045cca50aa595726.jpg"
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "60e2d747ff5550595ed87a3ac9825037.jpg"
-
-/***/ },
-/* 249 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d7d1238cf93e76dbad9087044c8cb534.jpg"
-
-/***/ },
-/* 250 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "e4bdf92102005f86d46e2c6581930964.jpg"
-
-/***/ },
-/* 251 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "241c584492a17f028d4d95fd6de84897.jpg"
-
-/***/ },
-/* 252 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "de5dc17b5795657d3860f0b33340a386.jpg"
-
-/***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "bf777db163867bd5aea8d1ecb4c93e49.jpg"
-
-/***/ },
-/* 254 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "2f9e2e556fb89d9bce9baa8595b14b47.jpg"
-
-/***/ },
-/* 255 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "a7e16a8368f1478a747222f224e4e72d.jpg"
-
-/***/ },
-/* 256 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "e7f8036ba02a302cc534237405ca3611.jpg"
-
-/***/ },
-/* 257 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "551d32e6c70b929c986aafd9c70e1c54.jpg"
-
-/***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "a1245c20cb7bce17691d727504d057b7.jpg"
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "8a6301e0638637af58a2ac6aad1d7c2c.jpg"
-
-/***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "c87b2c686546dd54eb179bc98af43564.jpg"
-
-/***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "105f7e4963762d7cd587a55864418e08.jpg"
-
-/***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "455a22a851ecf5fd5a982dca3cd29202.jpg"
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "1df65d17178ef6dca740942e91a49a1c.jpg"
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "0caa674c86f24b9f98cbc8175df8c36b.jpg"
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "12d87dc5e79211fb8c2bc83a468678ac.jpg"
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6e649f4bceb8cdfbcb7ef24151781a4f.jpg"
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "b71123be2ce92f4348efa4f31ab85068.jpg"
-
-/***/ },
-/* 268 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "7c6b9bb82a33e4c681d21ee2c0f2bd15.jpg"
-
-/***/ },
-/* 269 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "79e4e26bf257193cb2df25e50b25ff98.jpg"
-
-/***/ },
-/* 270 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "b3bf86477419c5d2178e4bf7aa25dc38.jpg"
-
-/***/ },
-/* 271 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "f9c16632d36c07d90c4ebf1fd1dae549.jpg"
-
-/***/ },
-/* 272 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "0ffaa2ccef6577c6adc3ee1b69c2cd40.jpg"
-
-/***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "29dd80e57c4adf63e1a9d3e3d41f7cae.jpg"
-
-/***/ },
-/* 274 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "b5b18c9c06c6580a47dfbfb8b9993268.jpg"
-
-/***/ },
-/* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "c2674e6c8e8fe2900668ee36de5b8e04.jpg"
-
-/***/ },
-/* 276 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "c1686f7c49364b4bdbe1470e8c3d30bb.jpg"
-
-/***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "9baa80d1b278a35ebf7d37fde55a5f31.jpg"
-
-/***/ },
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6392f30989408e444364476a401d1882.jpg"
-
-/***/ },
-/* 279 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "90e38594d4f6375065ec4e0c391368b1.jpg"
-
-/***/ },
-/* 280 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "9fd2c7c4d143ff0dfa1fdb57b505a41a.jpg"
-
-/***/ },
-/* 281 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = vars.createClass('Doughnut', ['getSegmentsAtEvent']);
 
-	module.exports = __webpack_require__.p + "794e76e1737b4a1a8ea27582ab03af7e.jpg"
 
 /***/ },
-/* 282 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "2ad097cb46a01216f7fc7e7a976bf200.jpg"
+	var vars = __webpack_require__(391);
 
-/***/ },
-/* 283 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "ff51511d222a46d3de089bd7c6665855.jpg"
-
-/***/ },
-/* 284 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "0c12fcf76ae0844b3881e5586ac83905.jpg"
-
-/***/ },
-/* 285 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d3912df78e5b9eeacaba504d1783ed58.jpg"
-
-/***/ },
-/* 286 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "661a658d490954c172d63dd39f6b76fa.jpg"
-
-/***/ },
-/* 287 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "f616756cdeec2f5cbb74fae008be1013.jpg"
-
-/***/ },
-/* 288 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d8badfb595044ec2b3c6ca747a1f9850.jpg"
-
-/***/ },
-/* 289 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "0c419cb8637679293438aeef57bee932.jpg"
-
-/***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "e0d396d9483576cb81ea04b973611170.jpg"
-
-/***/ },
-/* 291 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "7b9e94670ac9ad70a00366821b846680.jpg"
-
-/***/ },
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "88e4d1f1d168155a6662515a8f476d96.jpg"
-
-/***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "7c45a899c579b85e65633295654d0713.jpg"
-
-/***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "4165bce28dab462a92b4e5545b9e3585.jpg"
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "8f8a5c16af3a8bc628a7272de19f24d1.jpg"
-
-/***/ },
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d5785103d516e339e5fb9ed9bc910fea.jpg"
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "7d434cc09f72f743ceba35cc40551c31.jpg"
-
-/***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "74c5430e9eb6d167e57bb1a2c84963ec.jpg"
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "4c87650b491facb510a05f4094cf8aab.jpg"
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6138ef8979fecdb11790fb45c5180189.jpg"
-
-/***/ },
-/* 301 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "6ace220b28d2d5186abb40ad740e96e9.jpg"
-
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "bb568b04c873e3997ef976000abb9fb6.jpg"
-
-/***/ },
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "8d1a087da08be2e70126a7570dbaa6f4.jpg"
-
-/***/ },
-/* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "0d7affadfcd3d1ac91c9f4997d01c59e.jpg"
-
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "1bc3d7520ca8ee7159d685c520960cd0.jpg"
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "dc349c11026d89f376c8679b31f08148.jpg"
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "993ee09bcf65d9e497382decf37d2d22.jpg"
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "2a91470d94cf966efd72567c990cb584.jpg"
-
-/***/ },
-/* 309 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "d5e50f7252b39e2de5fe081cbf3eaaaf.jpg"
-
-/***/ },
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "a7ecd336b65b823d4a5ae2c615b8e956.jpg"
-
-/***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "1322538c5dffcb2bada9db7a8375889f.jpg"
-
-/***/ },
-/* 312 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "f0d1c0514fd17c5eaa4abbcb6342ea6a.jpg"
-
-/***/ },
-/* 313 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "83d2295227ed22a556cacf40526c2329.jpg"
-
-/***/ },
-/* 314 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "322a9df01071d2c2fbb9b19de5cab224.jpg"
-
-/***/ },
-/* 315 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "8aa828e588ed6bbc542c8cd53ba0a6bb.jpg"
-
-/***/ },
-/* 316 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "feb05f6709606fedb50a605ab21fef49.jpg"
-
-/***/ },
-/* 317 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = vars.createClass('Line', ['getPointsAtEvent']);
 
-	module.exports = __webpack_require__.p + "946485c6bf7bc6056bdc90febb74e925.jpg"
 
 /***/ },
-/* 318 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "dfa52b2b92d0255f17e932568be89413.jpg"
+	var vars = __webpack_require__(391);
 
-/***/ },
-/* 319 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = vars.createClass('Pie', ['getSegmentsAtEvent']);
 
-	module.exports = __webpack_require__.p + "8599639e71b2f1a75eeaae70e4c7edb0.jpg"
 
 /***/ },
-/* 320 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "86baba823d80356c83dde6915965341b.jpg"
+	var vars = __webpack_require__(391);
 
-/***/ },
-/* 321 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = vars.createClass('PolarArea', ['getSegmentsAtEvent']);
 
-	module.exports = __webpack_require__.p + "acb6efbac4e81865df86fdb22dbdb2f4.jpg"
 
 /***/ },
-/* 322 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "0b47521da179e821eaf45c60761b31dc.jpg"
+	var vars = __webpack_require__(391);
 
-/***/ },
-/* 323 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = vars.createClass('Radar', ['getPointsAtEvent']);
 
-	module.exports = __webpack_require__.p + "9d7269536205ef9a606469992d1811b0.jpg"
 
 /***/ },
-/* 324 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "fd48a76a13b73fdee680a4ae18ac1a21.jpg"
+	var Reflux = __webpack_require__(204),
+	    React  = __webpack_require__(207),
+	    postsStore = __webpack_require__(399);
 
-/***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
+	__webpack_require__(401);
 
-	module.exports = __webpack_require__.p + "70f9222d9a163d3b13c25619bba3fbe5.jpg"
 
-/***/ },
-/* 326 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = React.createClass({displayName: "exports",
+	    mixins: [
+	        Reflux.connect(postsStore, 'posts')
+	    ],
 
-	module.exports = __webpack_require__.p + "2e94526ba209717f2648a9b687461a35.jpg"
+	    getInitialState: function() {
+	        return {
+	            posts: []
+	        };
+	    },
 
-/***/ },
-/* 327 */
-/***/ function(module, exports, __webpack_require__) {
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "videoblog"}, 
+	                React.createElement("h1", {className: "videoblog__title"}, "HoNt i veckan"), 
+	                this.state.posts.map(function(post) {
+	                    return React.createElement("iframe", {
+	                        className: "videoblog__post", 
+	                        src: post.embed_url, 
+	                        frameBorder: "0", 
+	                        allowFullScreen: true});
+	                })
+	            )
+	        );
+	    }
+	});
 
-	module.exports = __webpack_require__.p + "12fc3758968bd2e0404679f42ed86a58.jpg"
 
 /***/ },
-/* 328 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "91494a97d68d0dd5b197eec5a80eb3cf.jpg"
+	var Reflux = __webpack_require__(204),
+	    postsUpdate = __webpack_require__(400),
+	    postsStore = Reflux.createStore({
+	      init: function() {
+	        this.listenTo(postsUpdate, this.output);
+	      },
 
-/***/ },
-/* 329 */
-/***/ function(module, exports, __webpack_require__) {
+	      output: function(posts) {
+	          this.trigger(posts);
+	      }
+	  });
 
-	module.exports = __webpack_require__.p + "a9afabf5f5344a947d5aca54a223b553.jpg"
 
-/***/ },
-/* 330 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = postsStore;
 
-	module.exports = __webpack_require__.p + "1534f2efc3a254b87ad12b801431b407.jpg"
 
 /***/ },
-/* 331 */
+/* 400 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "9c1fb3ee1e6ba466bbd96e4cb026c2cc.jpg"
+	var Reflux = __webpack_require__(204);
 
-/***/ },
-/* 332 */
-/***/ function(module, exports, __webpack_require__) {
+	// This action represents that the matches have been updated
+	module.exports = Reflux.createAction();
 
-	module.exports = __webpack_require__.p + "6501c0ac17dec50a49ddd8f43c713368.jpg"
 
 /***/ },
-/* 333 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "16a74dfdafdb384fc5a2865e74c35116.jpg"
 
-/***/ },
-/* 334 */
-/***/ function(module, exports, __webpack_require__) {
+	// style-loader: Adds some css to the DOM by adding a <style> tag
 
-	module.exports = __webpack_require__.p + "e285762d03ced6a73891ad4a27fe538b.jpg"
+	// load the styles
+	var content = __webpack_require__(402);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/component/videoblog/videoblog.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 335 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "11fad230b4ae60e5459f645b8398e2c9.jpg"
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, ".videoblog__title {\n    padding: 40px 0 20px 0;\n    text-align: center;\n}\n\n.videoblog__post {\n    display: block;\n    height: 155px;\n    margin: 20px 0;\n    width: 100%;\n}\n\n@media screen and (min-width: 700px) {\n    .videoblog__post {\n        height: 315px;\n        margin: 20px auto;\n        width: 700px;\n    }\n}\n", ""]);
 
 /***/ },
-/* 336 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "7daf9a99b3de4a5742900ba9edae4ffe.jpg"
+	var Listener = __webpack_require__(404);
 
-/***/ },
-/* 337 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = new Listener({
+	    cacheKey:    'larz-client.posts',
+	    firebaseUri: 'https://larz-statsen.firebaseio.com/posts/',
+	    updateCallback:  __webpack_require__(400),
+	    limitToLast: 1
+	});
 
-	module.exports = __webpack_require__.p + "004b7b28d2672bf879f116afcc5dcf26.jpg"
 
 /***/ },
-/* 338 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "a3f961a36749519e3182ead6677af71b.jpg"
-
-/***/ },
-/* 339 */
-/***/ function(module, exports, __webpack_require__) {
+	var Firebase = __webpack_require__(203),
+	    offlineMode = false;
 
-	module.exports = __webpack_require__.p + "91d2608b81c84b11258d6130a074bf49.jpg"
 
-/***/ },
-/* 340 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = function(options) {
+	    'use strict';
 
-	module.exports = __webpack_require__.p + "cb28d59423f199007ba08d9d8014ab63.jpg"
+	    var firebaseRef,
+	        isLoading = false,
+	        loadingCallback = options.loadingCallback || function() {},
+	        updateCallback  = options.updateCallback  || function() {},
 
-/***/ },
-/* 341 */
-/***/ function(module, exports, __webpack_require__) {
+	        logger = function(msg)   {for (var rest=[],$__0=1,$__1=arguments.length;$__0<$__1;$__0++) rest.push(arguments[$__0]);
+	          var args = [("[listener] [" + options.firebaseUri + "] " + msg)].concat(rest);
+	          console.log.apply(console, args);
+	        },
 
-	module.exports = __webpack_require__.p + "2107d32d0829d13607d6c82e0a2bf6a6.jpg"
+	        updateFromCache = function(cachedString)  {
+	            try {
+	                var data = JSON.parse(cachedString);
+	                updateCallback(data);
+	                logger('updated from cache', data);
+	            } catch(e) {
+	                console.error(e);
+	            }
+	        },
 
-/***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
+	        firebaseCallback = function(snapshot)  {
+	          var val   = snapshot.val(),
+	              items = Object.keys(val).map(function(k)  {return val[k];});
 
-	module.exports = __webpack_require__.p + "adae903708820c4e6344fa9c7d03cafc.jpg"
+	          // items will be sorted ascending on key
+	          // - we want descending order.
+	          items.reverse();
 
-/***/ },
-/* 343 */
-/***/ function(module, exports, __webpack_require__) {
+	          localStorage.setItem(options.cacheKey, JSON.stringify(items));
+	          loadingCallback(false);
 
-	module.exports = __webpack_require__.p + "dda6ae7028c1b21d1d911081c58f1127.jpg"
+	          logger('new data', items);
+	          updateCallback(items);
+	        },
 
-/***/ },
-/* 344 */
-/***/ function(module, exports, __webpack_require__) {
+	        start = function()  {
+	            var cachedString = localStorage.getItem(options.cacheKey);
 
-	module.exports = __webpack_require__.p + "46f75ff5a7bfbf854a2e75e03185e05a.jpg"
+	            if (cachedString) {
+	                updateFromCache(cachedString);
+	            }
 
-/***/ },
-/* 345 */
-/***/ function(module, exports, __webpack_require__) {
+	            if (firebaseRef !== undefined) {
+	                console.warn('This listener for ' + options.firebaseUri + ' is already started, will not start a new one.');
+	                return;
+	            }
 
-	module.exports = __webpack_require__.p + "a7bbcf92cc95b9b0a75dd9ddace4ccce.jpg"
+	            if (offlineMode !== true) {
+	                loadingCallback(true);
+	                isLoading = true;
 
-/***/ },
-/* 346 */
-/***/ function(module, exports, __webpack_require__) {
+	                firebaseRef = new Firebase(options.firebaseUri);
 
-	module.exports = __webpack_require__.p + "79a38586458e883d3df3e643cc99e78e.jpg"
+	                if (options.limitToLast) {
+	                    firebaseRef.limitToLast(options.limitToLast).on('value', firebaseCallback);
+	                    logger(("started (limit to last " + options.limitToLast + ")"));
+	                } else {
+	                    firebaseRef.on('value', firebaseCallback);
+	                    logger('started');
+	                }
+	            } else {
+	                logger('offline mode enabled, no listener started');
+	            }
+	        },
 
-/***/ },
-/* 347 */
-/***/ function(module, exports, __webpack_require__) {
+	        stop = function()  {
+	            firebaseRef.off('value', firebaseCallback);
+	            firebaseRef = undefined;
 
-	module.exports = __webpack_require__.p + "b089c7f94f8ec834909c02457ace0ea1.jpg"
+	            if (isLoading) {
+	                loadingCallback(false);
+	                isLoading = false;
+	            }
 
-/***/ },
-/* 348 */
-/***/ function(module, exports, __webpack_require__) {
+	            logger('stopped');
+	        };
 
-	module.exports = __webpack_require__.p + "eb9517fd0955afbc37463130a6a71311.jpg"
 
-/***/ },
-/* 349 */
-/***/ function(module, exports, __webpack_require__) {
+	    return {
+	        start: start,
+	        stop: stop
+	    };
+	};
 
-	module.exports = __webpack_require__.p + "48b0d610c4e72bf42524cb1c1546ba8f.jpg"
 
 /***/ },
-/* 350 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "e61ab6d65a6b410db6ff07bb64c092c1.jpg"
+	var Listener = __webpack_require__(404);
 
-/***/ },
-/* 351 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = new Listener({
+	    cacheKey:    'larz-client.stats',
+	    firebaseUri: 'https://larz-statsen.firebaseio.com/stats/',
+	    updateCallback:  __webpack_require__(387),
+	    limitToLast: 14 // 14 days
+	});
 
-	module.exports = __webpack_require__.p + "ade184f54cf1552f59d607849618ce12.jpg"
 
 /***/ },
-/* 352 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "75e17010cc26e946f06a30f8c015df3c.jpg"
+	var Listener = __webpack_require__(404);
 
-/***/ },
-/* 353 */
-/***/ function(module, exports, __webpack_require__) {
+	module.exports = new Listener({
+	    cacheKey:    'larz-client.matches',
+	    firebaseUri: 'https://larz-statsen.firebaseio.com/matches/',
+	    loadingCallback: __webpack_require__(375),
+	    updateCallback:  __webpack_require__(232),
+	    limitToLast: 20
+	});
 
-	module.exports = __webpack_require__.p + "a02a623a5eed3283a1ea1865a9b13d66.jpg"
 
 /***/ },
-/* 354 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "9c10b856072fa653fc3badc660b06d62.jpg"
-
-/***/ },
-/* 355 */
-/***/ function(module, exports, __webpack_require__) {
+	// style-loader: Adds some css to the DOM by adding a <style> tag
 
-	module.exports = __webpack_require__.p + "3aee567116a70fb8e2586c91b3c8eee2.jpg"
+	// load the styles
+	var content = __webpack_require__(408);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/reset.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 356 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "55c0c00337dcbe60e7d96d90daf60d96.jpg"
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, "html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, em,\nimg, small, strong, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label,\nlegend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,\ncanvas, details,  figure, figcaption, footer, header, hgroup, menu, nav,\noutput, section, summary, time, mark, {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n    display: block;\n}\nbody {\n    line-height: 1;\n}\nol, ul {\n    list-style: none;\n}\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n", ""]);
 
 /***/ },
-/* 357 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "ffa84347cf517248fa1300d1b22df210.jpg"
 
-/***/ },
-/* 358 */
-/***/ function(module, exports, __webpack_require__) {
+	// style-loader: Adds some css to the DOM by adding a <style> tag
 
-	module.exports = __webpack_require__.p + "eeeb132363e4935879db6403fbea06bd.jpg"
+	// load the styles
+	var content = __webpack_require__(410);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(229)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css", function() {
+			var newContent = require("!!/Users/chris.skeppstedt/code/larz-client/node_modules/css-loader/index.js!/Users/chris.skeppstedt/code/larz-client/node_modules/postcss-loader/index.js!/Users/chris.skeppstedt/code/larz-client/app/main.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
 
 /***/ },
-/* 359 */,
-/* 360 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
-	
-	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+	exports = module.exports = __webpack_require__(227)();
+	exports.push([module.id, "@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);", ""]);
+	exports.push([module.id, "\n\nbody {\n    background-color: #ddd;\n    font-family: 'Oswald', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    padding: 0;\n    margin: 0;\n}\n\nh1,h2,h3,h4 {\n    margin: 0;\n    padding: 0;\n    font-weight: normal;\n}\n\ndl, dd, dt {\n  margin: 0;\n  padding: 0;\n}\n", ""]);
 
 /***/ }
 ]);
