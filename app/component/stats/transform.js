@@ -22,19 +22,29 @@ var toLegend = (stats) => {
     });
 };
 
-var mapData = (stats, player) => {
-    var dataPoints = [],
-        lastPoint  = null,
-        propName   = 'mmr';
+var filterData = (stats) => {
+    // If any player has a value of null for a date,
+    // the graph library fails to scale the y-axis.
+    return stats.filter( s => {
+        var p, data;
 
-    stats.forEach( s => {
-        var value = lastPoint;
-        if (s.data[player] && s.data[player][propName] !== undefined)
-            lastPoint = value = parseInt(s.data[player][propName], 10);
-        dataPoints.push(value);
+        for(p in players) {
+            data = s.data[players[p]]
+            if (data === null || data === undefined) {
+                return false;
+            }
+        }
+
+        return true;
     });
+};
 
-    return dataPoints;
+var mapData = (stats, player) => {
+    var propName = 'mmr';
+
+    return stats.map( s => {
+        return parseInt(s.data[player][propName], 10);
+    });
 };
 
 var toChart = (stats) => {
@@ -44,6 +54,7 @@ var toChart = (stats) => {
         return {};
     }
 
+    stats = filterData(stats);
     var labels = stats.map( s => '' );
 
     var datasets = players.map( player => { return {
