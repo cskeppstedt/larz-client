@@ -4,8 +4,8 @@
   "description": "Goofy frontend for larz-server",
   "scripts": {
     "test": "npm test",
-    "build": "./node_modules/.bin/webpack --progress --profile --colors",
-    "start": "./node_modules/.bin/webpack-dev-server --progress --colors --content-base public/ --reload=localhost"
+    "build": "./node_modules/.bin/webpack -d --progress --profile --colors",
+    "start": "./node_modules/.bin/webpack-dev-server -d --progress --colors --content-base public/ --reload=localhost"
   },
   "repository": {
     "type": "git",
