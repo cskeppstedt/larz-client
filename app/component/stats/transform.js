@@ -25,17 +25,46 @@ var toLegend = (stats) => {
 var filterData = (stats) => {
     // If any player has a value of null for a date,
     // the graph library fails to scale the y-axis.
-    return stats.filter( s => {
-        var p, data;
+    var mem = (function(memory) {
+        return {
+            store: (player, data) => {
+                memory[player] = data;
+            },
+
+            recall: (player, s) => {
+                if (memory[player]) {
+                    console.log('actual recall for', player);
+                    return memory[player];
+                }
+
+                // if we have no historic data, look ahead
+                console.log('looking ahead for', player);
+                for(var i = 1+stats.indexOf(s); i<stats.length; i++) {
+                    if (stats[i] && stats[i].data && stats[i].data[player]) {
+                        return memory[player] = stats[i].data[player];
+                    }
+                }
+            }
+        }
+    })({});
+
+    return stats.map( s => {
+        var p, data, player;
 
         for(p in players) {
-            data = s.data[players[p]]
+            player = players[p];
+            data = s.data[player];
+
             if (data === null || data === undefined) {
-                return false;
+                data = mem.recall(player, s);
+                s.data[player] = data;
+                console.log('recalled for', player, data);
+            } else {
+                mem.store(player, data);
             }
         }
 
-        return true;
+        return s;
     });
 };
 
