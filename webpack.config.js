@@ -31,7 +31,7 @@ module.exports = {
     loaders: [
       { test: /\.js$/,   loader: 'jsx-loader?harmony' },
       { test: /\.jsx$/,  loader: 'jsx-loader?harmony' },
-      { test: /\.jpg$/,  loader: 'file-loader' },
+      { test: [/\.jpg$/, /\.gif$/],  loader: 'file-loader' },
       { test: /\.css$/,  loader: 'style-loader!css-loader!postcss-loader' },
       { test: /\.styl$/, loader: 'style-loader!css-loader!postcss-loader!stylus-loader' }
     ]

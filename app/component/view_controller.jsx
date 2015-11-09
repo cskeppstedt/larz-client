@@ -2,7 +2,8 @@ var React  = require('react/addons'),
     Logo = require('./logo/logo'),
     MatchList = require('./matchlist/matchlist'),
     Stats = require('./stats/stats'),
-    VideoBlog  = require('./videoblog/videoblog');
+    VideoBlog  = require('./videoblog/videoblog'),
+    HonHonHon = require('./honhonhon/honhonhon');
 
 
 module.exports = React.createClass({
@@ -10,6 +11,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <Logo />
+                <HonHonHon />
                 <VideoBlog />
                 <Stats />
                 <MatchList />
