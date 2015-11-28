@@ -9,6 +9,8 @@ module.exports = {
     'vendor': ['react', 'firebase', 'reflux']
   },
 
+  devtool: 'source-map',
+
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
