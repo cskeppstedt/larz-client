@@ -1,6 +1,7 @@
 module.exports = {
     team: [
         'Adelsmansman',
+        'khoosan',
         'Pacoloco',
         'Schln',
         'skepparn_',
