@@ -3,7 +3,7 @@ var path = require('path'),
     ReloadPlugin = require('webpack-reload-plugin'),
     autoprefixer = require('autoprefixer-core');
 
-module.exports = {
+var config = {
   entry: {
     'app': ['./app/main.jsx'],
     'vendor': ['react', 'firebase', 'reflux']
@@ -20,8 +20,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    ),
-    new ReloadPlugin('localhost')
+    )
   ],
 
   resolve: {
@@ -40,3 +39,11 @@ module.exports = {
   },
   postcss: [autoprefixer({})]
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  config.plugins.push(
+    new ReloadPlugin('localhost')
+  );
+}
+
+module.exports = config;
