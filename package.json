@@ -6,7 +6,8 @@
     "test": "npm test",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -d -p --progress --profile --colors",
     "start": "./node_modules/.bin/webpack-dev-server -d --progress --colors --content-base public/ --reload=localhost",
-    "publish": "divshot push production"
+    "publish": "divshot push production",
+    "scrape": "./node_modules/.bin/phantomjs support/scrape.phantom.js && node support/handle-scrape.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "file-loader": "^0.8.1",
     "jsx-loader": "^0.12.2",
     "nib": "^1.1.0",
+    "phantomjs": "^1.9.19",
     "postcss-loader": "^0.4.0",
     "style-loader": "^0.8.3",
     "stylus": "^0.49.3",
