@@ -6,7 +6,7 @@
     "test": "npm test",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -d -p --progress --profile --colors",
     "start": "./node_modules/.bin/webpack-dev-server -d --progress --colors --content-base public/ --reload=localhost",
-    "publish": "divshot push production",
+    "publish": "firebase deploy",
     "scrape": "./node_modules/.bin/phantomjs support/scrape.phantom.js && node support/handle-scrape.js"
   },
   "repository": {
