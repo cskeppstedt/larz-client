@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
     render: function() {
         var player = this.props.player,
-            heroClassName = 'player__hero-icon--' + player.hero_id,
+            heroClassName = 'player__hero-icon player__hero-icon--' + player.hero_id,
             classes = React.addons.classSet({
                 'player': true,
                 'is-expanded': this.state.showStats
