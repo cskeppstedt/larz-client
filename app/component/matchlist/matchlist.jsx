@@ -1,9 +1,10 @@
-var DateHeader   = require('../date_header/date_header'),
+var classnames   = require('classnames'),
+    DateHeader   = require('../date_header/date_header'),
     Loader       = require('../loader/loader'),
     loadingStore = require('../../store/loading'),
     Match        = require('../match/match'),
     matchesStore = require('../../store/matches'),
-    React        = require('react/addons'),
+    React        = require('react'),
     Reflux       = require('reflux');
 
 
@@ -28,7 +29,7 @@ module.exports = React.createClass({
     render: function() {
         var subviews = [],
             lastDate,
-            classes = React.addons.classSet({
+            classes = classnames({
                 'matchlist': true,
                 'is-loading': this.state.loading.matchesLoading
             });

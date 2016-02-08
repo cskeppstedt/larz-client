@@ -1,6 +1,7 @@
-var React  = require('react/addons'),
-    Player = require('../player/player'),
-    { team } = require('../../config/config');
+var classnames = require('classnames'),
+    React      = require('react'),
+    Player     = require('../player/player'),
+    { team }   = require('../../config/config');
 
 require('./team.styl');
 
@@ -13,7 +14,7 @@ module.exports = React.createClass({
             winningElem = <span className='team__name__winning'>(winners)</span>;
         }
 
-        var teamClasses = React.addons.classSet({
+        var teamClasses = classnames({
             'team': true,
             'team--winning': this.props.winning
         });

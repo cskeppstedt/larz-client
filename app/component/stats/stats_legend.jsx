@@ -1,4 +1,4 @@
-var React  = require('react/addons'),
+var React  = require('react'),
     transform = require('./transform');
 
 require('./stats.styl');

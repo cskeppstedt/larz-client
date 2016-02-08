@@ -1,5 +1,5 @@
 var Reflux = require('reflux'),
-    React  = require('react/addons'),
+    React  = require('react'),
     postsStore = require('../../store/posts');
 
 require('./videoblog.css');

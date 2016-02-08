@@ -1,4 +1,5 @@
-var React = require('react/addons');
+var classnames = require('classnames'),
+    React = require('react');
 
 require('./player.styl');
 
@@ -19,11 +20,11 @@ module.exports = React.createClass({
     render: function() {
         var player = this.props.player,
             heroClassName = 'player__hero-icon player__hero-icon--' + player.hero_id,
-            classes = React.addons.classSet({
+            classes = classnames({
                 'player': true,
                 'is-expanded': this.state.showStats
             }),
-            playerNameClasses = React.addons.classSet({
+            playerNameClasses = classnames({
                 'player__name': !this.props.isisInTeam,
                 'player__name--in-team': this.props.isInTeam
             }),

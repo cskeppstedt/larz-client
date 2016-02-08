@@ -1,4 +1,4 @@
-var React  = require('react/addons'),
+var React  = require('react'),
     LineChart = require("react-chartjs").Line,
     transform = require('./transform');
 

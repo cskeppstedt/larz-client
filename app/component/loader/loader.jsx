@@ -1,4 +1,5 @@
-var React = require('react/addons'),
+var classnames   = require('classnames'),
+    React = require('react'),
     Team  = require('../team/team');
 
 require('./loader.styl');
@@ -7,7 +8,7 @@ require('./loader.styl');
 module.exports = React.createClass({
     render: function() {
 
-        var classes = React.addons.classSet({
+        var classes = classnames({
             'loader': true,
             'is-visible': this.props.isVisible,
             'is-hidden': !this.props.isVisible

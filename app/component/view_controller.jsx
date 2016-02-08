@@ -1,4 +1,4 @@
-var React  = require('react/addons'),
+var React  = require('react'),
     Logo = require('./logo/logo'),
     MatchList = require('./matchlist/matchlist'),
     Stats = require('./stats/stats'),

@@ -1,5 +1,5 @@
 var Reflux = require('reflux'),
-    React  = require('react/addons'),
+    React  = require('react'),
     statsStore = require('../../store/stats'),
     StatsLegend = require('./stats_legend'),
     StatsChart = require('./stats_chart');

@@ -1,4 +1,4 @@
-var React = require('react/addons'),
+var React = require('react'),
     dateUtil = require('../../util/date');
 
 require('./date_header.styl');
