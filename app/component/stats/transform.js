@@ -71,9 +71,11 @@ var filterData = (stats) => {
 var mapData = (stats, player) => {
     var propName = 'mmr';
 
-    return stats.map( s => {
-        return parseInt(s.data[player][propName], 10);
-    });
+    return stats
+        .filter( s => s.data[player] && s.data[player] && s.data[player][propName])
+        .map( s => {
+            return parseInt(s.data[player][propName], 10);
+        });
 };
 
 var toChart = (stats) => {
