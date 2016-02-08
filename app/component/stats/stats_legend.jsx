@@ -14,7 +14,7 @@ module.exports = React.createClass({
                     var style = {
                         backgroundColor: d.color
                     };
-                    return <li className='legend__item' key={d.label}>
+                    return <li className='legend__item' key={'legend' + d.label}>
                       <span className='legend__item__color' style={style}></span>
                       <span className='legend__item__label'>{d.label}</span>
                     </li>

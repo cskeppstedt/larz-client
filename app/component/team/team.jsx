@@ -8,7 +8,8 @@ require('./team.styl');
 
 module.exports = React.createClass({
     render: function() {
-        var winningElem;
+        var matchId = this.props.matchId,
+            winningElem;
 
         if (this.props.winning === true) {
             winningElem = <span className='team__name__winning'>(winners)</span>;
@@ -28,7 +29,7 @@ module.exports = React.createClass({
                 <ul className='team__players'>
                     {this.props.players.map(function(player) {
                         return <Player 
-                          key={player.nickname} 
+                          key={matchId + player.nickname} 
                           player={player}
                           isInTeam={team.indexOf(player.nickname) >= 0}
                         />;

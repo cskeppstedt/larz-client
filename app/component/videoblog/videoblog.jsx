@@ -22,6 +22,7 @@ module.exports = React.createClass({
                 <h1 className='videoblog__title'>HoNt i veckan</h1>
                 {this.state.posts.map(function(post) {
                     return <iframe
+                        key={'videoblog' + post.post_id}
                         className='videoblog__post'
                         src={post.embed_url}
                         frameBorder='0'

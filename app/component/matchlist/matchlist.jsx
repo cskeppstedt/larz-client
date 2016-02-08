@@ -38,10 +38,10 @@ module.exports = React.createClass({
         this.state.matches.forEach((match) => {
             if (match.date !== lastDate) {
                 lastDate = match.date;
-                subviews.push(<DateHeader date={match.date} />);
+                subviews.push(<DateHeader key={'dateheader' + match.match_id} date={match.date} />);
             }
 
-            subviews.push(<Match key={match.match_id} match={match} />);
+            subviews.push(<Match key={'match' + match.match_id} match={match} />);
         });
 
         return (
