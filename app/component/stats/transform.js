@@ -33,12 +33,10 @@ var filterData = (stats) => {
 
             recall: (player, s) => {
                 if (memory[player]) {
-                    console.log('actual recall for', player);
                     return memory[player];
                 }
 
                 // if we have no historic data, look ahead
-                console.log('looking ahead for', player);
                 for(var i = 1+stats.indexOf(s); i<stats.length; i++) {
                     if (stats[i] && stats[i].data && stats[i].data[player]) {
                         return memory[player] = stats[i].data[player];
@@ -58,7 +56,6 @@ var filterData = (stats) => {
             if (data === null || data === undefined) {
                 data = mem.recall(player, s);
                 s.data[player] = data;
-                console.log('recalled for', player, data);
             } else {
                 mem.store(player, data);
             }

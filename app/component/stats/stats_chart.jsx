@@ -16,9 +16,8 @@ var chartOptions = {
 
 module.exports = React.createClass({
     render: function() {
-        //var chartData = transform.toChart(this.props.stats);
-        chartData = transform.toChart(this.props.stats);
-        console.log('chartData', chartData);
+        var chartData = transform.toChart(this.props.stats);
+
         if (!chartData || !chartData.datasets) {
             return <div />;
         }
