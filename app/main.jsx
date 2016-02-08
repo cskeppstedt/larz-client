@@ -11,7 +11,7 @@ var React            = require('react'),
 require('./reset.css');
 require('./main.css');
 
-ReactDOM.render(<ViewController />, node);
+ReactDOM.render(<ViewController />, document.getElementById('app'));
 
 matches_listener.start();
 posts_listener.start();
