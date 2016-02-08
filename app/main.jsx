@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
+var React            = require('react'),
+    ReactDOM         = require('react-dom'),
     ViewController   = require('./component/view_controller'),
     posts_listener   = require('./listener/posts'),
     stats_listener   = require('./listener/stats'),
@@ -10,7 +11,7 @@ var React = require('react/addons'),
 require('./reset.css');
 require('./main.css');
 
-React.render(<ViewController />, node);
+ReactDOM.render(<ViewController />, node);
 
 matches_listener.start();
 posts_listener.start();
