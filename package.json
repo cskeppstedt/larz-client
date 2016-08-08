@@ -38,6 +38,7 @@
     "chart.js": "2.2.1",
     "classnames": "2.2.5",
     "firebase": "3.2.1",
+    "json-loader": "^0.5.4",
     "react": "15.3.0",
     "react-chartjs": "0.8.0",
     "react-dom": "15.3.0",

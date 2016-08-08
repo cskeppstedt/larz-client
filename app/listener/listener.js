@@ -1,6 +1,20 @@
-var Firebase = require('firebase'),
+var firebase = require('firebase'),
+    credentials = require('json!../credentials.json'),
     offlineMode = false;
 
+
+var getFirebaseName = (function () {
+    var isFirstCall = true;
+
+    return function (firebasePath) {
+        if (isFirstCall) {
+            isFirstCall = false;
+            return undefined;
+        } else {
+            return firebasePath;
+        }
+    }
+})()
 
 module.exports = function(options) {
     'use strict';
@@ -11,7 +25,7 @@ module.exports = function(options) {
         updateCallback  = options.updateCallback  || function() {},
 
         logger = (msg, ...rest) => {
-          var args = [`[listener] [${options.firebaseUri}] ${msg}`].concat(rest);
+          var args = [`[listener] [${options.firebasePath}] ${msg}`].concat(rest);
           console.log.apply(console, args);
         },
 
@@ -56,7 +70,14 @@ module.exports = function(options) {
                 loadingCallback(true);
                 isLoading = true;
 
-                firebaseRef = new Firebase(options.firebaseUri);
+                firebase.initializeApp({
+                    apiKey: credentials.FIREBASE_API_KEY,
+                    authDomain: 'larz-statsen.firebaseapp.com',
+                    databaseURL: 'https://larz-statsen.firebaseio.com',
+                    storageBucket: 'larz-statsen.appspot.com'
+                }, getFirebaseName(options.firebasePath))
+
+                firebaseRef = firebase.database().ref(options.firebasePath)
 
                 if (options.limitToLast) {
                     firebaseRef.limitToLast(options.limitToLast).on('value', firebaseCallback);
