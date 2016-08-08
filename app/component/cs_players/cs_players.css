@@ -1,0 +1,14 @@
+.cs-players {
+    position: relative;
+}
+
+.cs-players.is-loading .cs-players__list {
+    opacity: 0.3;
+}
+
+.cs-players__list {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin: 0;
+}

@@ -1,0 +1,62 @@
+wide = "screen and (min-width: 700px)"
+
+
+.cs-player
+    border-top: 1px solid #ccc
+    display: block
+    margin: 10px 20px
+    max-width: 700px
+    padding: 20px 10px 10px 10px
+
+    &:first-child
+        border-top: none
+
+    @media wide
+        margin: 10px auto
+        max-width: 700px
+
+
+.cs-player__title
+    color: #ec8f2f
+    display: block
+    font-weight: 400
+    height: 1.5em
+    margin: 0 0 10px 0
+    max-width: 100%
+    overflow: hidden
+    padding: 0
+    text-overflow: ellipsis
+
+
+.cs-player__content
+    @media wide
+        display: flex
+
+
+.content__column
+    @media wide
+        flex-grow: 1
+
+
+.cs-player__header
+    color: #ec8f2f
+    font-size: 1em
+    font-weight: 100
+    margin: 10px 0
+
+
+.cs-player__stats-list
+    margin: 20px 0
+
+
+.stats-list__label
+    color: #888
+
+
+.stats-list__value
+    margin: 10px 0 20px 0
+    font-size: 1.2em
+    font-weight: 400
+
+    @media wide
+        font-size: 1.5em
