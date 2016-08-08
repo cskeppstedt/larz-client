@@ -3,12 +3,22 @@ var React  = require('react'),
     MatchList = require('./matchlist/matchlist'),
     Stats = require('./stats/stats'),
     VideoBlog  = require('./videoblog/videoblog'),
-    HonHonHon = require('./honhonhon/honhonhon');
+    HonHonHon = require('./honhonhon/honhonhon'),
+    CsPlayers = require('./cs_players/cs_players');
 
 
 module.exports = React.createClass({
     render: function() {
-        return this.renderHon();
+        return this.renderCs();
+    },
+
+    renderCs: function () {
+        return (
+            <div>
+                <Logo />
+                <CsPlayers />
+            </div>
+        )
     },
 
     renderHon: function() {
