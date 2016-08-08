@@ -35,7 +35,7 @@ module.exports = React.createClass({
         return (
             <li className='cs-player'>
                 <h2 className='cs-player__title'>
-                    {playerNames[this.props.id]}
+                    {playerNames[this.props.steamid]}
                 </h2>
 
                 <div className='cs-player__content'>

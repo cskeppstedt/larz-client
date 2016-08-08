@@ -47,7 +47,7 @@ module.exports = React.createClass({
         return (
             <ul className='cs-players__list'>
                 {this.state.players.map((player) => (
-                    <CsPlayer key={player.id} {...player} />
+                    <CsPlayer key={player.steamid} {...player} />
                 ))}
             </ul>
         )
