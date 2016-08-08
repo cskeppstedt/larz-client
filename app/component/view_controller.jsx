@@ -8,6 +8,10 @@ var React  = require('react'),
 
 module.exports = React.createClass({
     render: function() {
+        return this.renderHon();
+    },
+
+    renderHon: function() {
         return (
             <div>
                 <Logo />
