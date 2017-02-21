@@ -627,7 +627,7 @@ function(e,t,n){t=e.exports=n(/*! ../../../~/css-loader/lib/css-base.js */11)(),
 function(e,t,n){e.exports=n.p+"74c1e29772483ba5de81f1b1c93496b6.gif"},/*!*************************************!*\
   !*** ./app/component/logo/logo.jpg ***!
   \*************************************/
-function(e,t,n){e.exports=n.p+"e31fda6d08003735d4fd357bf0cb889e.jpg"},/*!*******************************************!*\
+function(e,t,n){e.exports=n.p+"0336c672cd714836f3216b05a2ff41be.jpg"},/*!*******************************************!*\
   !*** ./app/images/heroes/10/icon_128.jpg ***!
   \*******************************************/
 function(e,t,n){e.exports=n.p+"2873f2b6668948f5fbcf89290ed8e928.jpg"},/*!********************************************!*\
